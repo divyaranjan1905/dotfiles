@@ -1,3 +1,12 @@
+.config/pulse/cookie
+.config/mpd/log
+.config/mpd/mpd.db
+.config/mpd/mpdstate
+.config/mpd/mpd.pid
+.config/mpd/state
+.config/mpd/sticker.sql
+.config/mpd/mpd.log
+*\#
 .emacs.d/ac-comphist.dat
 .emacs.d/auto-save-list/
 .emacs.d/buffers/
