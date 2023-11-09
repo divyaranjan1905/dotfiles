@@ -1,5 +1,0 @@
-Feb 11 07:49 : log: Done cycling log files
-Feb 11 07:49 : log: Done cycling log files
-Feb 11 07:49 : state_file: Saving state file /home/divya/.config/mpd/state
-Feb 11 07:49 : state_file: Saving state file /home/divya/.config/mpd/state
-Feb 11 07:49 : exception: Failed to commit /home/divya/.config/mpd/state: File exists
