@@ -1,12 +1,11 @@
 ac-comphist.dat
 auto-save-list/
-bookmarks
-buffers/
+bookmarksbuffers/
 dirvish/
 eln-cache/
 history
 image-dired/
-nov-places/
+nov-places
 old.init.el
 org-roam.db
 pdf-view-restore
@@ -19,3 +18,5 @@ eshell/
 url/
 transient/
 tree-sitter/
+straight/
+elpa/
