@@ -127,8 +127,8 @@
   :config
   (define-key dired-moe-map (kbd "H") 'dired-hide-dotfiels-mode))
 
-;; ;;; Dired+
-;; (require 'dired+)
+;;; Dired+
+(require 'dired+)
 
 (provide 'dired.el)
 ;;; dired.el ends here
