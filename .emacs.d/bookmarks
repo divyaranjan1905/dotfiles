@@ -1,0 +1,63 @@
+;;;; Emacs Bookmark Format Version 1;;;; -*- coding: utf-8-emacs; mode: lisp-data -*-
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(#1=
+(#("The Freudian School" 0 19 (bmkp-full-record #1#))
+ (buffer-name . "The Freudian School")
+ (front-context-string . "Edward Glover\n  ")
+ (rear-context-string . "96 Nov  7 14:57 ")
+ (front-context-region-string) (rear-context-region-string)
+ (visits . 0) (time . #2=(25932 38143 7011 387000)) (created . #2#)
+ (position . 1753)
+ (filename . "/home/divya/psychoanalysis/The Freudian School/")
+ (dired-directory . "~/psychoanalysis/The Freudian School/")
+ (dired-marked) (dired-switches . "-al") (dired-subdirs)
+ (dired-hidden-dirs) (handler . bmkp-jump-dired))
+#1=
+(#("Emacs Init" 0 10 (bmkp-full-record #1#)) (tags "dots" "emacs")
+ (time 25930 23720 369901 795000) (visits . 0)
+ (filename . "~/.dotfiles/.emacs.d/init.el")
+ (front-context-string . ";; init.el --- D") (rear-context-string)
+ (position . 1) (last-modified 25930 1320 205039 176000))
+#1=
+(#("Emacs dots" 0 10 (bmkp-full-record #1#)) (tags "emacs" "dots")
+ (time 25931 58412 884093 988000) (visits . 1)
+ (filename . "~/.emacs.d/")
+ (front-context-string . "Mx-butterfly-edi")
+ (rear-context-string . "45 Nov  3 00:39 ") (position . 168)
+ (last-modified 25930 22642 592366 993000))
+#1=
+(#("dotfiles" 0 8 (bmkp-full-record #1#)) (tags "dirs" "dots")
+ (filename . "~/.dotfiles/")
+ (front-context-string . "suckless\n  drwxr")
+ (rear-context-string . "96 Nov  4 12:25 ") (position . 602)
+ (last-modified 25930 1291 445382 843000))
+#1=
+(#("math" 0 4 (bmkp-full-record #1#)) (time 25931 58130 917490 135000)
+ (visits . 0) (tags "dirs" "math") (filename . "~/math/")
+ (front-context-string . "Foundations\n  -r")
+ (rear-context-string . "96 Oct 27 06:35 ") (position . 2482)
+ (last-modified 25922 13745 673028 275000))
+#1=
+(#("Books & Resources" 0 17 (bmkp-full-record #1#)) (tags "dirs")
+ (filename . "/mnt/LDisk-E/Albert Einstein/Books & Resources/")
+ (front-context-string . "Cultural Theory\n")
+ (rear-context-string . " 0 Oct 16 02:13 ") (position . 889)
+ (last-modified 25905 23207 245791 357000))
+#1=
+(#("Lacanian Psychoanalysis" 0 23 (bmkp-full-record #1#))
+ (end-position . 13230) (time 25931 58268 21872 673000) (visits . 0)
+ (tags "psychoanalysis" "dirs")
+ (filename . "~/psychoanalysis/Lacanian Psychoanalysis/")
+ (front-context-string . "Slavoj Zizek\n  -")
+ (rear-context-string . "76 Oct 19 14:24 ") (position . 13230)
+ (last-modified 25905 23173 101585 594000))
+#1=
+(#("Anki Org" 0 8 (bmkp-full-record #1#))
+ (time 25931 59362 484655 722000) (visits . 0) (tags "org")
+ (filename . "~/notes/org/anki.org")
+ (front-context-string . "** 12:08        ")
+ (rear-context-string . "\n*** Back\nshape\n") (position . 972)
+ (last-modified 25905 7296 697394 556000))
+)

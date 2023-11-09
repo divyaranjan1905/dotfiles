@@ -1,6 +1,5 @@
 .emacs.d/ac-comphist.dat
 .emacs.d/auto-save-list/
-.emacs.d/bookmarks
 .emacs.d/buffers/
 .emacs.d/dirvish/
 .emacs.d/eln-cache/
@@ -21,3 +20,4 @@
 .emacs.d/transient/
 .emacs.d/tree-sitter/
 .emacs.d/straight/
+.emacs.d/elpa/
