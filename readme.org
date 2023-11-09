@@ -1,0 +1,3 @@
+#+TITLE: Divya's Arch Dotfiles
+
+This repository contains the dotfiiles of my GNU/Linux system from the Arch Linx distribution. It will be slowly updated as I add in more stuff. 

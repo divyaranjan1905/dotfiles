@@ -1,0 +1,36 @@
+#!/bin/sh
+
+##ALIASES##
+
+#alias lf='lfrun'
+alias yta='ytfzf -t -m'
+alias yt='ytfzf -t'
+alias mutt='neomutt'
+alias cd-math='cd "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Mathematics/"'
+alias cd-phy='cd "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Physics/"'
+alias cd-einstein='cd "/mnt/LDisk-E/Albert Einstein/"'
+alias cd-phil='cd "/mnt/LDisk-E/Albert Einstein/Books & Resources/Philosophy/"'
+alias cd-psych='cd "/mnt/LDisk-E/Albert Einstein/Books & Resources/Psychology/"'
+alias cd-list='cd "/mnt/LDisk-E/Albert Einstein/Books & Resources/Literature"'
+
+alias z="zathura"
+alias g="git"
+alias v=$EDITOR
+alias p="sudo pacman"
+alias ka="killall"
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias mkd="mkdir -pv"
+alias tc="touch"
+alias nc="ncmpcpp"
+#alias surf="tabbed surf -e"
+alias vimb="tabbed vimb -e"
+alias alt="LIBGL_ALWAYS_SOFTWARE=1 alacritty"
+alias sk="MESA_GL_VERSION_OVERRIDE=3.3 MESA_GLSL_VERSION_OVERRIDE=330 sioyek"
+
+alias ils='logo-ls'
+alias ila='logo-ls -A'
+alias ill='logo-ls -al'
+
+alias nb='newsboat'
+alias wc='weechat'
