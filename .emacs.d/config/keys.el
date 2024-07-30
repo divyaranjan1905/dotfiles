@@ -4,35 +4,13 @@
 
 ;;; Code:
 
-;;; Vim Bindings
-;; (use-package evil
-;;              :straight t
-;;              :bind (("<escape>" . keyboard-escape-quit))
-;;              :init
-;;              ;; allows for using cgn
-;;              ;; (setq evil-search-module 'evil-search)
-;;              (setq evil-want-keybinding nil)
-;;              ;; no vim insert bindings
-;;              (setq evil-undo-system 'undo-fu)
-;;              (setq evil-want-C-u-scroll t)
-;;              :config
-;;              (evil-mode 1))
-
 
 (use-package undo-fu
   :straight t)
 
-(use-package undo-tree
-  :straight t)
+;; (use-package undo-tree
+;;   :straight t)
 
-;;; Vim Bindings Everywhere else
-
-;; (use-package evil-collection
-;;              :straight t
-;;              :after evil
-;;              :config
-;;              (setq evil-want-integration t)
-;;              (evil-collection-init))
 
 ;; Vim like scrolling
 (setq scroll-step            1
@@ -40,23 +18,6 @@
       next-screen-context-lines 5
       ;; move by logical lines rather than visual lines (better for macros)
       line-move-visual nil)
-
-;; Setting the leader key
-;; (use-package general
-;; 	     :straight t
-;;              :init (general-auto-unbind-keys)
-;;              :config
-;;              (general-create-definer divya/evil
-;;                                      :states '(normal))
-;;              (general-create-definer divya/leader-keys
-;;                                      :keymaps '(normal insert visual emacs)
-;;                                      :prefix "spc"
-;;                                      :global-prefix "c-spc")
-
-;;              (divya/leader-keys
-;;                "t" '(:ignore t :which-key "toggles")
-;;                "." '(find-file :which-key "find file:") ;; remapping the default `c-x c-f`
-;;                "tt" '(consult-theme :which-key "choose theme")))
 
 ;;;; Custom Keybindings
 
@@ -92,31 +53,32 @@
 (defvar directories-map (make-sparse-keymap)
   "Keymap for navigating to directories")
 
+
 (setq directories-map
       (let ((keymap (make-sparse-keymap)))
         (bind-all
-          ("e"   (divya/go-to-dired "/mnt/LDisk-E/Albert Einstein/"))
-          ("M"   (divya/go-to-dired "/mnt/LDisk-E/Albert Einstein/Movies & Series/"))
-          ("b"   (divya/go-to-dired "~/books/"))
-          ("B"   (divya/go-to-dired "~/bib/"))
-          ("m"   (divya/go-to-dired "~/math/"))
-          ("p"   (divya/go-to-dired "~/philosophy/"))
-          ("w"   (divya/go-to-dired "~/writing/"))
-          ("P"   (divya/go-to-dired "~/psychoanalysis"))
-          ("l"   (divya/go-to-dired "~/literature/"))
-          ("c"   (divya/go-to-dired "~/cs/"))
-          ("C-p" (divya/go-to-dired "~/physics/"))
-          ("s"   (divya/go-to-dired "~/sociology/"))
-          ("N"   (divya/go-to-dired "~/neuroscience/"))
+         ("e"   (divya/go-to-dired "/mnt/LDisk-E/Albert Einstein/"))
+         ("M"   (divya/go-to-dired "/mnt/LDisk-E/Albert Einstein/Movies & Series/"))
+         ("b"   (divya/go-to-dired "/mnt/LDisk-E/Albert Einstein/Books & Resources/"))
+         ("B"   (divya/go-to-dired "~/bib/"))
+         ("m"   (divya/go-to-dired "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Mathematics/"))
+         ("p"   (divya/go-to-dired "/mnt/LDisk-E/Albert Einstein/Books & Resources/Philosophy"))
+         ("w"   (divya/go-to-dired "/mnt/LDisk-E/Albert Einstein/Books & Resources/Writing"))
+         ("P"   (divya/go-to-dired "/mnt/LDisk-E/Albert Einstein/Books & Resources/Psychology/Psychoanalysis/"))
+         ("l"   (divya/go-to-dired "/mnt/LDisk-E/Albert Einstein/Books & Resources/Literature"))
+         ("c"   (divya/go-to-dired "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming"))
+         ("C-p" (divya/go-to-dired "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Physics/"))
+         ("s"   (divya/go-to-dired "/mnt/LDisk-E/Albert Einstein/Books & Resources/Sociology"))
+         ("N"   (divya/go-to-dired "~/neuroscience/"))
 
-          ("n"   (divya/go-to-dired "~/notes/"))
-          ("o"   (divya/go-to-dired "~/notes/org/org-roam/"))
-          ("M-p"  (divya/go-to-dired "~/projects/"))
-          ("L"   (divya/go-to-dired "~/life/"))
-          ("S"   (divya/go-to-dired "~/Sync/"))
+         ("n"   (divya/go-to-dired "~/notes/"))
+         ("o"   (divya/go-to-dired "~/notes/org/org-roam/"))
+         ("M-p"  (divya/go-to-dired "~/projects/"))
+         ("L"   (divya/go-to-dired "~/life/"))
+         ("S"   (divya/go-to-dired "~/Sync/"))
 
-          ("d"   (divya/go-to-dired "~/.dotfiles/"))
-          ("C-c" (divya/go-to-dired "~/.config/")))
+         ("d"   (divya/go-to-dired "~/.dotfiles/"))
+         ("C-c" (divya/go-to-dired "~/.config/")))
 
         keymap))
 
@@ -126,32 +88,6 @@
 
 
 ;;; Keybindings for window management
-
-;; (divya/leader-keys
-;;   "wq" 'evil-window-delete
-;;   "wn" 'next-window
-;;   "wp" 'previous-window
-;;   "wh" 'evil-window-left
-;;   "wj" 'evil-window-down
-;;   "wk" 'evil-window-up
-;;   "wl" 'evil-window-right
-;;   "wH"  'evil-window-move-far-left
-;;   "wJ"  'evil-window-move-very-top
-;;   "wK" 'evil-window-move-very-bottom
-;;   "wL"  'evil-window-move-far-right
-;;   "wb" 'balance-windows
-;;   "ws"  'evil-window-split
-;;   "wv"  'evil-window-vsplit
-;;   "wx"  'evil-window-exchange)
-
-;; (divya/leader-keys
-;;   "e" '(:ignore t :which-key "eval")
-;;   "eb" '(eval-buffer :which-key "eval buffer")
-;;   "uc" 'comment-or-uncomment-region :which "(Un)Commenting")
-
-;; (divya/leader-keys
-;;   :keymaps '(visual)
-;;   "er" '(eval-region :which-key "eval region"))
 
 ;;; Meow
 
@@ -188,7 +124,7 @@
    ;; '("M" . (lambda () (interactive) (dired "~/math")))
    ;; '("l" . (lambda () (interactive) (dired "~/literature")))
    '("?" . meow-cheatsheet))
- 
+
   (meow-normal-define-key
    '("0" . meow-expand-0)
    '("9" . meow-expand-9)
@@ -283,6 +219,9 @@
   :straight t
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
+
+;;; Using only consult-isearch
+;; (define-key global-map (kbd "C-s") 'consult-line)
 
 (provide 'keys.el)
 

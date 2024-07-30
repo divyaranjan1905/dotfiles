@@ -13,11 +13,11 @@
 (use-package avy
   :init
   (avy-setup-default)
-  :config
-  (global-set-key (kbd "C-c C-j") 'avy-resume)
-  (global-set-key (kbd "C-c C-k") 'avy-goto-char)
-  (global-set-key (kbd "C-c C-l") 'avy-goto-line)
-  (global-set-key (kbd "C-c C-w") 'avy-goto-word-0)
+  :bind (("M-g r" . avy-resume)
+	 ("M-g c" . avy-goto-char)
+	 ("M-g l" . avy-goto-line)
+	 ("M-g w" . avy-goto-word-0))
+
   :commands (avy-goto-char avy-goto-word-0 avy-goto-line))
   ;; :general
   ;; (divya/leader-keys
@@ -29,7 +29,8 @@
 ;;; Window management with ace-window
 
 (use-package ace-window
-  :bind (("M-o" . ace-window))
+  :bind (("M-o" . ace-window)
+	 ())
   :custom
   (aw-scope 'frame)
   (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
@@ -59,6 +60,23 @@
   (setq popper-display-control 'user)
   (popper-mode +1))
 
+;;; Certain window rules
+;; If the current buffer is in a particular window then the new buffer using `switch-to-buffer' should pop a new window instead of using the same one.
+(setq switch-to-buffer-obey-display-actions t)
+(setq switch-to-buffer-in-dedicated-window 'pop)
+(setq split-height-threshold 80)
+(setq split-width-threshold 125)
+
+(setq display-buffer-alist
+      '(
+	("\\*Occur\\*"
+	 (display-buffer-reuse-mode-window
+	  display-buffer-below-selected)
+	 ;; Parameters
+	 (dedicated . t)
+	 (window-height . fit-window-to-buffer))
+	))
+
 ;;; For moving and transposing frames
 
 (use-package transpose-frame
@@ -73,6 +91,12 @@
 (winner-mode 1)
 (global-set-key (kbd "C-x ~") 'winner-undo)
 (global-set-key (kbd "C-x !") 'winner-redo)
+
+;; Easier window splitting
+(global-set-key (kbd "M-n v") 'split-window-vertically)
+(global-set-key (kbd "M-n h") 'split-window-horizontally)
+(global-set-key (kbd "M-n f") 'delete-other-windows)
+(global-set-key (kbd "M-n c") 'delete-window)
 
 (provide 'init)
 ;;; wm.el ends here

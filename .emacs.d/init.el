@@ -6,7 +6,6 @@
 
 ;;; Code:
 
-
 ;;; Native compilation
 (setq native-comp-speed 3)
 
@@ -37,15 +36,14 @@
 	      "config/wm.el"))
 
 ;;; Org
-
 (load (concat user-emacs-directory
 	      "config/org.el"))
 
-;; Org-latex-preview
-(load (concat user-emacs-directory
-	      "config/org-preview.el"))
+;;; Org-latex-preview
+;; (load (concat user-emacs-directory
+;; 	      "config/org-preview.el"))
 
-;;;; LaTeX in Emacs
+;;; LaTeX in Emacs
 (load (concat user-emacs-directory
 	      "config/tex.el"))
 
@@ -60,53 +58,188 @@
 ;;; Web browsing in Emacs
 (load (concat user-emacs-directory
 	      "config/eww.el"))
-;;; Reading Books
 
+;;; Reading Books
 (load (concat user-emacs-directory
 	      "config/books.el"))
+
 ;;; Bookmarks
 (load (concat user-emacs-directory
 	      "config/bookmarks.el"))
-	
+
 ;;; Feeds
 (load (concat user-emacs-directory
 	      "config/feed.el"))
+
 ;;; Anki
 (load (concat user-emacs-directory
 	      "config/anki.el"))
 
+;;; IRC
+
+;; (load (concat user-emacs-directory
+;; 	      "config/irc.el"))
+
+;;; Calendar
+(load (concat user-emacs-directory
+	      "config/cal.el"))
+
+;;; Extras
+(load (concat user-emacs-directory
+	      "config/extras.el"))
+
+
 ;; So that Emacs doesn't produce ~ files
 (setq make-backup-files nil)
 
-
-;;;  Fuzzy finding
-(use-package fzf
-  :straight t)
-
-;; Finding across files
-(use-package elgrep
-  :straight t
-  :bind ("C-M-g" . elgrep))
-
-
 ;;;; Languages
 
-;; Emacs Lisp
+;; Highlight symbols
+(use-package symbol-overlay
+  :straight t
+  :hook ((rust-mode . symbol-overlay-mode)
+	  (haskell-mode . symbol-overlay-mode)
+	  (lisp-mode . symbol-overlay-mode)
+	  (emacs-lisp-mode . symbol-overlay-mode)
+	  (scheme-mode . symbol-overlay-mode)
+	  (r-mode . symbol-overlay-mode)
+	  (go-mode . symbol-overlay-mode)
+	  (tex-mode . symbol-overlay-mode)
+	  (racket-mode . symbol-overlay-mode)
+	  (forth-mode . symbol-overlay-mode)))
+
+;; Semantic Color Highlighting
+(use-package color-identifiers-mode
+  :straight t
+  :init (global-color-identifiers-mode))
+
+;; Compiler Explorer
+(use-package rmsbolt
+  :straight t)
+
+;;; LSP Support in Emacs
+(require 'eglot)
+
+;;; ElDoc Boxes
+(require 'eldoc)
+(global-eldoc-mode 1)
+
+(use-package eldoc-box
+  :straight t
+  :hook  ((rust-mode . eldoc-box-hover-at-point-mode)
+	  (haskell-mode . eldoc-box-hover-at-point-mode)
+	  (go-mode . eldoc-box-hover-at-point-mode)
+	  (r-mode . eldoc-box-hover-at-point-mode)
+	  (racket-mode . eldoc-box-hover-at-point-mode)
+	  (forth-mode . eldoc-box-hover-at-point-mode))
+  :config
+  (eldoc-box-only-multi-line t)
+  :custom
+  (set-face-font eldoc-box-body "Spline Sans Mono-11"))
+
+;;; Golang
+(use-package go-mode
+  :straight t
+  :hook (go-mode-hook . eglot-ensure))
+
+;;; Haskell
+(require 'ob-haskell)
+(use-package haskell-mode
+  :straight t
+  :hook (haskell-mode . eglot-ensure)
+  :bind
+  (("C-c h" . haskell-hoogle))
+  :config
+
+  (let ((my-ghcup-path (expand-file-name "/home/divya/.ghcup/bin")))
+    (setenv "PATH" (concat my-ghcup-path ":" (getenv "PATH")))
+    (add-to-list 'exec-path my-ghcup-path)))
+
+;; Hlint
+(require 'hs-lint)
+(defun my-haskell-mode-hook ()
+    (local-set-key "\C-cl" 'hs-lint))
+(add-hook 'haskell-mode-hook 'my-haskell-mode-hook)
+
+;; Rust
+(use-package rust-mode
+  ;; :straight (:build (:not compile autoloads))
+  :straight t
+  :hook (rust-mode . eglot-ensure)
+  :hook (rust-mode . subword-mode))
+
+;; (use-package rust-ts-mode
+;;   :straight t
+;;   :hook (rust-ts-mode . eglot-ensure)
+;;   :hook (rust-ts-mode . subword-mode))
+
+;;; Forth
+(use-package forth-mode
+  :straight t)
+
+;;; Scheme
+(use-package geiser
+  :straight t)
+
+;;; MIT/GNU Scheme
+(use-package geiser-mit
+  :straight t)
+
+;;; Chez Scheme
+(use-package geiser-chez
+  :straight t)
+
+;;; Guile
+(use-package geiser-guile
+  :straight t)
+
+;;; Racket
+(use-package racket-mode
+  :straight t)
+
+;;; Pollen
+(use-package pollen-mode
+  :straight t)
+
+;;; Geiser Racket
+(use-package geiser-racket
+  :straight t)
+
+;;; For Lisps in general
+(use-package paredit
+  :straight t
+  :hook ((lisp-mode . paredit-mode)
+	 (racket-mode . paredit-mode)
+	 (scheme-mode . paredit-mode)
+	 (emacs-lisp-mode . paredit-mode)))
+
+;;; SLIME For Superior Lisp Editing
+(use-package slime
+  :straight t
+  :hook (slime-repl-mode . paredit-mode)
+  :config
+  (setq inferior-lisp-program "sbcl"))
+
+
+;;; Emacs Lisp
 
 ;; (add-hook 'emacs-lisp-mode-hook #'flycheck-mode)
 
+;; (use-package elisp-refs
+;;   :demand t
+;;   :straight
+;;   (elisp-refs :type git :host github :repo "Wilfred/elisp-refs"
+;;                    ;; Skip the autoloads phase because straight.el can't seem to get it right.
+;;                    :build (:not autoloads)))
+
 (use-package helpful
   :straight t
-  :custom
-  (counsel-describe-function-function #'helpful-callable)
-  (counsel-describe-variable-function #'helpful-variable)
   :bind
   ([remap describe-function] . helpful-function)
   ([remap describe-symbol] . helpful-symbol)
   ([remap describe-variable] . helpful-variable)
   ([remap describe-command] . helpful-command)
   ([remap describe-key] . helpful-key))
-
 
 ;; Markdown
 
@@ -164,45 +297,23 @@
 
 ;; Syntax checking
 
-(use-package flycheck
-  :defer t
-  :hook (prog-mode . flycheck-mode))
+;; (use-package flycheck
+;;   :defer t
+;;   :hook (prog-mode . flycheck-mode))
 
 ;;; Project Management
 ;; We don't need projectile, Emacs <27.1 has an inbuilt package `project.el` that does most of what I'd need. I am keeping the projectile config here for just in case.
 ;; Project.el already comes binded to `C-x p`
 
-;;; Projectile
-;; (use-package projectile
-;;   :diminish projectile-mode
-;;   :config (projectile-mode)
-;;   :custom ((projectile-completion-system 'ivy))
-;;   :bind-keymap
-;;   ("C-c p" . projectile-command-map)
-;;   :init
+(require 'project)
 
-;;   ;; Where the git repos live
+(setq project--list '(("/home/divya/.dotfiles/")
+		      ("/home/divya/src/")
+		      ("/home/divya/projects/")
+		      ("/mnt/LDisk-D/big-src/")
+		      ("/mnt/LDisk-E/Albert Einstein/Books & Resources/Sociology/Gender Mainstreaming/Megha/")))
 
-;;   (when (file-directory-p "~/projects/repo/")
-;;     (setq projectile-project-search-path '("~/projects/")))
-;;   (setq projectile-switch-project-action #'projectile-dired)
-;;   (setq projectile-project-search-path '("~/projects/")))
-
-;;   ;; :general
-;;   ;; (divya/leader-keys
-;;   ;; "pf" 'counsel-projectile-find-file
-;;   ;; "ps" 'counsel-projectile-switch-project
-;;   ;; "pF" 'counsel-projectile-rg
-;;   ;; "pp" 'counsel-projectile
-;;   ;; "pc" 'projectile-compile-project
-;;   ;; "pd" 'projectile-dired))
-
-
-;; (use-package counsel-projectile
-;;   :straight t
-;;   :config (counsel-projectile-mode))
-
-(use-package project)
+(define-key project-prefix-map (kbd "b") 'consult-project-buffer)
 
 ;; Magit :  The best git management there is!
 
@@ -213,26 +324,6 @@
   :commands (magit-status magit-get-current-branch)
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
-  ;; :general
-
-  ;; (divya/leader-keys
-  ;;   "g"   '(:ignore t :which-key "git")
-  ;;   "gs"  'magit-status
-  ;;   "gd"  'magit-diff-unstaged
-  ;;   "gc"  'magit-branch-or-checkout
-  ;;   "gi"  'magit-init
-  ;;   "gl"   '(:ignore t :which-key "log")
-  ;;   "glc" 'magit-log-current
-  ;;   "glf" 'magit-log-buffer-file
-  ;;   "gb"  'magit-branch
-  ;;   "gP"  'magit-push-current
-  ;;   "gp"  'magit-pull-branch
-  ;;   "gf"  'magit-fetch
-  ;;   "gF"  'magit-fetch-all
-  ;;   "gr"  'magit-rebase))
-
-;; (use-package evil-magit
-;;   :after magit)
 
 ;;; Code Completion
 ;; Autocomplete
@@ -245,6 +336,7 @@
 
 (use-package corfu
   :straight t
+  :hook (prog-mode . corfu-mode)
   :custom
   (corfu-auto t)          ;; Enable auto completion
   ;; (corfu-separator ?_) ;; Set to orderless separator, if not using space
@@ -252,7 +344,8 @@
   ;; Another key binding can be used, such as S-SPC.
   (:map corfu-map ("M-SPC" . corfu-insert-separator))
   :init
-  (global-corfu-mode))
+  ;(global-corfu-mode)
+  )
 
 ;; using corfu in terminal
 
@@ -260,6 +353,46 @@
  '(corfu-terminal
    :type git
    :repo "https://codeberg.org/akib/emacs-corfu-terminal.git"))
+
+
+;; (use-package cape
+;;   ;; Bind dedicated completion commands
+;;   ;; Alternative prefix keys: C-c p, M-p, M-+, ...
+;;   :bind (("C-c p p" . completion-at-point) ;; capf
+;;          ("C-c p t" . complete-tag)        ;; etags
+;;          ("C-c p d" . cape-dabbrev)        ;; or dabbrev-completion
+;;          ("C-c p h" . cape-history)
+;;          ("C-c p f" . cape-file)
+;;          ("C-c p k" . cape-keyword)
+;;          ("C-c p s" . cape-elisp-symbol)
+;;          ("C-c p e" . cape-elisp-block)
+;;          ("C-c p a" . cape-abbrev)
+;;          ("C-c p l" . cape-line)
+;;          ("C-c p w" . cape-dict)
+;;          ("C-c p :" . cape-emoji)
+;;          ("C-c p \\" . cape-tex)
+;;          ("C-c p _" . cape-tex)
+;;          ("C-c p ^" . cape-tex)
+;;          ("C-c p &" . cape-sgml)
+;;          ("C-c p r" . cape-rfc1345))
+;;   :init
+;;   ;; Add to the global default value of `completion-at-point-functions' which is
+;;   ;; used by `completion-at-point'.  The order of the functions matters, the
+;;   ;; first function returning a result wins.  Note that the list of buffer-local
+;;   ;; completion functions takes precedence over the global list.
+;;   (add-to-list 'completion-at-point-functions #'cape-dabbrev)
+;;   (add-to-list 'completion-at-point-functions #'cape-file)
+;;   (add-to-list 'completion-at-point-functions #'cape-elisp-block)
+;;   (add-to-list 'completion-at-point-functions #'cape-history)
+;;   (add-to-list 'completion-at-point-functions #'cape-keyword)
+;;   (add-to-list 'completion-at-point-functions #'cape-tex)
+;;   (add-to-list 'completion-at-point-functions #'cape-sgml)
+;;   (add-to-list 'completion-at-point-functions #'cape-rfc1345)
+;;   (add-to-list 'completion-at-point-functions #'cape-abbrev)
+;;   (add-to-list 'completion-at-point-functions #'cape-dict)
+;;   (add-to-list 'completion-at-point-functions #'cape-elisp-symbol)
+;;   (add-to-list 'completion-at-point-functions #'cape-line)
+;; )
 
 ;; Telegram in Emacs
 ;; (use-package telega
@@ -274,7 +407,7 @@
 ;; A pop up shell
 (use-package shell-pop
   :straight t
-;;  :defer t
+  ;;  :defer t
   :bind
   (("C-x /" . 'shell-pop))
   :custom
@@ -321,116 +454,36 @@
   (eshell-git-prompt-use-theme 'powerline))
 
 
-;; Ripgrep
-
-(use-package rg
-  :straight t)
-
 ;; Searching and navigation
 ;; (use-package ctrlf
 ;;   :straight t)
 
-;;; Screenshots within Emacs
-
-(defun self-screenshot (&optional type)
-  "Save a screenshot of type TYPE of the current Emacs frame.
-As shown by the function `', type can weild the value `svg',
-`png', `pdf'.
-
-This function will output in /tmp a file beginning with \"Emacs\"
-and ending with the extension of the requested TYPE."
-  (interactive)
-  (let* ((type (if type type
-		 (intern (completing-read "Screenshot Type: "
-					  '(png svg pdf postscript)))))
-	 (extension (pcase type
-		      ('png        ".png")
-		      ('svg        ".svg")
-		      ('pdf        ".pdf")
-		      ('postscript ".ps")
-		      (otherwise (error "Cannot export screenshot of type %s" otherwise))))
-	 (filename (make-temp-file "Emacs-" nil extension))
-	 (data     (x-export-frames nil type)))
-    (with-temp-file filename
-      (insert data))
-    (kill-new filename)
-    (message filename)))
-
-(global-set-key (kbd "C-x M-s") 'self-screenshot)
-
-
-;; empv.el
-
-(use-package empv
-  :ensure t
-  :straight (:host github :repo "isamert/empv.el")
-  :config
-  (bind-key "C-x m" empv-map)
-  (with-eval-after-load 'embark (empv-embark-initialize-extra-actions))
-  (setq empv-invidious-instance "https://invidious.rocks/api/v1")
-  (add-to-list 'empv-mpv-args "--ytdl-format=best" "--save-position-on-quit"))
 
 ;; Start Emacs as a server!
 ;;(server-mode)
 
 ;; Hooks
-(add-hook 'eww-mode-hook #'divya/enable-focus)
-
-;;; sx.el : Stack Exchange on Emacs
-
-(use-package sx
-  :straight t
-  :config
-  (bind-keys :prefix "C-c s"
-	     :prefix-map divya-sx-map
-	     :prefix-docstring "Global keymap for sx"
-	     ("i" . sx-inbox)
-             ("o" . sx-open-link)
-             ("u" . sx-tab-unanswered-my-tags)
-             ("a" . sx-ask)
-             ("s" . sx-search)
-	     (";" . sx-tab-switch)
-	     ("*" . sx-star)
-	     ("m" . sx-tab-month)
-	     ("x" . sx-tab-meta-or-main)
-	     ("w" . sx-tab-week)
-	     ("q" . sx-tab-all-questions)
-	     ("f" . sx-tab-frontpage)
-	     ("c" . sx-comment)
-	     ("^" . sx-upvote)
-	     ("d" . sx-display-question)))
-
-;; Finally, get your favorite Emacs everywhere!
-
-(use-package emacs-everywhere
-  :straight t)
+;; (add-hook 'eww-mode-hook #'divya/enable-focus)
 
 
-;;; For Superior Lisp Editing
-(use-package slime
-  :straight t
-  :config
-  (setq inferior-lisp-program "sbcl"))
-
-;; For restarting emacs
+;;; For restarting emacs
 (define-key global-map (kbd "s-r") 'restart-emacs)
 
-;; Garbage collection in Emacs
+;;; Garbage collection in Emacs
 
 (use-package gcmh
   :straight t
   :init
   (gcmh-mode 1))
 
-;; Load the appropriate them
-(circadian-setup)
+;; Load the appropriate theme
+;; (circadian-setup)
 
-;; Report how long packages take to load
+;;; Report how long packages take to load
 (setq use-package-verbose t)
 
-
-;; Tree-sitter
-(setq treesit-extra-load-path "~/.emacs.d/tree-sitter/")
+;;; Tree-sitter
+(setq treesit-extra-load-path  '("~/.emacs.d/tree-sitter/"))
 
 (setq treesit-language-source-alist
       '((bash "https://github.com/tree-sitter/tree-sitter-bash")
@@ -440,6 +493,7 @@ and ending with the extension of the requested TYPE."
 	(go "https://github.com/tree-sitter/tree-sitter-go")
 	(html "https://github.com/tree-sitter/tree-sitter-html")
 	(javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
+	(rust "https://github.com/tree-sitter/tree-sitter-rust")
 	(json "https://github.com/tree-sitter/tree-sitter-json")
 	(make "https://github.com/alemuller/tree-sitter-make")
 	(markdown "https://github.com/ikatyang/tree-sitter-markdown")
@@ -449,6 +503,13 @@ and ending with the extension of the requested TYPE."
 	(typescript "https://github.com/tree-sitter/tree-sitte" "master" "typescript/src")
 	(yaml "https://github.com/ikatyang/tree-sitter-yaml")))
 
+;; Quickly open the init
+
+(define-key global-map (kbd "C-c i") 'crux-find-user-init-file)
+
+
+
+
 (provide 'init)
 ;;; init.el ends here
 (custom-set-variables
@@ -457,81 +518,35 @@ and ending with the extension of the requested TYPE."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
- '(elfeed-feeds
-   '("https://journals.sagepub.com/connected/HPY#rss-feeds"
-     "https://news.nononsenseapps.com/index.atom"
-     "https://protesilaos.com/master.xml"
-     "https://karthinks.com/index.xml"
-     "https://thecreativeindependent.com/feed.xml"
-     "https://blog.sunfishcode.online/atom.xml"
-     "http://arxiv.org/rss/math.DG" "http://arxiv.org/rss/math.AG"
-     "http://arxiv.org/rss/math.AT" "http://arxiv.org/rss/math.CT"
-     "http://arxiv.org/rss/math.CA" "http://arxiv.org/rss/math.GT"
-     "http://arxiv.org/rss/math.SG" "http://arxiv.org/rss/math.HO"
-     "http://arxiv.org/rss/math.KT" "http://arxiv.org/rss/math.NT"
-     "http://arxiv.org/rss/math.GR" "http://arxiv.org/rss/math.GN"
-     "http://arxiv.org/rss/math.LO" "http://arxiv.org/rss/math.RA"
-     "https://cosmogeometer.wordpress.com/feed/"
-     "https://cognitivemedium.com/feed.xml"
-     "https://edwardshorterauthor.com/feed/"
-     "https://www.lacanonline.com/feed/"
-     "http://www.lacaninireland.com/web/feed/"
-     "https://catonmat.net/feed" "https://blog.brixit.nl/rss"
-     "https://solar.lowtechmagazine.com/feeds/all-en.atom.xml"
-     "https://engineuring.wordpress.com/comments/feed/"
-     "https://emersion.fr/blog/atom.xml"
-     "https://drewdevault.com/blog/index.xml"
-     "https://bitfehler.srht.site/index.xml"
-     "https://sourcehut.org/blog/index.xml"
-     "https://nyxt.atlas.engineer/feed"
-     "http://planet.lisp.org/rss20.xml"
-     "https://planet.scheme.org/atom.xml"
-     "https://hnrss.org/frontpage" "https://hnrss.org/jobs"
-     "https://hnrss.org/show" "https://sive.rs/en.atom.xml"
-     "https://endtimes.dev/feed.xml" "https://adactio.com/rss"
-     "https://thomasorus.com/feed.xml" "https://cosmic.voyage/rss.xml"
-     "https://nature.com/mp.rss" "https://timharek.no/rss.xml"
-     "https://www.jouissance.net/index.xml"
-     "https://www.radiolacan.com/en/home?rss=1"
-     "https://bluelander.bearblog.dev/feed/?type=rss"
-     "http://www.aaronsw.com/2002/feeds/pgessays.rss"
-     "https://rjlipton.wpcomstaging.com/feed/"
-     "https://tommi.space/all.xml" "https://josephchoe.com/feed.xml"
-     "http://www.numbertheory.org/ntw/ntw.xml"
-     "https://kevquirk.com/feed.xml" "https://golangweekly.com/rss/"
-     "https://jvns.ca/atom.xml" "https://itself.blog/feed/"
-     "https://matt.might.net/articles/feed.rss"
-     "https://terenceblake.wordpress.com/feed/"
-     "https://stevelosh.com/rss.xml"
-     "https://tinyprojects.dev/feed.xml" "https://castel.dev/rss.xml"
-     "https://luchte.wordpress.com/feed/"
-     "https://blog.andymatuschak.org/rss"
-     "https://codecs.multimedia.cx/feed/"
-     "https://karl-voit.at/feeds/lazyblorg-all.atom_1.0.links-and-content.xml"
-     "https://roygbyte.com/rss.xml" "https://benswift.me/feed.xml"
-     "https://coredumped.dev/index.xml"
-     "https://anarchistnews.org/rss.xml"
-     "https://feed.podbean.com/HDSR/feed.xml"
-     "https://planet.emacslife.com/atom.xml"
-     "https://direct.mit.edu/rss/site_1000003/LatestOpenIssueArticles_1000004.xml"
-     "https://www.nature.com/natmachintell.rss"
-     "https://jmlr.org/jmlr.xml" "https://muan.co/feed.xml"
-     "https://tony-zorman.com/atom.xml"
-     "https://www.modeltheory.org/feed/"
-     "https://www.nature.com/mp.rss"
-     "http://www.edwardshorterauthor.com/feed/"
-     "https://math.stackexchange.com/feeds/tag/general-topology"
-     "https://news.ycombinator.com/rss"
-     "https://lucasfcosta.com/feed.xml"
-     "https://joy.recurse.com/feed.atom"
-     "https://healeycodes.com/feed.xml"
-     "https://fabiensanglard.net/rss.xml"
-     "https://www.fsf.org/static/fsforg/rss/jobs.xml")))
+ '(gameoflife-screensaver-mode t)
+ '(org-agenda-files
+   '("/home/divya/notes/org/org-agenda/tasks.org"
+     "/home/divya/notes/org/org-agenda/habits.org"
+     "/home/divya/notes/org/org-roam/projects/on_hermeneutic_temptation.org"
+     "/home/divya/notes/org/org-roam/ref/kaggle_introduction_to_machine_learning.org"
+     "/home/divya/notes/org/org-roam/ref/kaggle_intro_to_deep_learning.org"
+     "/home/divya/notes/org/org-roam/main/category_theory.org"
+     "/home/divya/notes/org/org-roam/main/kaggle.org"
+     "/home/divya/notes/org/org-roam/main/foundations_of_machine_learning.org"
+     "/home/divya/notes/org/org-roam/main/intuitionism.org"
+     "/home/divya/notes/org/org-roam/main/computer_vision.org"
+     "/home/divya/notes/org/org-roam/projects/org_mobile.org"
+     "/home/divya/notes/org/org-roam/projects/digit_recognizer.org"
+     "/home/divya/notes/org/org-roam/projects/biblio_rogue.org"
+     "/home/divya/notes/org/org-roam/projects/vesuvius_challenge.org"
+     "/home/divya/notes/org/org-roam/projects/retracing_freud_s_oeuvre.org"
+     "/home/divya/notes/org/org-roam/projects/bibliophile_el.org"
+     "/home/divya/notes/org/org-roam/ref/in_search_of_lost_time.org"
+     "/home/divya/notes/org/org-roam/ref/stanford_231n.org"
+     "/home/divya/notes/org/org-roam/projects/reader_el.org"
+     "/home/divya/notes/org/org-roam/main/mathematical_logic.org"
+     "/home/divya/notes/org/org-roam/ref/18_905_algebraic_topology_i.org"
+     "/home/divya/notes/org/org-roam/projects/thesis_gender_mainstreaming_in_urban_governance_a_study_of_women_councillors_of_ajmer_division_in_rajasthan.org"
+     "/home/divya/notes/org/org-roam/projects/bibliotheca_aeterna.org"
+     "/home/divya/notes/org/journal/20240722.org.gpg")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(diredp-dir-name ((t (:background "transparent" :foreground "DeepSkyBlue1"))))
- '(diredp-file-suffix ((t (:foreground "orchid"))))
- '(diredp-symlink ((t (:foreground "deep pink")))))
+ )

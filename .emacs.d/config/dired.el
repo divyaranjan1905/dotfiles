@@ -3,6 +3,9 @@
 ;;; Divya's Dired congifuration
 
 ;;; Code:
+;;; Enhancing dired
+(require 'dired-x)
+(require 'dired+)
 
 ;;; Dired
 
@@ -36,19 +39,19 @@
    '(("h" "~/"     "Home")
      ("e" "/mnt/LDisk-E/Albert Einstein/"   "Albert Einstein")
      ("t" "~/.local/share/Trash/files/"     "TrashCan")
-     ("b" "~/books/"    "Books")
+     ("b" "/mnt/LDisk-E/Albert Einstein/Books & Resources/" "Books")
      ("n" "~/notes/"    "Notes")
-     ("m" "~/math/"     "Math")
+     ("m" "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Mathematics" "Math")
      ("B" "~/bib/"      "Bibliography")
      ("M" "/mnt/LDisk-E/Albert Einstein/Movies & Series" "Movies")
-     ("p" "~/philosophy/" "Philosophy")
-     ("P" "~/psychoanalysis/" "Psychoanalysis")
-     ("c" "~/cs/"       "Computer Science")
-     ("l" "~/literature/" "Literature")
+     ("p" "/mnt/LDisk-E/Albert Einstein/Books & Resources/Philosophy" "Philosophy")
+     ("P" "/mnt/LDisk-E/Albert Einstein/Books & Resources/Psychoanalysis" "Psychoanalysis")
+     ("c" "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming" "Computer Science")
+     ("l" "/mnt/LDisk-E/Albert Einstein/Books & Resources/Literature" "Literature")
      ("o" "~/notes/org/org-roam")
-     ("C-p" "~/physics/"  "Physics")
+     ("C-p" "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Physics" "Physics")
      ("L" "~/life/"      "Life")
-     ("s" "~/sociology"  "Sociology")
+     ("s" "/mnt/LDisk-E/Albert Einstein/Books & Resources/Sociology" "Sociology")
      ("S" "~/Sync/"      "Sync")
      ("d" "~/.dotfiles"   "Dotfiles")
      ("C-c" "~/.config"  "Config")))
@@ -74,7 +77,8 @@
    ("C-a"   . dirvish-quick-access)
    ("f"   . dirvish-file-info-menu)
    ("y"   . dirvish-yank-menu)
-   ("H"	  . dired-hide-dotfiles-mode)
+   ;; ("H"	  . dired-hide-dotfiles-mode)
+   ("O"	  . crux-open-with)
    ("N"   . dirvish-narrow)
    ("^"   . dirvish-history-last)
    ("C-z"   . dirvish-quicksort)    ; remapped `dired-sort-toggle-or-edit'
@@ -107,7 +111,7 @@
   :straight t
   :commands (dired-sidebar-toggle-sidebar)
   :init
-  (add-hook 'dired-sidebar-mode-hoo
+  (add-hook 'dired-sidebar-mode-hook
 	    (lambda ()
 	      (unless (file-remote-p default-directory)
 		(auto-revert-mode))))
@@ -121,14 +125,20 @@
 
 ;;; Managing hidden dotfiles
 
-(use-package dired-hide-dotfiles
-  :straight t
-  :hook (dired-mode . dired-hide-dotfiles-mode)
-  :config
-  (define-key dired-moe-map (kbd "H") 'dired-hide-dotfiels-mode))
+(setq dired-omit-files (rx (seq bol ".")))
+
 
 ;;; Dired+
 (require 'dired+)
+
+
+;; Consult-dir
+(use-package consult-dir
+  :ensure t
+  :bind (("C-x C-d" . consult-dir)
+         :map minibuffer-local-completion-map
+         ("C-x C-d" . consult-dir)
+         ("C-x C-j" . consult-dir-jump-file)))
 
 (provide 'dired.el)
 ;;; dired.el ends here

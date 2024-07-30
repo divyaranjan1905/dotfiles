@@ -19,9 +19,10 @@
 
 (setq shr-use-colors t)             ; t is bad for accessibility
 (setq shr-use-fonts t)              ; t is not for me
+(setq shr-max-width 150)
+(setq shr-width 130)
 (setq shr-max-image-proportion 0.6)
 (setq shr-image-animate t)          ; No GIFs, thank you!
-(setq shr-width fill-column)          ; check `prot-eww-readable'
 (setq shr-max-width fill-column)
 (setq shr-discard-aria-hidden t)
 (setq shr-cookie-policy nil)
@@ -78,10 +79,10 @@
 ;;   (require 'shrface))
 
 
-(add-hook 'eww-mode-hook #'divya/enable-focus)
+;; (add-hook 'eww-mode-hook #'divya/enable-focus)
 
 
-(setq browse-url-generic-program "brave")
+(setq browse-url-generic-program "librewolf")
 
 (provide 'eww)
 ;;; eww.el ends here

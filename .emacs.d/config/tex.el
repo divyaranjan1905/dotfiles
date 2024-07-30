@@ -29,7 +29,6 @@
 				    calc-prefer-frac t
 				    calc-angle-mode rad))))))))
 
-(setq org-format-latex-options (plist-put org-format-latex-options :scale 1.65))
 
 ;; (use-package auto-complete-auctex
 ;;   :straight t)
@@ -205,4 +204,3 @@
   (setq xenopx-reveal-on-entry t))
 
 ;;; tex.el ends here
-

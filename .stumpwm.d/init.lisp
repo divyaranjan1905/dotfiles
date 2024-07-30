@@ -3,18 +3,18 @@
 ;; Setting up the prefix key
 (set-prefix-key (kbd "s-/"))
 
-;; Setting up Modules 
+;; Setting up Modules
 (set-module-dir
-  (pathname-as-directory (concat (getenv "HOME") "/.stumpwm.d/modules")))
+  (pathname-as-directory (concat (getenv "HOME") "~/.stumpwm.d/modules")))
 
-(load-module "swm-gaps")
-(load-module "amixer")
-(load-module "binwarp")
-(load-module "winner-mode")
-(load-module "scratchpad")
-(load-module "end-session")
-;(load-module "notify")
-(load-module "mpd")
+;; (load-module "swm-gaps")
+;; (load-module "amixer")
+;; (load-module "binwarp")
+;; (load-module "winner-mode")
+;; (load-module "scratchpad")
+;; (load-module "end-session")
+;; ;(load-module "notify")
+;; (load-module "mpd")
 
 ;; Setting up windows
 (setf *message-window-gravity* :center
@@ -53,7 +53,7 @@
     (define-key *root-map* (kbd (nth y *move-to-keybinds*)) (concat "gmove-and-follow " workspace))))
 
 ;; We need a terminal!
-(run-shell-command "exec $HOME/scripts/script.sh")
+; (run-shell-command "exec $HOME/scripts/script.sh")
 (defvar *alacritty* "exec LIBGL_ALWAYS_SOFTWARE=1 alacritty")
 ;;(defcommand alacritty-hsplit () ()
 ;; (hsplit)
@@ -95,13 +95,13 @@
 ;; turn on/off the mode line for the current head only.
 (define-key *root-map* (kbd "B") "mode-line")
 
-;; Toggle-able Scratchpads
-(defcommand scratchpad-term () ()
-            (scratchpad:toggle-floating-scratchpad "st" *alacritty*
-                                                   :initial-gravity :center
-                                                   :initial-width 800
-                                                   :initial-height 500))
-(define-key *top-map*  (kbd "s-S-RET") "scratchpad-term")
+;; ;; Toggle-able Scratchpads
+;; (defcommand scratchpad-term () ()
+;;             (scratchpad:toggle-floating-scratchpad "st" *alacritty*
+;;                                                    :initial-gravity :center
+;;                                                    :initial-width 800
+;;                                                    :initial-height 500))
+;; (define-key *top-map*  (kbd "s-S-RET") "scratchpad-term")
 
 ;; Frames
 ;;Instead of just creating an empty frame, create a horizontal split and focus on the right window
@@ -116,7 +116,7 @@
 
 (defvar *frame-map* nil
   "To manage frames better")
-(setf *frame-map* 
+(setf *frame-map*
       (let ((m (make-sparse-keymap)))
         (define-key m (kbd "v")   "vsplit-focus")
         (define-key m (kbd "s")   "hsplit-focus")
@@ -199,7 +199,7 @@
         m))
 (define-key *root-map* (kbd "s")  '*script-map*)
 
-;; Closing programs 
+;; Closing programs
 (define-key *top-map* (kbd "s-q") "delete")
 (define-key *root-map* (kbd "r") "remove")
 
@@ -253,27 +253,27 @@
 
 
 ;;Mangaing Gaps
-(defcommand increase-gaps () ()
-            (setf swm-gaps:*outer-gaps-size* (+ swm-gaps:*outer-gaps-size* 5)
-                  swm-gaps:*inner-gaps-size* (+ swm-gaps:*inner-gaps-size* 5))
-            (swm-gaps:toggle-gaps)
-            (swm-gaps:toggle-gaps))
+;; (defcommand increase-gaps () ()
+;;             (setf swm-gaps:*outer-gaps-size* (+ swm-gaps:*outer-gaps-size* 5)
+;;                   swm-gaps:*inner-gaps-size* (+ swm-gaps:*inner-gaps-size* 5))
+;;             (swm-gaps:toggle-gaps)
+;;             (swm-gaps:toggle-gaps))
 
-(defcommand decrease-gaps () ()
-            (setf swm-gaps:*outer-gaps-size* (- swm-gaps:*outer-gaps-size* 5)
-                  swm-gaps:*inner-gaps-size* (- swm-gaps:*inner-gaps-size* 5))
-            (swm-gaps:toggle-gaps)
-            (swm-gaps:toggle-gaps))
+;; (defcommand decrease-gaps () ()
+;;             (setf swm-gaps:*outer-gaps-size* (- swm-gaps:*outer-gaps-size* 5)
+;;                   swm-gaps:*inner-gaps-size* (- swm-gaps:*inner-gaps-size* 5))
+;;             (swm-gaps:toggle-gaps)
+;;             (swm-gaps:toggle-gaps))
 
-(defvar *gaps-map* nil
-  "Keymaps for toggling and changing gaps.")
-(setf *gaps-map*
-      (let ((m(make-sparse-keymap)))
-        (define-key m (kbd "t")      "toggle-gaps")
-        (define-key m (kbd "x")      "increase-gaps")
-        (define-key m (kbd "z")      "decrease-gaps")
-        m))
-(define-key *root-map* (kbd "o")  '*gaps-map*)
+;; (defvar *gaps-map* nil
+;;   "Keymaps for toggling and changing gaps.")
+;; (setf *gaps-map*
+;;       (let ((m(make-sparse-keymap)))
+;;         (define-key m (kbd "t")      "toggle-gaps")
+;;         (define-key m (kbd "x")      "increase-gaps")
+;;         (define-key m (kbd "z")      "decrease-gaps")
+;;         m))
+;; (define-key *root-map* (kbd "o")  '*gaps-map*)
 
 ;; prompt the user for an interactive command. The first arg is an
 ;; optional initial contents.
@@ -323,19 +323,19 @@
         (define-key m (kbd "m") "music")
         (define-key m (kbd "s") "scihub")
         m))
-(define-key *root-map* (kbd "w") '*web-map*)	
+(define-key *root-map* (kbd "w") '*web-map*)
 
-;; Using Binwarp to control the cursor with keyboard
-(binwarp:define-binwarp-mode my-binwarp-mode "s-m" (:map *top-map*)
-                             ((kbd "SPC") "ratclick 1")
-                             ((kbd "RET") "ratclick 3")
-                             ((kbd "h")   "binwarp left")
-                             ((kbd "l")   "binwarp right")
-                             ((kbd "j")   "binwarp down")
-                             ((kbd  "k")   "binwarp up"))
+;; ;; Using Binwarp to control the cursor with keyboard
+;; (binwarp:define-binwarp-mode my-binwarp-mode "s-m" (:map *top-map*)
+;;                              ((kbd "SPC") "ratclick 1")
+;;                              ((kbd "RET") "ratclick 3")
+;;                              ((kbd "h")   "binwarp left")
+;;                              ((kbd "l")   "binwarp right")
+;;                              ((kbd "j")   "binwarp down")
+;;                              ((kbd  "k")   "binwarp up"))
 
-;; Controlling Audio Stuff 
-(mpd:mpd-connect)
+;; Controlling Audio Stuff
+;; (mpd:mpd-connect)
 (defvar *music-map* nil
   "Keymap for controlling MPD and other audio stuff")
 (setf *music-map*
@@ -350,7 +350,7 @@
         (define-key m (kbd "S-[") "exec mpc seek -60")
         (define-key m (kbd "S-]") "exec mpc seek +60")
         m))
-(define-key *root-map* (kbd "m") '*music-map*)	
+(define-key *root-map* (kbd "m") '*music-map*)
 
 ;; Shortcuts for opening certain directories quickly in lf
 (defvar *alc-dir* "exec LIBGL_ALWAYS_SOFTWARE=1 alacritty -e lfrun")
@@ -368,7 +368,7 @@
         (define-key m (kbd "c")  "exec st lfrun '/home/divya/.config/'")
         (define-key m (kbd "h")  "exec st lfrun '/home/divya/'")
         (define-key m (kbd "s")   "exec st lfrun '/home/divya/.stumpwm.d/'")
-        (define-key m (kbd "S")   "exec st lfrun '/home/divya/scripts/'")
+      ;  (define-key m (kbd "S")   "exec st lfrun '/home/divya/scripts/'")
         m))
 (define-key *root-map* (kbd "d") '*directories-map*)
 
@@ -394,7 +394,7 @@
 ;; Playing with layouts
 (defvar *layouts-map* nil
   "Keymaps for different layouts")
-(setf *layouts-map* 
+(setf *layouts-map*
       (let ((m (make-sparse-keymap)))
         (define-key m (kbd "a") "restore-from-file ~/.stumpwm.d/layouts/audio")
         (define-key m (kbd "c") "restore-from-file ~/.stumpwm.d/layouts/centered")

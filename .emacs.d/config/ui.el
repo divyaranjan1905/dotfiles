@@ -1,4 +1,4 @@
-;;; ui.el --- UI Configuration File -*- lexical-binding: t -*-
+;;; ui.el --- Emacs User Interface Configuration File -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;;; Divya's Emacs UI Configurations
 
@@ -50,20 +50,20 @@
 (use-package ef-themes
   :straight t)
 
-(global-set-key (kbd "C-c t") 'consult-theme)
+(global-set-key (kbd "C-<f12>") 'consult-theme)
 
 ;(load-theme 'ef-dark t)
 ;; Change theme depending on the time of the day
 (setq calendar-longitude 85.69
       calendar-latitude 20.16)
 
-(use-package circadian
-  :straight t
-  :after solar
-  :config
-  (setq circadian-themes '((:sunrise . modus-operandi-tinted)
-			   (:sunset . ef-dark)))
-  (circadian-setup))
+;;(use-package circadian
+ ;;:straight t
+ ;;:after solar
+ ;;:config
+ ;;(setq circadian-themes '(("00:30" . ef-light)
+;;			   ;("13:30" . ef-dark)))
+; ;(circadian-setup))
 
 ;; Highlighting the current line
 (global-hl-line-mode 1)
@@ -120,6 +120,19 @@
 (setq display-time-format "%l:%M %p %b %y"
       display-time-default-load-average nil)
 
+;; File size in modeline
+
+(setq size-indication-mode t)
+(setq column-number-mode t)
+
+;; Current directory
+;; (setq global-mode-string
+;;       (cond ((consp global-mode-string)
+;;              (add-to-list 'global-mode-string 'default-directory 'APPEND))
+;;             ((not global-mode-string)
+;;              (list 'default-directory))
+;;             ((stringp global-mode-string)
+;;              (list global-mode-string 'default-directory))))
 
 ;; Multiple time zones
 ;; (setq display-time-world-list
@@ -128,27 +141,42 @@
 ;; 	("Europe/London" "London")))
 ;; (setq display-time-world-time-format "%a, %d %b %I:%M %p %Z")
 
-;; Disabling line numbers for some modes
+;;; Disabling line numbers for some modes
 
 (dolist (mode '(org-mode-hook
 		eshell-mode-hook
 		term-mode-hook
 		pdf-view-mode-hook
 		doc-view-mode-hook
+		image-dired-mode-hook
 		dired-mode-hook
 		nov-mode-hook
 		writeroom-mode-hook
-;		eww-mode-hook
-;		elfeed-search-mode-hook
+		eww-mode-hook
+					;		elfeed-search-mode-hook
 		elfeed-show-mode-hook
 		image-mode-hook
+		dirvish-directory-view-mode-hook
 		org-agenda-mode-hook
+					;		mu4e-headers-mode-hook
+					;		mu4e-search-hook
+					;		mu4e-org-mode-hook
+		hs-lint-mode-hook
+		special-mode-hook
+		inferior-ess-mode-hook
+		help-mode-hook
 		mu4e-view-mode-hook
 		mu4e-compose-mode-hook
+		calendar-mode-hook
                 mu4e-main-mode-hook
+		dictionary-mode-hook
+		forth-interaction-mode-hook
+		bookmark-bmenu-mode-hook
+		which-key-mode-hook
+		erc-mode-hook
+		rcirc-mode-hook
 		olivetti-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
-
 ;; Disabling blinking cursor when reading things.
 
 (dolist (mode '(pdf-view-mode-hook
@@ -163,8 +191,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
 (defun fontify-frame (frame)
-  (set-frame-parameter frame 'font "Spline Sans Mono-12"))
+  (set-frame-parameter frame 'font "Spline Sans Mono-13"))
+
 ;; Fontify current frame
 (fontify-frame nil)
 
@@ -214,24 +244,27 @@
 ;;; For some focus in life (Writeroom-mode)
 (use-package writeroom-mode
   :straight t
-					;  :init (writeroom-mode 1)
+  :init (global-writeroom-mode 1)
   :config
-  (setq writeroom-width 90
+  (setq writeroom-width 100
 	writeroom-fullscreen-effect 1
 	writeroom-mode-line t
 	writeroom-major-modes '(text-mode org-mode markdown-mode nov-mode Info-mode)))
 
 (defun divya/enable-focus ()
+  "To enable the focus-mode."
   (interactive)
   (writeroom-mode 1)
   (display-line-numbers-mode 0))
 
 (defun divya/disable-focus ()
+  "To disable the focus mode."
   (interactive)
   (writeroom-mode 0)
   (display-line-numbers-mode 1))
 
 (defun divya/toggle-focus ()
+  "To toggle the focus mode."
   (interactive)
   (if (symbol-value writeroom-mode)
       (divya/disable-focus)
@@ -276,7 +309,7 @@
 ;;   :straight t)
 
 
-;; Vertico : Minibuffer Completion
+;;; Vertico : Minibuffer Completion
 
 (use-package vertico
   :straight t
@@ -291,9 +324,12 @@
   :init
   (vertico-mode))
 
+;;; Saving History
 (use-package savehist
   :init
   (savehist-mode))
+
+;;; Marginalia Annotation
 
 (use-package marginalia
   :straight t
@@ -303,6 +339,7 @@
   :init
   (marginalia-mode))
 
+;;; Icons in completion
 (use-package all-the-icons-completion
   :straight t
   :after (marginalia all-the-icons)
@@ -310,6 +347,7 @@
   :init
   (all-the-icons-completion-mode))
 
+;;; Orderless
 (use-package orderless
   :straight t
   :custom
@@ -319,8 +357,43 @@
    '((file (styles orderless)))))
 
 
+;;; Consult
 (use-package consult
-  :straight t)
+  :straight t
+  :bind (("C-c r" . consult-recent-file)
+	 ("C-c t" . consult-theme)
+	 ("M-g e" . consult-compile-error)
+         ("M-g f" . consult-flymake)               ;; Alternative: consult-flycheck
+         ("M-g g" . consult-goto-line)             ;; orig. goto-line
+         ("M-g M-g" . consult-goto-line)           ;; orig. goto-line
+         ("M-g o" . consult-outline)               ;; Alternative: consult-org-heading
+         ("M-g m" . consult-mark)
+         ("M-g k" . consult-global-mark)
+         ("M-g i" . consult-imenu)
+         ("M-g I" . consult-imenu-multi)
+         ;; M-s bindings in `search-map'
+         ("M-s d" . consult-find)                  ;; Alternative: consult-fd
+         ("M-s c" . consult-locate)
+         ("M-s g" . consult-grep)
+         ("M-s G" . consult-git-grep)
+         ("M-s r" . consult-ripgrep)
+         ("M-s l" . consult-line)
+         ("M-s L" . consult-line-multi)
+         ("M-s k" . consult-keep-lines)
+         ("M-s u" . consult-focus-lines)
+         ;; Isearch integration
+         ("M-s e" . consult-isearch-history)
+         :map isearch-mode-map
+         ("M-e" . consult-isearch-history)         ;; orig. isearch-edit-string
+         ("M-s e" . consult-isearch-history)       ;; orig. isearch-edit-string
+         ("M-s l" . consult-line)                  ;; needed by consult-line to detect isearch
+         ("M-s L" . consult-line-multi))            ;; needed by consult-line to detect isearch
+
+  :init
+  (setq xref-show-xrefs-function #'consult-xref
+	xref-show-definitions-function #'consult-xref))
+
+
 
 
 ;; Use `consult-completion-in-region' if Vertico is enabled.
@@ -342,7 +415,9 @@
   ;; Set the title
   (setq dashboard-banner-logo-title "Live to the point of tears!")
   ;; Set the banner
-  (setq dashboard-startup-banner "~/.dotfiles/.emacs.d/Mx-butterfly-edited.png")
+  (setq dashboard-startup-banner "~/.dotfiles/.emacs.d/lisp.png")
+  (setq dashboard-image-banner-max-width '250)
+  (setq dashboard-image-banner-max-height '250)
   ;; Value can be
   ;; - nil to display no banner
   ;; - 'official which displays the official emacs logo
@@ -378,41 +453,10 @@
   (dimmer-configure-which-key)
   (dimmer-mode t))
 
-;; Managing window widths automatically
-;; (use-package zoom
-;;   :straight t
-;;   :init
-;;   (zoom-mode +1))
-
-;; (global-set-key (kbd "C-x +") 'zoom)
-
-;; ;; The golden ratio
-;; ;; (custom-set-variables
-;; ;;  '(zoom-size '(0.618 . 0.618)))
-
-;; (defun size-callback ()
-;;   (cond ((> (frame-pixel-width) 1280) '(90 . 0.75))
-;;         (t                            '(0.5 . 0.5))))
-
-;; (custom-set-variables
-;;  '(zoom-size 'size-callback))
-
-;; ; Excluding some buffers
-;; (custom-set-variables
-;;  '(zoom-ignored-major-modes '(dired-mode markdown-mode))
-;;  '(zoom-ignored-buffer-names '("zoom.el" "init.el"))
-;;  '(zoom-ignored-buffer-name-regexps '("^*calc"))
-;;  '(zoom-ignore-predicates '((lambda () (> (count-lines (point-min) (point-max)) 20)))))
-
-;; The above is commented because zoom actually doesn't work well with which-key
-
-
-;; Golden ratio
-
-;; (use-package golden-ratio
-;;   :straight t
-;;   :init
-;;   (golden-ratio-mode 1))
+;;; Golden ratio
+;; From https://git.sr.ht/~wklew/golden
+;; (require 'golden)
+;; (global-golden-mode 1)
 
 ;; ;; Hyperbole : Managing hypertexts on buffers
 ;; (use-package hyperbole
@@ -428,12 +472,23 @@
 
 
 ;;; Drag and drop
-;(use-package org-download
-;  :straight t
-;  :config
-;  (setq org-download-backend "curl"))
+(use-package org-download
+ :straight t
+ :config
+ (setq org-download-backend "curl")
+ :bind ("C-c y" . org-download-clipboard))
 
-;(add-hook 'dired-mode-hook 'org-download-enable)
+(add-hook 'dired-mode-hook 'org-download-enable)
+
+;; Prettify
+(global-prettify-symbols-mode)
+
+;; (setq lisp-prettify-symbols-alist '("lambda" . λ))
+
+
+;; Show time in 24hr
+(setq display-time-format "%Z:%H:%M")
+(display-time-mode 1)
 
 (provide 'ui.el)
-;; ui.el ends here
+;;; ui.el ends here

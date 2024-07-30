@@ -5,8 +5,9 @@
 ;;; Code:
 ;; adding to load-path
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e/")
+(require 'mu4e)
 
-;;; SMTP settins for sending mail
+;;; SMTP settings for sending mail
 (use-package smtpmail
   :straight t
   :config
@@ -22,30 +23,37 @@
 					;(delete 'mu4e evil-collection-mode-list)
 					;(delete 'mu4e-conversation evil-collection-mode-list)
 
-(use-package mu4e
-  :straight t
-  :hook
-  (mu4e-compose-mode-hook . 'turn-off-auto-fill)
-  :custom
-  (mu4e-change-filenames-when-moving t)
-  (mu4e-html2text-command "iconv -c -t utf-8 | pandoc -f html -t plain")
-  (mu4e-attachment-dir "~/Downloads/mail/")
+;;; Mu4e settings
+(add-hook 'mu4e-compose-mode-hook  'turn-off-auto-fill)
+;; Setting mail agent as mu4e
+(setq mail-user-agent 'mu4e-user-agent)
+(set-variable 'read-mail-command 'mu4e)
 
-  ;; Refreshing mail with isync
-  (mu4e-update-interval 500)
-  (mu4e-get-mail-command "mbsync -a && mu index")
-  (mu4e-headers-auto-update t)
-  (mu4e-maildir "~/.local/share/email/")
-  :config
-  ;; Shortcuts
-  (setq mu4e-maildir-shortcuts
-	'(("autistici/INBOX" . ?i)
-	  ("/autistici/Sent" . ?s)
-	  ("/autistici/Trash" . ?t)
-	  ("/autistici/Drafts" . ?d))))
-;; :hook
-;; (mu4e-view-mode . visual-line-mode)
-;; (mu4e-view-mode . divya/enable-focus))
+(setq mu4e-html2text-command "iconv -c -t utf-8 | pandoc -f html -t plain")
+(setq mu4e-attachment-dir "~/Downloads/mail/")
+
+;setq ; Refreshing mail with isync
+(setq mu4e-update-interval 9800)
+(setq mu4e-get-mail-command "mbsync -a && mu index")
+(setq mu4e-headers-auto-update t)
+(setq mu4e-maildir "/home/divya/.local/share/email/")
+
+(setq mu4e-change-filenames-when-moving t)
+
+(define-key mu4e-headers-mode-map (kbd "M-j") 'mu4e-headers-next)
+(define-key mu4e-headers-mode-map (kbd "M-k") 'mu4e-headers-prev)
+(define-key mu4e-view-mode-map (kbd "M-j") 'mu4e-view-headers-next)
+(define-key mu4e-view-mode-map (kbd "M-k") 'mu4e-view-headers-prev)
+(define-key mu4e-main-mode-map (kbd "C-j") 'mu4e-search-maildir)
+
+(setq mu4e-maildir-shortcuts
+      '(("autistici/INBOX" . ?i)
+	("/autistici/Sent" . ?s)
+	("/autistici/Trash" . ?t)
+	("/autistici/Drafts" . ?d)))
+
+(setq message-kill-buffer-on-exit t)
+
 
 ;; Contexts
 
@@ -155,11 +163,20 @@
 
 ;; Set the first context as the default
 (setq mu4e-context-policy 'pick-first)
-(mu4e) 
 
 ;; Global bingind for mu4e
 (define-key global-map (kbd "C-c m") 'mu4e)
 
+;; Better dynamic search of mu
+(use-package consult-mu
+	:straight (consult-mu :type git :host github :repo "armindarvish/consult-mu" :files (:defaults "extras/*.el"))
+        :after (mu4e consult)
+	:bind
+	("C-M-'" . consult-mu-dynamic)
+)
+
+;; Signature
+(setq mail-signature-file "~/.signature")
 
 (provide 'mail.el)
 

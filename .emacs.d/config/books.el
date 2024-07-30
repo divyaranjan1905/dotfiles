@@ -21,6 +21,7 @@
   (pdf-tools-install)
   ;;   (display-line-numbers-mode-1)
   (setq-default pdf-view-display-size 'fit-page)
+  (define-key pdf-view-mode-map (kbd "C-,") 'pdf-view-goto-page)
   (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward)
   :custom
   (pdf-annot-activate-created-annotations t "automatically annotate highlights"))

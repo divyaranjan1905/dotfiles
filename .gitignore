@@ -6,6 +6,7 @@
 .config/mpd/state
 .config/mpd/sticker.sql
 .config/mpd/mpd.log
+.config/xmonad/
 *\#
 .emacs.d/ac-comphist.dat
 .emacs.d/auto-save-list/
@@ -27,6 +28,5 @@
 .emacs.d/.init.el~undo-tree~
 .emacs.d/url/
 .emacs.d/transient/
-.emacs.d/tree-sitter/
 .emacs.d/straight/
 .emacs.d/elpa/
