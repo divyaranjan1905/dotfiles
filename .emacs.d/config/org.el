@@ -201,6 +201,7 @@
 ;; Some things before org mode cooks up
 (defun divya/org-mode-setup ()
   (org-indent-mode)
+  (electric-quote-mode)
   (variable-pitch-mode 1)
   (visual-line-mode 1))
 
@@ -298,6 +299,7 @@
 
 (require 'org-tempo)
 (add-to-list 'org-structure-template-alist '("sh" . "src sh"))
+(add-to-list 'org-structure-template-alist '("c" . "src C"))
 (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
 (add-to-list 'org-structure-template-alist '("sc" . "src scheme"))
 (add-to-list 'org-structure-template-alist '("py" . "src python"))
@@ -311,6 +313,7 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((R . t)
+   (C . t)
    (org . t)
    (ditaa . t)
    (latex . t)
@@ -328,7 +331,6 @@
    (shell . t)
    (sql . nil)
    (sqlite . t)))
-
 
 ;;; LaTeX in Org
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.65))
@@ -378,6 +380,9 @@
 	("note" . ?n)
 	("idea" . ?i)))
 
+;;; Org TODO Priorities
+(setq org-lowest-priority ?J)
+
 ;;;; Evil Bindings in Org
 
 ;;(use-package evil-org
@@ -385,10 +390,10 @@
 ;;  :hook ((org-mode . evil-org-mode)
 ;;	 (org-agenda-mode . evil-org-mode)
 ;;	 (evil-org-mode . (lambda () (evil-org-set-key-theme '(navigation todo insert textobjects additional)))))
- ;; :config
-  ;;(evil-org-agenda-set-keys))
+;; :config
+;;(evil-org-agenda-set-keys))
 
-;(use-package evil-org-agenda)
+					;(use-package evil-org-agenda)
 
 ;; Update toc on save
 (use-package toc-org
@@ -449,6 +454,8 @@
   :init
   (org-roam-db-autosync-enable)
 
+  :hook
+  (org-roam-mode . consult-org-roam-mode)
   :config
   ;; From https://jethrokuan.github.io/org-roam-guide/
   (cl-defmethod org-roam-node-type ((node org-roam-node))
@@ -622,6 +629,7 @@
   :straight t
   :bind (("C-c C-j f" . org-journal-open-current-journal-file)
 	 ("C-c C-j n" . org-journal-new-entry)
+	 ("C-c C-j s" . org-journal-search-forever)
 
 	 ;; For calendar
 	 :map calendar-mode-map
