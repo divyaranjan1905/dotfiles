@@ -151,7 +151,7 @@ With a prefix ARG, remove start location."
   (setq nov-unzip-program (executable-find "bsdtar")
 	nov-unzip-args '("-xC" directory "-f" filename))
 
-  :config 
+  :config
   ;; (setq nov-shr-rendering-functions '((img . nov-render-img) (title . nov-render-title)))
   ;; (setq nov-shr-rendering-functions (append nov-shr-rendering-functions shr-external-rendering-functions))
   (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode)))
@@ -185,6 +185,10 @@ With a prefix ARG, remove start location."
 (setq visual-fill-column-center-text t)
 
 (add-hook 'nov-post-html-render-hook 'divya/nov-post-html-render-hook)
+
+;; DJVUs in Emacs
+(use-package djvu
+  :straight t)
 
 (provide 'books)
 ;;; books.el ends here
