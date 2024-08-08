@@ -223,6 +223,9 @@
 ;;; Using only consult-isearch
 ;; (define-key global-map (kbd "C-s") 'consult-line)
 
+;; Insert λ with a key
+(define-key global-map (kbd "M-*") 'geiser-insert-lambda)
+
 (provide 'keys.el)
 
 ;;; keys.el ends here
