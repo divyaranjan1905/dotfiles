@@ -120,6 +120,16 @@
 ;;; LSP Support in Emacs
 (require 'eglot)
 
+;; Extending Eglot
+(use-package eglot-x
+  :straight (eglot-x
+	     :type git
+	     :host github
+	     :repo "nemethf/eglot-x"
+	     :files ("*.el"))
+  :init (eglot-x-setup))
+
+
 ;;; ElDoc Boxes
 (require 'eldoc)
 (global-eldoc-mode 1)
@@ -160,6 +170,25 @@
 (defun my-haskell-mode-hook ()
     (local-set-key "\C-cl" 'hs-lint))
 (add-hook 'haskell-mode-hook 'my-haskell-mode-hook)
+
+;; OCaml
+;;(use-package ocaml-ts-mode)
+
+(let ((opam-share (ignore-errors (car (process-lines "opam" "var" "share")))))
+  (when (and opam-share (file-directory-p opam-share))
+    ;; Register Merlin
+    (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
+    (autoload 'merlin-mode "merlin" nil t nil)
+    ;; Automatically start it in OCaml buffers
+    (add-hook 'tuareg-mode-hook 'merlin-mode t)
+    (add-hook 'caml-mode-hook 'merlin-mode t)
+    ;; Use opam switch to lookup ocamlmerlin binary
+    (setq merlin-command 'opam)
+    ;; To easily change opam switches within a given Emacs session, you can
+    ;; install the minor mode https://github.com/ProofGeneral/opam-switch-mode
+    ;; and use one of its "OPSW" menus.
+    ))
+
 
 ;; Rust
 (use-package rust-mode
@@ -220,6 +249,16 @@
   :config
   (setq inferior-lisp-program "sbcl"))
 
+
+;;; Lean4
+(use-package lean4-mode
+  :straight (lean4-mode
+	     :type git
+	     :host github
+	     :repo "leanprover/lean4-mode"
+	     :files ("*.el" "data"))
+  ;; to defer loading the package until required
+  :commands (lean4-mode))
 
 ;;; Emacs Lisp
 
@@ -543,7 +582,7 @@
      "/home/divya/notes/org/org-roam/ref/18_905_algebraic_topology_i.org"
      "/home/divya/notes/org/org-roam/projects/thesis_gender_mainstreaming_in_urban_governance_a_study_of_women_councillors_of_ajmer_division_in_rajasthan.org"
      "/home/divya/notes/org/org-roam/projects/bibliotheca_aeterna.org"
-     "/home/divya/notes/org/journal/20240722.org.gpg")))
+     "/home/divya/notes/org/journal/20240805.org.gpg")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
