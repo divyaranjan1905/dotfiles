@@ -163,6 +163,11 @@ and ending with the extension of the requested TYPE."
 (require 'epa-file)
 (epa-file-enable)
 
+
+;; UNIX Pass in Emacs
+(require 'password-store)
+
+
 ;; Deleting trailing whitespace before saving
 
 (add-hook 'before-save-hook

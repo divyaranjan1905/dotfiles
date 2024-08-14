@@ -3,6 +3,18 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (#1=
+(#("Classic Papers in CS" 0 20 (bmkp-full-record #1#))
+ (buffer-name . "Classic Papers")
+ (front-context-string . "stratchey-fundam")
+ (rear-context-string . "45 Aug 14 06:11 ")
+ (front-context-region-string) (rear-context-region-string)
+ (visits . 0) (time . #2=(26300 19109 916139 549000)) (created . #2#)
+ (position . 289)
+ (filename . #3=
+	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Theoretical/Foundations of Computer Science/Classic Papers/")
+ (dired-directory . #3#) (dired-marked) (dired-switches . "-al")
+ (dired-subdirs) (dired-hidden-dirs) (handler . bmkp-jump-dired))
+#1=
 (#("exercism" 0 8 (bmkp-full-record #1#)) (buffer-name . "exercism")
  (front-context-string) (rear-context-string . "48 Aug 12 09:52 ")
  (front-context-region-string) (rear-context-region-string)
@@ -91,7 +103,7 @@
  (front-context-string . "	block_singe: Bl")
  (rear-context-string . "g(short, long)]\n")
  (front-context-region-string) (rear-context-region-string)
- (visits . 17) (time 26300 8200 914958 220000)
+ (visits . 18) (time 26300 13400 484000 46000)
  (created 26274 33080 137752 248000) (position . 32122))
 #1=
 (#("big-src" 0 7 (bmkp-full-record #1#)) (buffer-name . "big-src")
@@ -2145,7 +2157,7 @@
  (front-context-string . "(MIT Electrical ")
  (rear-context-string . "76 Oct 11  2022 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 10) (time 26236 32440 914466 6000)
+ (visits . 11) (time 26300 17394 294175 921000)
  (created 26002 46451 937210 29000) (position . 108)
  (filename .
 	   "/home/divya/books/Computer Science and Programming/LISP/")
@@ -2382,7 +2394,7 @@
  (tags "dirs" "emacs" "dots") (buffer-name . "config")
  (front-context-string) (rear-context-string . "57 Nov 11 18:20 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 124) (time 26290 57831 894376 489000)
+ (visits . 125) (time 26300 12960 764968 373000)
  (created 25937 46480 550571 831000) (position . 1132)
  (filename . "/home/divya/.emacs.d/config/")
  (dired-directory . "~/.emacs.d/config/") (dired-marked)
