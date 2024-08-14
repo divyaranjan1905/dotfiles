@@ -165,8 +165,15 @@ and ending with the extension of the requested TYPE."
 
 
 ;; UNIX Pass in Emacs
+(use-package with-editor
+  :straight t)
 (require 'password-store)
-
+(define-key global-map (kbd "C-c p c") 'password-store-copy)
+(define-key global-map (kbd "C-c p C") 'password-store-clear)
+(define-key global-map (kbd "C-c p r") 'password-store-rename)
+(define-key global-map (kbd "C-c p e") 'password-store-edit) ; Press C-x # when done to save it.
+(define-key global-map (kbd "C-c p g") 'password-store-generate)
+(define-key global-map (kbd "C-c p i") 'password-store-insert)
 
 ;; Deleting trailing whitespace before saving
 

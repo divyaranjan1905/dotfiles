@@ -2394,7 +2394,7 @@
  (tags "dirs" "emacs" "dots") (buffer-name . "config")
  (front-context-string) (rear-context-string . "57 Nov 11 18:20 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 125) (time 26300 12960 764968 373000)
+ (visits . 126) (time 26300 54864 902542 25000)
  (created 25937 46480 550571 831000) (position . 1132)
  (filename . "/home/divya/.emacs.d/config/")
  (dired-directory . "~/.emacs.d/config/") (dired-marked)
