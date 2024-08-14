@@ -3,6 +3,16 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (#1=
+(#("exercism" 0 8 (bmkp-full-record #1#)) (buffer-name . "exercism")
+ (front-context-string) (rear-context-string . "48 Aug 12 09:52 ")
+ (front-context-region-string) (rear-context-region-string)
+ (visits . 0) (time . #2=(26297 56808 800227 643000)) (created . #2#)
+ (position . 254)
+ (filename . #3=
+	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Competitive Programming/exercism/")
+ (dired-directory . #3#) (dired-marked) (dired-switches . "-al")
+ (dired-subdirs) (dired-hidden-dirs) (handler . bmkp-jump-dired))
+#1=
 (#("Rust" 0 4 (bmkp-full-record #1#)) (buffer-name . "Rust")
  (front-context-string . "Antoni Boucher._")
  (rear-context-string . "34 Jul 15 07:32 ")
@@ -74,15 +84,15 @@
  (location . "https://www.planetebook.com/e-readers/")
  (handler . bmkp-jump-url-browse))
 #1=
-(#("iroha-last" 0 10 (bmkp-full-record #1#)) (end-position . 32960)
+(#("iroha-last" 0 10 (bmkp-full-record #1#)) (end-position . 32122)
  (filename .
 	   "/mnt/LDisk-D/big-src/hyperledger/iroha/client_cli/src/main.rs")
  (buffer-name . "main.rs")
  (front-context-string . "	block_singe: Bl")
  (rear-context-string . "g(short, long)]\n")
  (front-context-region-string) (rear-context-region-string)
- (visits . 12) (time 26291 56103 433653 670000)
- (created 26274 33080 137752 248000) (position . 32960))
+ (visits . 17) (time 26300 8200 914958 220000)
+ (created 26274 33080 137752 248000) (position . 32122))
 #1=
 (#("big-src" 0 7 (bmkp-full-record #1#)) (buffer-name . "big-src")
  (front-context-string) (rear-context-string . "44 Jul 24 06:43 ")
@@ -311,7 +321,7 @@
  (front-context-string . "flake.lock\n  -rw")
  (rear-context-string . "84 Jun 16 12:48 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 6) (time 26292 13071 834126 644000)
+ (visits . 9) (time 26300 8257 954157 290000)
  (created 26234 11795 602700 370000) (position . 1234)
  (filename . "/home/divya/src/rust/rustlings/")
  (dired-directory . "~/src/rust/rustlings/") (dired-marked)
@@ -1493,7 +1503,7 @@
  (buffer-name . "rahbar.org.gpg") (front-context-string)
  (rear-context-string . "** Questionnaire")
  (front-context-region-string) (rear-context-region-string)
- (visits . 11) (time 26291 38860 265048 759000)
+ (visits . 12) (time 26298 40794 178563 213000)
  (created 26086 59425 498042 87000) (position . 113))
 #1=
 (#("Brouwer's Constructivism by Weyl" 0 32 (bmkp-full-record #1#))
@@ -2044,7 +2054,7 @@
  (front-context-string . "docs\n  -rwxrw-rw")
  (rear-context-string . "96 Jan  9 20:18 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 175) (time 26288 47783 747078 829000)
+ (visits . 180) (time 26298 46327 811951 340000)
  (created 26019 43822 533971 931000) (position . 504)
  (filename . #2=
 	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Sociology/Gender Mainstreaming/Megha/")
@@ -2380,13 +2390,12 @@
  (handler . bmkp-jump-dired))
 #1=
 (#("org-capture-last-stored" 0 23 (bmkp-full-record #1#)) (annotation)
- (tags) (filename . "~/notes/org/org-roam/main/hyperledger.org")
- (buffer-name . "hyperledger.org")
- (front-context-string . "\n* Mentorships\n-")
- (rear-context-string . "LE: Hyperledger\n")
+ (tags) (filename . "~/notes/org/org-roam/main/erlang.org")
+ (buffer-name . "erlang.org") (front-context-string)
+ (rear-context-string . "#+TITLE: Erlang\n")
  (front-context-region-string) (rear-context-region-string)
- (visits . 0) (time . #2=(26291 57314 425824 772000)) (created . #2#)
- (position . 89))
+ (visits . 0) (time . #2=(26297 57719 85381 73000)) (created . #2#)
+ (position . 84))
 #1=
 (#("Sourcehut Dots" 0 14 (bmkp-full-record #1#))
  (time 25935 44218 9881 262000) (visits . 0) (tags "links" "dots")
