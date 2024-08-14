@@ -270,7 +270,7 @@
 ;;   (elisp-refs :type git :host github :repo "Wilfred/elisp-refs"
 ;;                    ;; Skip the autoloads phase because straight.el can't seem to get it right.
 ;;                    :build (:not autoloads)))
-
+;; Better help-menu
 (use-package helpful
   :straight t
   :bind
@@ -279,6 +279,15 @@
   ([remap describe-variable] . helpful-variable)
   ([remap describe-command] . helpful-command)
   ([remap describe-key] . helpful-key))
+
+;; Code Folding
+(add-hook 'prog-mode-hook 'hs-minor-mode)
+(define-key hs-minor-mode-map (kbd "C-c f a") 'hs-hide-all)
+(define-key hs-minor-mode-map (kbd "C-c f s") 'hs-show-all)
+(define-key hs-minor-mode-map (kbd "C-c f b") 'hs-hide-block)
+(define-key hs-minor-mode-map (kbd "C-c f o") 'hs-show-block)
+(define-key hs-minor-mode-map (kbd "C-c f l") 'hs-hide-level)
+(define-key hs-minor-mode-map (kbd "C-c f t") 'hs-toggle-hiding)
 
 ;; Markdown
 
@@ -582,7 +591,7 @@
      "/home/divya/notes/org/org-roam/ref/18_905_algebraic_topology_i.org"
      "/home/divya/notes/org/org-roam/projects/thesis_gender_mainstreaming_in_urban_governance_a_study_of_women_councillors_of_ajmer_division_in_rajasthan.org"
      "/home/divya/notes/org/org-roam/projects/bibliotheca_aeterna.org"
-     "/home/divya/notes/org/journal/20240805.org.gpg")))
+     "/home/divya/notes/org/journal/20240812.org.gpg")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

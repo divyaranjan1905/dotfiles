@@ -114,15 +114,6 @@
    '("0" . meow-digit-argument)
    '("/" . meow-keypad-describe-key)
    '("j" . dired-jump)
-   ;; '("P" . (lambda () (interactive) (dired "~/psychoanalysis")))
-   ;; '("p" . (lambda () (interactive) (dired "~/philosophy")))
-   ;; '("b" . (lambda () (interactive) (dired "~/books")))
-   ;; '("C" . (lambda () (interactive) (dired "~/cs")))
-   ;; '("e" . (lambda () (interactive) (dired "~/physics")))
-   ;; '("w" . (lambda () (interactive) (dired "~/writing")))
-   ;; '("s" . (lambda () (interactive) (dired "~/sociology")))
-   ;; '("M" . (lambda () (interactive) (dired "~/math")))
-   ;; '("l" . (lambda () (interactive) (dired "~/literature")))
    '("?" . meow-cheatsheet))
 
   (meow-normal-define-key
