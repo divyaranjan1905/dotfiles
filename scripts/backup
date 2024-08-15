@@ -17,3 +17,6 @@ yes | tar -cvzf '/mnt/LDisk-E/Albert Einstein/Books & Resources/Notes/latest/not
 
 # Encrypt it
 gpg --encrypt --recipient divya '/mnt/LDisk-E/Albert Einstein/Books & Resources/Notes/latest/notes-latest.gz'
+
+# Notify
+notify-send "Everything has been backed up"
