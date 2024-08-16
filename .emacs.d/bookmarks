@@ -3,6 +3,20 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (#1=
+(#("Abuse of Notation" 0 17 (bmkp-full-record #1#))
+ (filename . "   - no file -")
+ (location . "https://abuseofnotation.github.io/")
+ (handler . bmkp-jump-url-browse))
+#1=
+(#("life" 0 4 (bmkp-full-record #1#)) (buffer-name . "life")
+ (front-context-string . "bookmarks\n  drwx")
+ (rear-context-string . "96 Aug 14 15:40 ")
+ (front-context-region-string) (rear-context-region-string)
+ (visits . 0) (time . #2=(26301 15860 648204 434000)) (created . #2#)
+ (position . 798) (filename . "/home/divya/life/")
+ (dired-directory . "~/life/") (dired-marked) (dired-switches . "-al")
+ (dired-subdirs) (dired-hidden-dirs) (handler . bmkp-jump-dired))
+#1=
 (#("Classic Papers in CS" 0 20 (bmkp-full-record #1#))
  (buffer-name . "Classic Papers")
  (front-context-string . "stratchey-fundam")
@@ -41,7 +55,7 @@
  (front-context-string . "README.org\n  drw")
  (rear-context-string . "00 Aug  3 15:30 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 2) (time 26292 24157 944173 921000)
+ (visits . 6) (time 26303 601 563997 300000)
  (created 26286 21735 456683 504000) (position . 332)
  (filename . "/home/divya/projects/shades-of-lambda/")
  (dired-directory . "~/projects/shades-of-lambda/") (dired-marked)
@@ -103,7 +117,7 @@
  (front-context-string . "	block_singe: Bl")
  (rear-context-string . "g(short, long)]\n")
  (front-context-region-string) (rear-context-region-string)
- (visits . 18) (time 26300 13400 484000 46000)
+ (visits . 20) (time 26303 2952 917563 486000)
  (created 26274 33080 137752 248000) (position . 32122))
 #1=
 (#("big-src" 0 7 (bmkp-full-record #1#)) (buffer-name . "big-src")
@@ -333,7 +347,7 @@
  (front-context-string . "flake.lock\n  -rw")
  (rear-context-string . "84 Jun 16 12:48 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 9) (time 26300 8257 954157 290000)
+ (visits . 11) (time 26302 4630 282997 447000)
  (created 26234 11795 602700 370000) (position . 1234)
  (filename . "/home/divya/src/rust/rustlings/")
  (dired-directory . "~/src/rust/rustlings/") (dired-marked)
@@ -350,11 +364,11 @@
  (front-context-string . "Benjamin C. Pier")
  (rear-context-string . "22 Jun 21 14:08 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 0) (time . #2=(26229 35449 258142 133000)) (created . #2#)
- (position . 431)
- (filename . #3=
+ (visits . 1) (time 26303 1580 660685 768000)
+ (created 26229 35449 258142 133000) (position . 431)
+ (filename . #2=
 	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Theoretical/Benjamin C. Pierce/")
- (dired-directory . #3#) (dired-marked) (dired-switches . "-al")
+ (dired-directory . #2#) (dired-marked) (dired-switches . "-al")
  (dired-subdirs) (dired-hidden-dirs) (handler . bmkp-jump-dired))
 #1=
 (#("RustBelt" 0 8 (bmkp-full-record #1#))
@@ -527,7 +541,7 @@
  (front-context-string . "(Corr. Ed.) Appe")
  (rear-context-string . "10 May  9 06:44 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 2) (time 26238 48395 568283 860000)
+ (visits . 3) (time 26301 27289 620600 830000)
  (created 26212 32146 640073 736000) (position . 288)
  (filename . #2=
 	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Theoretical/Compiler Theory/")
@@ -782,7 +796,7 @@
  (front-context-string . "Alan Turing - An")
  (rear-context-string . "96 Feb  7 08:22 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 2) (time 26255 64757 400887 769000)
+ (visits . 4) (time 26301 27262 677202 6000)
  (created 26172 29072 932717 608000) (position . 315)
  (filename . #2=
 	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/History of Computer Science/Foundations of Artificial Intelligence/Alan Turing/")
@@ -2066,7 +2080,7 @@
  (front-context-string . "docs\n  -rwxrw-rw")
  (rear-context-string . "96 Jan  9 20:18 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 180) (time 26298 46327 811951 340000)
+ (visits . 182) (time 26301 40358 788146 908000)
  (created 26019 43822 533971 931000) (position . 504)
  (filename . #2=
 	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Sociology/Gender Mainstreaming/Megha/")
@@ -2253,7 +2267,7 @@
  (buffer-name . "Haskell") (front-context-string . "hutton-prog-hask")
  (rear-context-string . " 0 Dec 24 03:48 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 40) (time 26286 13231 639510 331000)
+ (visits . 42) (time 26302 7444 506148 563000)
  (created 25995 61164 904034 285000) (position . 975)
  (filename . "/home/divya/cs/Haskell/")
  (dired-directory . "~/cs/Haskell/") (dired-marked)
@@ -2394,7 +2408,7 @@
  (tags "dirs" "emacs" "dots") (buffer-name . "config")
  (front-context-string) (rear-context-string . "57 Nov 11 18:20 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 126) (time 26300 54864 902542 25000)
+ (visits . 128) (time 26303 1012 824618 880000)
  (created 25937 46480 550571 831000) (position . 1132)
  (filename . "/home/divya/.emacs.d/config/")
  (dired-directory . "~/.emacs.d/config/") (dired-marked)

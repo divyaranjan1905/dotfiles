@@ -10,7 +10,6 @@
 (setq native-comp-speed 3)
 
 ;;; Less warnings
-
 (setq warning-minimum-level :emergency)
 
 ;; Follow symlinks

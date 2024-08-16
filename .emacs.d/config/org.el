@@ -300,6 +300,7 @@
 (require 'org-tempo)
 (add-to-list 'org-structure-template-alist '("sh" . "src sh"))
 (add-to-list 'org-structure-template-alist '("c" . "src C"))
+(add-to-list 'org-structure-template-alist '("rs" . "src rust"))
 (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
 (add-to-list 'org-structure-template-alist '("sc" . "src scheme"))
 (add-to-list 'org-structure-template-alist '("py" . "src python"))
