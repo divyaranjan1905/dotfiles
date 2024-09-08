@@ -19,5 +19,3 @@
 				     "rtorrent"
 				     "stellarium"
 				     "telegram-desktop"))))
-				     
-
