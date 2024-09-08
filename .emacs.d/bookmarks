@@ -3,6 +3,201 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (#1=
+ (#("Godel on Husserl's phenomenology" 0 32 (bmkp-full-record #1#))
+  (filename
+   . "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Mathematics/Philosophy of Mathematics/(Oxford Handbooks in Philosophy) Shapiro S. (ed.) - The Oxford Handbook of Philosophy of Mathematics and Logic-Oxford University Press, USA (2005).pdf")
+  (buffer-name
+   . "(Oxford Handbooks in Philosophy) Shapiro S. (ed.) - The Oxford Handbook of Philosophy of Mathematics and Logic-Oxford University Press, USA (2005).pdf")
+  (visits . 1) (time 26331 35554 854663 342000)
+  (created 26331 17988 191238 765000) (position . 1) (page . 323)
+  (slice) (size . fit-width) (origin 0.0 . 0.5397517611539752)
+  (handler . pdf-view-bookmark-jump-handler))
+#1=
+(#("Mark Watson" 0 11 (bmkp-full-record #1#))
+ (filename . "   - no file -") (location . "https://markwatson.com/")
+ (handler . bmkp-jump-url-browse))
+#1=
+(#("Racket Wiki Resources " 0 22 (bmkp-full-record #1#))
+ (filename . "   - no file -")
+ (location . "https://github.com/racket/racket/wiki/Racket-resources")
+ (handler . bmkp-jump-url-browse))
+#1=
+(#("That is to say, in what consists the lure of love?" 0 50
+   (bmkp-full-record #1#))
+ (buffer-name
+  . "Lacan, Jacques_Žižek, Slavoj - Enjoy your symptom!_ Jacques Lacan in Hollywood and out_ with a new preface by the author-Taylor and Francis_Routledge (2008).epub")
+ (visits . 1) (time 26331 34939 33963 14000)
+ (created 26328 28362 865399 345000) (position . 77676)
+ (end-position . 79348)
+ (text
+  . "That is to say, in what consists the lure of love?\nWhen in love, I love somebody because of the objet a in him/her, because\nof what is “in him more than himself”—in short, the object of love cannot\ngive me what I demand of him since he doesn’t possess it, since it is an\nexcess in its very heart. What defines love is this basic discord or gap\n(elaborated by Lacan apropos of the relationship of Alcibiades to Socrates\nin Plato’s Symposion):40 the lover [erastes] seeks in the beloved [eromenos]\nwhat he lacks, but, as Lacan puts it, “what the one lacks is not what is\nhidden within the other”—the only thing left to the beloved is thus to\nproceed to a kind of exchange of places, to change from the object into the\nsubject of love, in short: to return love. Therein consists, according to\nLacan, love’s most sublime moment: in this inversion when the beloved\nobject endeavors to deliver himself from the impasse of his position, from\nthe impossibility of complying with the lover’s demand, by assuming\nhimself the position of the lover, by reaching his hand back to the lover\nand thus answering the lover’s lack/desire with his own lack. Love is based\nupon the illusion that this encounter of the two lacks can succeed and\nbeget a “new harmony.” Therein consists also the supreme sublimity of\nChrist’s gesture: what is this gesture if not a sign of God’s love for man? In\nreply to the believer’s love for Him, in reply to the hands that the believer\nstretches toward Him, God himself changes into a lover and reaches back\ntoward man—concealing thereby the abyss of the Otherness that no\nsacrifice could appease, i.e., with which no relationship of exchange is\npossible.41")
+ (handler . bmkp-jump-snippet))
+#1=
+(#("The Little Book of Rust Macros" 0 30 (bmkp-full-record #1#))
+ (filename . "   - no file -")
+ (location . "https://veykril.github.io/tlborm/")
+ (handler . bmkp-jump-url-browse))
+#1=
+(#("emacs-configure" 0 15 (bmkp-full-record #1#))
+ (buffer-name . "*eshell-1*") (visits . 3)
+ (time 26331 34934 818961 898000) (created 26323 62240 663084 229000)
+ (position . 19826) (end-position . 19961)
+ (text
+  . "./configure --with-sound=alsa --with-x-toolkit=gtk --with-imagemagick --with-tree-sitter --with-native-compilation=aot --with-xwidgets --with-pop")
+ (handler . bmkp-jump-snippet))
+#1=
+(#("Writing an OS in Rust" 0 21 (bmkp-full-record #1#))
+ (filename . "   - no file -") (location . "https://os.phil-opp.com/")
+ (handler . bmkp-jump-url-browse))
+#1=
+(#("VisuAlgo" 0 8 (bmkp-full-record #1#))
+ (filename . "   - no file -") (location . "https://visualgo.net/en")
+ (handler . bmkp-jump-url-browse))
+#1=
+(#("Dijkstra Archive" 0 16 (bmkp-full-record #1#))
+ (filename . "   - no file -")
+ (location . "https://www.cs.utexas.edu/~EWD/")
+ (handler . bmkp-jump-url-browse))
+#1=
+(#("DijkstraCry" 0 11 (bmkp-full-record #1#))
+ (filename . "   - no file -")
+ (location . "https://www.dijkstrascry.com/")
+ (handler . bmkp-jump-url-browse))
+#1=
+(#("Dijkstra, On the Interplay Between Mathematics and Programming" 0
+   62 (bmkp-full-record #1#))
+ (filename . "   - no file -")
+ (location
+  . "https://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD641.html")
+ (handler . bmkp-jump-url-browse))
+#1=
+(#("Common LISP Cookbook" 0 20 (bmkp-full-record #1#))
+ (filename . "   - no file -")
+ (location . "https://lispcookbook.github.io/cl-cookbook/")
+ (handler . bmkp-jump-url-browse))
+#1=
+(#("Programming Language Foundations in Agda" 0 40
+   (bmkp-full-record #1#))
+ (filename . "   - no file -")
+ (location . "https://plfa.inf.ed.ac.uk/")
+ (handler . bmkp-jump-url-browse))
+#1=
+(#("SICM (Web)" 0 10 (bmkp-full-record #1#))
+ (filename . "   - no file -")
+ (location . "https://tgvaughan.github.io/sicm/")
+ (handler . bmkp-jump-url-browse))
+#1=
+(#("scmutils" 0 8 (bmkp-full-record #1#))
+ (filename . "   - no file -")
+ (location
+  . "https://groups.csail.mit.edu/mac/users/gjs/6946/mechanics-system-installation/svm/installation.html")
+ (handler . bmkp-jump-url-browse))
+#1=
+(#("guile-scmutils" 0 14 (bmkp-full-record #1#))
+ (filename . "   - no file -")
+ (location . "https://www.cs.rochester.edu/~gildea/guile-scmutils/")
+ (handler . bmkp-jump-url-browse))
+#1=
+(#("Graph Theory" 0 12 (bmkp-full-record #1#))
+ (buffer-name . "Graph Theory")
+ (front-context-string . "Algebraic Graph ")
+ (rear-context-string . "16 Aug 23 04:28 ")
+ (front-context-region-string) (rear-context-region-string)
+ (visits . 1) (time 26325 35934 394833 165000)
+ (created 26316 34573 294966 754000) (position . 250)
+ (filename . #2=
+	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Mathematics/Combinatorics/Graph Theory/")
+ (dired-directory . #2#) (dired-marked) (dired-switches . "-al")
+ (dired-subdirs) (dired-hidden-dirs) (handler . bmkp-jump-dired))
+#1=
+(#("Contributing to Complex Projects" 0 32 (bmkp-full-record #1#))
+ (time 26318 59976 28769 703000) (visits . 0)
+ (filename . "   - no file -")
+ (location
+  . "https://mitchellh.com/writing/contributing-to-complex-projects")
+ (handler . bmkp-jump-url-browse))
+#1=
+(#("What I Wish I Knew When Learning Haskell" 0 40
+   (bmkp-full-record #1#))
+ (filename . "   - no file -")
+ (location . "https://gotchamana.github.io/wiwinwlh/")
+ (handler . bmkp-jump-url-browse))
+#1=
+(#("Haskell Papers" 0 14 (bmkp-full-record #1#))
+ (buffer-name . "Haskell Papers")
+ (front-context-string . "..\n* -rwxrw-rw- ")
+ (rear-context-string . "08 Aug 23 09:00 ")
+ (front-context-region-string) (rear-context-region-string)
+ (visits . 0) (time . #2=(26312 20385 877386 355000)) (created . #2#)
+ (position . 203)
+ (filename . #3=
+	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Haskell/Haskell Papers/")
+ (dired-directory . #3#)
+ (dired-marked
+  "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Haskell/Haskell Papers/Comprehending Monads -- Wadler P_ -- 2004 -- U_ of Glasgow -- 9a72614cb8da64f16164bbd58cfd950f -- Anna’s Archive.pdf"
+  "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Haskell/Haskell Papers/Monads for functional programming -- Wadler P_ -- 2001 -- U_ of Glasgow -- 5e4510950ed43fbb3a40d0308e254bdc -- Anna’s Archive.pdf"
+  "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Haskell/Haskell Papers/peyton-jones-awkward-squad.pdf"
+  "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Haskell/Haskell Papers/rena-intro-liquid-haskell.pdf")
+ (dired-switches . "-al") (dired-subdirs) (dired-hidden-dirs)
+ (handler . bmkp-jump-dired))
+#1=
+(#("History of Mathematics" 0 22 (bmkp-full-record #1#))
+ (buffer-name . "History of Mathematics")
+ (front-context-string . "Studies in Histo")
+ (rear-context-string . "96 Oct 20  2023 ")
+ (front-context-region-string) (rear-context-region-string)
+ (visits . 0) (time . #2=(26312 6187 572301 511000)) (created . #2#)
+ (position . 3378)
+ (filename . #3=
+	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Mathematics/History of Mathematics/")
+ (dired-directory . #3#) (dired-marked) (dired-switches . "-al")
+ (dired-subdirs) (dired-hidden-dirs) (handler . bmkp-jump-dired))
+#1=
+(#("Freud on phylogeny and neurosis" 0 31 (bmkp-full-record #1#))
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/Psychology/Psychoanalysis/The Freudian School/Delphi Collected Works of Sigmund Freud by Sigmund Freud (z-lib.org).epub.pdf")
+ (buffer-name
+  . "Delphi Collected Works of Sigmund Freud by Sigmund Freud (z-lib.org).epub.pdf")
+ (visits . 0) (time . #2=(26311 65432 590265 456000)) (created . #2#)
+ (position . 1) (page . 1965) (slice) (size . fit-width)
+ (origin 0.0 . 0.03580146460537022)
+ (handler . pdf-view-bookmark-jump-handler))
+#1=
+(#("Stanford Lectures Don Knuth" 0 27 (bmkp-full-record #1#))
+ (filename . "   - no file -")
+ (location
+  . "https://archive.org/search?query=creator%3A%22stanfordonline%22")
+ (handler . bmkp-jump-url-browse))
+#1=
+(#("The Racket Guide" 0 16 (bmkp-full-record #1#))
+ (filename . "   - no file -")
+ (location . "https://docs.racket-lang.org/guide/index.html")
+ (handler . bmkp-jump-url-browse))
+#1=
+(#("Rust's Standard Collections" 0 27 (bmkp-full-record #1#))
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Rust/Jim Blandy, Jason Orendorff, Leonora F . S. Tindall - Programming Rust_ Fast, Safe Systems Development-O'Reilly Media (2021).pdf")
+ (buffer-name
+  . "Jim Blandy, Jason Orendorff, Leonora F . S. Tindall - Programming Rust_ Fast, Safe Systems Development-O'Reilly Media (2021).pdf")
+ (visits . 0) (time . #2=(26306 55979 263943 714000)) (created . #2#)
+ (position . 1) (page . 414) (slice) (size . fit-width)
+ (origin 0.0 . 0.22698412698412698)
+ (handler . pdf-view-bookmark-jump-handler))
+#1=
+(#("Kernel Mailing Lists" 0 20 (bmkp-full-record #1#))
+ (filename . "   - no file -")
+ (location . "https://subspace.kernel.org/vger.kernel.org.html")
+ (handler . bmkp-jump-url-browse))
+#1=
+(#("S7RS" 0 4 (bmkp-full-record #1#)) (filename . "   - no file -")
+ (location . "https://s7rs.org") (handler . bmkp-jump-url-browse))
+#1=
+(#("Programming Languages: Application and Interpretation" 0 53
+   (bmkp-full-record #1#))
+ (time 26311 4699 517525 688000) (visits . 0)
+ (filename . "   - no file -") (location . "https://www.plai.org/")
+ (handler . bmkp-jump-url-browse))
+#1=
 (#("Abuse of Notation" 0 17 (bmkp-full-record #1#))
  (filename . "   - no file -")
  (location . "https://abuseofnotation.github.io/")
@@ -43,11 +238,11 @@
  (front-context-string . "Antoni Boucher._")
  (rear-context-string . "34 Jul 15 07:32 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 0) (time . #2=(26289 15938 172927 761000)) (created . #2#)
- (position . 241)
- (filename . #3=
+ (visits . 1) (time 26306 55779 985788 885000)
+ (created 26289 15938 172927 761000) (position . 241)
+ (filename . #2=
 	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Rust/")
- (dired-directory . #3#) (dired-marked) (dired-switches . "-al")
+ (dired-directory . #2#) (dired-marked) (dired-switches . "-al")
  (dired-subdirs) (dired-hidden-dirs) (handler . bmkp-jump-dired))
 #1=
 (#("shades-of-lambda" 0 16 (bmkp-full-record #1#))
@@ -55,7 +250,7 @@
  (front-context-string . "README.org\n  drw")
  (rear-context-string . "00 Aug  3 15:30 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 6) (time 26303 601 563997 300000)
+ (visits . 7) (time 26317 35738 576682 741000)
  (created 26286 21735 456683 504000) (position . 332)
  (filename . "/home/divya/projects/shades-of-lambda/")
  (dired-directory . "~/projects/shades-of-lambda/") (dired-marked)
@@ -64,8 +259,8 @@
 #1=
 (#("Tony Hoare: Publications" 0 24 (bmkp-full-record #1#))
  (filename . "   - no file -")
- (location .
-	   "https://www.cs.ox.ac.uk/people/publications/date/Tony.Hoare.html")
+ (location
+  . "https://www.cs.ox.ac.uk/people/publications/date/Tony.Hoare.html")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Proof Theory" 0 12 (bmkp-full-record #1#))
@@ -91,8 +286,8 @@
 #1=
 (#("Mathematics in Lean" 0 19 (bmkp-full-record #1#))
  (filename . "   - no file -")
- (location .
-	   "https://leanprover-community.github.io/mathematics_in_lean/index.html")
+ (location
+  . "https://leanprover-community.github.io/mathematics_in_lean/index.html")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Theorem Proving in Lean4" 0 24 (bmkp-full-record #1#))
@@ -111,19 +306,19 @@
  (handler . bmkp-jump-url-browse))
 #1=
 (#("iroha-last" 0 10 (bmkp-full-record #1#)) (end-position . 32122)
- (filename .
-	   "/mnt/LDisk-D/big-src/hyperledger/iroha/client_cli/src/main.rs")
+ (filename
+  . "/mnt/LDisk-D/big-src/hyperledger/iroha/client_cli/src/main.rs")
  (buffer-name . "main.rs")
  (front-context-string . "	block_singe: Bl")
  (rear-context-string . "g(short, long)]\n")
  (front-context-region-string) (rear-context-region-string)
- (visits . 20) (time 26303 2952 917563 486000)
+ (visits . 31) (time 26320 13733 265973 530000)
  (created 26274 33080 137752 248000) (position . 32122))
 #1=
 (#("big-src" 0 7 (bmkp-full-record #1#)) (buffer-name . "big-src")
  (front-context-string) (rear-context-string . "44 Jul 24 06:43 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 5) (time 26291 53959 321009 722000)
+ (visits . 22) (time 26325 57808 908368 579000)
  (created 26272 43169 37554 238000) (position . 216)
  (filename . #2="/mnt/LDisk-D/big-src/") (dired-directory . #2#)
  (dired-marked) (dired-switches . "-al") (dired-subdirs)
@@ -202,8 +397,8 @@
 #1=
 (#("wasm-bindgen guide" 0 18 (bmkp-full-record #1#))
  (filename . "   - no file -")
- (location .
-	   "https://rustwasm.github.io/docs/wasm-bindgen/introduction.html")
+ (location
+  . "https://rustwasm.github.io/docs/wasm-bindgen/introduction.html")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Introduction to the Forth Programming Language (1988)" 0 53
@@ -308,20 +503,18 @@
  (location . "https://www.redblobgames.com/")
  (handler . bmkp-jump-url-browse))
 #1=
-(#(
-   "Douglas R. Hofstadter - Gödel, Escher, Bach_ An Eternal Golden Braid-Basic Books (1999).pdf"
+(#("Douglas R. Hofstadter - Gödel, Escher, Bach_ An Eternal Golden Braid-Basic Books (1999).pdf"
    0 91 (bmkp-full-record #1#))
- (filename .
-	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Artificial Intelligence/Douglas R. Hofstadter - Gödel, Escher, Bach_ An Eternal Golden Braid-Basic Books (1999).pdf")
- (buffer-name .
-	      "Douglas R. Hofstadter - Gödel, Escher, Bach_ An Eternal Golden Braid-Basic Books (1999).pdf")
- (visits . 1) (time 26244 14018 505795 536000)
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Artificial Intelligence/Douglas R. Hofstadter - Gödel, Escher, Bach_ An Eternal Golden Braid-Basic Books (1999).pdf")
+ (buffer-name
+  . "Douglas R. Hofstadter - Gödel, Escher, Bach_ An Eternal Golden Braid-Basic Books (1999).pdf")
+ (visits . 2) (time 26325 57788 344555 763000)
  (created 26237 20577 522383 959000) (position . 1) (page . 1) (slice)
  (size . fit-page) (origin 0.0 . 0.0)
  (handler . pdf-view-bookmark-jump-handler))
 #1=
-(#(
-   "Richard P. Gabriel, The Structure of a Programming Language Revolution"
+(#("Richard P. Gabriel, The Structure of a Programming Language Revolution"
    0 70 (bmkp-full-record #1#))
  (filename . "   - no file -")
  (location . "https://www.dreamsongs.com/Files/Incommensurability.pdf")
@@ -339,15 +532,15 @@
 #1=
 (#("Stack and Heap (CS 107)" 0 23 (bmkp-full-record #1#))
  (filename . "   - no file -")
- (location .
-	   "https://web.stanford.edu/class/archive/cs/cs107/cs107.1244/lectures/10/Lecture10.pdf")
+ (location
+  . "https://web.stanford.edu/class/archive/cs/cs107/cs107.1244/lectures/10/Lecture10.pdf")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("rustlings" 0 9 (bmkp-full-record #1#)) (buffer-name . "rustlings")
  (front-context-string . "flake.lock\n  -rw")
  (rear-context-string . "84 Jun 16 12:48 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 11) (time 26302 4630 282997 447000)
+ (visits . 32) (time 26328 28010 11258 624000)
  (created 26234 11795 602700 370000) (position . 1234)
  (filename . "/home/divya/src/rust/rustlings/")
  (dired-directory . "~/src/rust/rustlings/") (dired-marked)
@@ -364,7 +557,7 @@
  (front-context-string . "Benjamin C. Pier")
  (rear-context-string . "22 Jun 21 14:08 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 1) (time 26303 1580 660685 768000)
+ (visits . 2) (time 26323 5091 864261 681000)
  (created 26229 35449 258142 133000) (position . 431)
  (filename . #2=
 	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Theoretical/Benjamin C. Pierce/")
@@ -380,8 +573,8 @@
 (#("Crash Course on Notation in Programming Language Theory" 0 55
    (bmkp-full-record #1#))
  (filename . "   - no file -")
- (location .
-	   "https://siek.blogspot.com/2012/07/crash-course-on-notation-in-programming.html")
+ (location
+  . "https://siek.blogspot.com/2012/07/crash-course-on-notation-in-programming.html")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Information Science" 0 19 (bmkp-full-record #1#))
@@ -426,10 +619,10 @@
  (front-context-region-string) (rear-context-region-string)
  (visits . 0) (time . #2=(26217 1873 970837 821000)) (created . #2#)
  (position . 449)
- (filename .
-	   "/home/divya/books/Computer Science and Programming/LISP/John McCarthy/")
- (dired-directory .
-		  "~/books/Computer Science and Programming/LISP/John McCarthy/")
+ (filename
+  . "/home/divya/books/Computer Science and Programming/LISP/John McCarthy/")
+ (dired-directory
+  . "~/books/Computer Science and Programming/LISP/John McCarthy/")
  (dired-marked) (dired-switches . "-al") (dired-subdirs)
  (dired-hidden-dirs) (handler . bmkp-jump-dired))
 #1=
@@ -439,10 +632,10 @@
  (front-context-region-string) (rear-context-region-string)
  (visits . 1) (time 26276 54009 220453 261000)
  (created 26217 642 380989 987000) (position . 435)
- (filename .
-	   "/home/divya/books/Computer Science and Programming/LISP/Scheme/")
- (dired-directory .
-		  "~/books/Computer Science and Programming/LISP/Scheme/")
+ (filename
+  . "/home/divya/books/Computer Science and Programming/LISP/Scheme/")
+ (dired-directory
+  . "~/books/Computer Science and Programming/LISP/Scheme/")
  (dired-marked) (dired-switches . "-al") (dired-subdirs)
  (dired-hidden-dirs) (handler . bmkp-jump-dired))
 #1=
@@ -452,8 +645,8 @@
 #1=
 (#("Computational Trinitarianism" 0 28 (bmkp-full-record #1#))
  (filename . "   - no file -")
- (location .
-	   "https://existentialtype.wordpress.com/2011/03/27/the-holy-trinity/")
+ (location
+  . "https://existentialtype.wordpress.com/2011/03/27/the-holy-trinity/")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Forsp: A Forth+Lisp Hybrid Lambda Calculus Language" 0 51
@@ -496,10 +689,10 @@
  (dired-subdirs) (dired-hidden-dirs) (handler . bmkp-jump-dired))
 #1=
 (#("Elements of Computing" 0 21 (bmkp-full-record #1#))
- (filename .
-	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Systems/Noam Nisan, Shimon Schocken - The Elements of Computing Systems _ Building a Modern Computer from First Principles-MIT Press Ltd (2021).pdf")
- (buffer-name .
-	      "Noam Nisan, Shimon Schocken - The Elements of Computing Systems _ Building a Modern Computer from First Principles-MIT Press Ltd (2021).pdf")
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Systems/Noam Nisan, Shimon Schocken - The Elements of Computing Systems _ Building a Modern Computer from First Principles-MIT Press Ltd (2021).pdf")
+ (buffer-name
+  . "Noam Nisan, Shimon Schocken - The Elements of Computing Systems _ Building a Modern Computer from First Principles-MIT Press Ltd (2021).pdf")
  (visits . 5) (time 26252 44812 704566 365000)
  (created 26215 25928 359366 10000) (position . 1) (page . 1) (slice)
  (size . fit-page) (origin 0.0 . 0.0)
@@ -527,12 +720,12 @@
  (front-context-string . "R. G. Dromey - H")
  (rear-context-string . "07 May 13 11:19 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 2) (time 26243 1488 534954 616000)
+ (visits . 8) (time 26323 8838 994361 675000)
  (created 26212 32149 255738 337000) (position . 1520)
- (filename .
-	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Theoretical/Data Structures & Algorithms/")
- (dired-directory .
-		  "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Theoretical/Data Structures & Algorithms/")
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Theoretical/Data Structures & Algorithms/")
+ (dired-directory
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Theoretical/Data Structures & Algorithms/")
  (dired-marked) (dired-switches . "-al") (dired-subdirs)
  (dired-hidden-dirs) (handler . bmkp-jump-dired))
 #1=
@@ -541,7 +734,7 @@
  (front-context-string . "(Corr. Ed.) Appe")
  (rear-context-string . "10 May  9 06:44 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 3) (time 26301 27289 620600 830000)
+ (visits . 5) (time 26323 8878 485037 357000)
  (created 26212 32146 640073 736000) (position . 288)
  (filename . #2=
 	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Theoretical/Compiler Theory/")
@@ -553,7 +746,7 @@
  (front-context-string . "Computational Ma")
  (rear-context-string . "92 Jan 19 12:37 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 1) (time 26213 1491 81813 220000)
+ (visits . 3) (time 26320 15410 633341 392000)
  (created 26212 32131 102780 220000) (position . 268)
  (filename . #2=
 	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Theoretical/Foundations of Computer Science/")
@@ -565,18 +758,18 @@
  (front-context-string . "(NATO ASI Series")
  (rear-context-string . "23 Dec 31 13:39 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 0) (time . #2=(26212 32127 350233 691000)) (created . #2#)
- (position . 161)
- (filename . #3=
+ (visits . 1) (time 26320 25435 155575 818000)
+ (created 26212 32127 350233 691000) (position . 161)
+ (filename . #2=
 	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Theoretical/Edsger Dijkstra/")
- (dired-directory . #3#) (dired-marked) (dired-switches . "-al")
+ (dired-directory . #2#) (dired-marked) (dired-switches . "-al")
  (dired-subdirs) (dired-hidden-dirs) (handler . bmkp-jump-dired))
 #1=
 (#("Forth" 0 5 (bmkp-full-record #1#)) (buffer-name . "Forth")
  (front-context-string . "Anderson, Anita_")
  (rear-context-string . "06 Jun  3 05:42 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 3) (time 26248 46048 430334 468000)
+ (visits . 4) (time 26306 42299 329341 947000)
  (created 26212 22885 90678 466000) (position . 263)
  (filename . #2=
 	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Stack-Based Programming/Forth/")
@@ -591,8 +784,8 @@
 #1=
 (#("Forth: Language that Writes Itself" 0 34 (bmkp-full-record #1#))
  (filename . "   - no file -")
- (location .
-	   "https://ratfactor.com/forth/the_programming_language_that_writes_itself.html")
+ (location
+  . "https://ratfactor.com/forth/the_programming_language_that_writes_itself.html")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("FOLDOC" 0 6 (bmkp-full-record #1#)) (filename . "   - no file -")
@@ -600,8 +793,8 @@
 #1=
 (#("A Philosopher of Small Things" 0 29 (bmkp-full-record #1#))
  (filename . "   - no file -")
- (location .
-	   "https://www.tabletmag.com/sections/arts-letters/articles/a-philosopher-of-small-things")
+ (location
+  . "https://www.tabletmag.com/sections/arts-letters/articles/a-philosopher-of-small-things")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Interneting is Hard" 0 19 (bmkp-full-record #1#))
@@ -611,8 +804,8 @@
 #1=
 (#("Publications of Jean Bergeret" 0 29 (bmkp-full-record #1#))
  (filename . "   - no file -")
- (location .
-	   "https://www.cairn-int.info/publications-of-Jean-Bergeret--10500.htm")
+ (location
+  . "https://www.cairn-int.info/publications-of-Jean-Bergeret--10500.htm")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Thorman's Review of Ethics of Real" 0 34 (bmkp-full-record #1#))
@@ -622,8 +815,8 @@
  (front-context-region-string) (rear-context-region-string)
  (visits . 0) (time . #2=(26197 33828 379323 312000)) (created . #2#)
  (position . 17030)
- (location .
-	   "https://www.journal-psychoanalysis.eu/articles/alenka-zupancic-the-empty-ethics-of-drive-review-of-the-ethics-of-the-real/")
+ (location
+  . "https://www.journal-psychoanalysis.eu/articles/alenka-zupancic-the-empty-ethics-of-drive-review-of-the-ethics-of-the-real/")
  (handler . bmkp-jump-eww))
 #1=
 (#("Sending Emacs Patches" 0 21 (bmkp-full-record #1#))
@@ -666,8 +859,8 @@
 #1=
 (#("Don Quixote Bibliography 1900-1997" 0 34 (bmkp-full-record #1#))
  (filename . "   - no file -")
- (location .
-	   "https://cervantes.library.tamu.edu/V2/CPI/Bibliografias/biblquijot.htm")
+ (location
+  . "https://cervantes.library.tamu.edu/V2/CPI/Bibliografias/biblquijot.htm")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("The Cervantes Project" 0 21 (bmkp-full-record #1#))
@@ -677,8 +870,8 @@
 #1=
 (#("Picturing Don Quixote" 0 21 (bmkp-full-record #1#))
  (filename . "   - no file -")
- (location .
-	   "https://publicdomainreview.org/essay/picturing-don-quixote/")
+ (location
+  . "https://publicdomainreview.org/essay/picturing-don-quixote/")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Scheme Requests for Implementation" 0 34 (bmkp-full-record #1#))
@@ -698,10 +891,10 @@
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Brouwer on formalism and intuitionism" 0 37 (bmkp-full-record #1#))
- (filename .
-	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Mathematics/Philosophy of Mathematics/Paul Benacerraf, Hilary Putnam - Philosophy of Mathematics_ Selected Readings-Cambridge University Press (1984).pdf")
- (buffer-name .
-	      "Paul Benacerraf, Hilary Putnam - Philosophy of Mathematics_ Selected Readings-Cambridge University Press (1984).pdf")
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Mathematics/Philosophy of Mathematics/Paul Benacerraf, Hilary Putnam - Philosophy of Mathematics_ Selected Readings-Cambridge University Press (1984).pdf")
+ (buffer-name
+  . "Paul Benacerraf, Hilary Putnam - Philosophy of Mathematics_ Selected Readings-Cambridge University Press (1984).pdf")
  (visits . 1) (time 26185 1760 953013 714000)
  (created 26185 495 965815 566000) (position . 1) (page . 87) (slice)
  (size . fit-width) (origin 0.0 . 0.2138888888888889)
@@ -712,14 +905,14 @@
  (rear-context-string) (front-context-region-string)
  (rear-context-region-string) (visits . 0)
  (time . #2=(26182 989 58123 102000)) (created . #2#) (position . 1)
- (location .
-	   "https://sarabander.github.io/sicp/html/index.xhtml#pagetop")
+ (location
+  . "https://sarabander.github.io/sicp/html/index.xhtml#pagetop")
  (handler . bmkp-jump-eww))
 #1=
 (#("Showcase TeX Typography" 0 23 (bmkp-full-record #1#))
  (filename . "   - no file -")
- (location .
-	   "https://tex.stackexchange.com/questions/1319/showcase-of-beautiful-typography-done-in-tex-friends")
+ (location
+  . "https://tex.stackexchange.com/questions/1319/showcase-of-beautiful-typography-done-in-tex-friends")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Kevin C. Klement" 0 16 (bmkp-full-record #1#))
@@ -764,7 +957,7 @@
  (front-context-string . "(Center for the ")
  (rear-context-string . "39 Mar 26 12:57 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 2) (time 26182 15387 507133 457000)
+ (visits . 4) (time 26325 58431 482737 461000)
  (created 26176 31060 228780 290000) (position . 158)
  (filename . #2=
 	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Theoretical/Donald Knuth/")
@@ -773,8 +966,8 @@
 #1=
 (#("CSS Only Theme Switcher" 0 23 (bmkp-full-record #1#))
  (filename . "   - no file -")
- (location .
-	   "https://alexandersandberg.github.io/theme-switcher/unlimited.html")
+ (location
+  . "https://alexandersandberg.github.io/theme-switcher/unlimited.html")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Mike Mai" 0 8 (bmkp-full-record #1#))
@@ -820,8 +1013,8 @@
 #1=
 (#("Dore Illustrations Don Quixote" 0 30 (bmkp-full-record #1#))
  (filename . "   - no file -")
- (location .
-	   "https://www.doreillustrations.com/donquixote/dore-quixote.html")
+ (location
+  . "https://www.doreillustrations.com/donquixote/dore-quixote.html")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Pollen" 0 6 (bmkp-full-record #1#)) (filename . "   - no file -")
@@ -845,8 +1038,8 @@
  (handler . bmkp-jump-desktop))
 #1=
 (#("Freud against gender essentialism" 0 33 (bmkp-full-record #1#))
- (filename .
-	   "~/psychoanalysis/The Freudian School/Standard Edition of The Complete Works of Freud/XXII-1932-1936.pdf")
+ (filename
+  . "~/psychoanalysis/The Freudian School/Standard Edition of The Complete Works of Freud/XXII-1932-1936.pdf")
  (buffer-name . "XXII-1932-1936.pdf") (visits . 3)
  (time 26159 44793 769821 7000) (created 26147 46528 984674 465000)
  (position . 1) (page . 119) (slice) (size . fit-page)
@@ -869,15 +1062,15 @@
 #1=
 (#("GHC Illustrated" 0 15 (bmkp-full-record #1#))
  (filename . "   - no file -")
- (location .
-	   "https://takenobu-hs.github.io/downloads/haskell_ghc_illustrated.pdf")
+ (location
+  . "https://takenobu-hs.github.io/downloads/haskell_ghc_illustrated.pdf")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Newcomers to GHC" 0 16 (bmkp-full-record #1#))
  (time 26180 10836 782676 391000) (visits . 0)
  (filename . "   - no file -")
- (location .
-	   "https://gitlab.haskell.org/ghc/ghc/-/wikis/contributing#newcomers-to-ghc")
+ (location
+  . "https://gitlab.haskell.org/ghc/ghc/-/wikis/contributing#newcomers-to-ghc")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Introduction to Proofs, Spring 2022" 0 35 (bmkp-full-record #1#))
@@ -893,8 +1086,8 @@
 (#("GHC Hacking" 0 11 (bmkp-full-record #1#))
  (time 26180 10843 966855 90000) (visits . 1)
  (filename . "   - no file -")
- (location .
-	   "https://cptwunderlich.github.io/2021/04/21/ghc-hacking-first-steps.html")
+ (location
+  . "https://cptwunderlich.github.io/2021/04/21/ghc-hacking-first-steps.html")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("GHC Contributor Cheatsheet" 0 26 (bmkp-full-record #1#))
@@ -907,17 +1100,17 @@
  (buffer-name . "arthur_schopenhauer.org")
  (front-context-string . "The first rule, then, for a good style i")
  (rear-context-string . "rature (1891)\n** Excerpts\n#+begin_quote\n")
- (front-context-region-string .
-			      "he is writing simply for writing's sake.")
+ (front-context-region-string
+  . "he is writing simply for writing's sake.")
  (rear-context-region-string . "\n#+end_quote\n\n") (visits . 6)
  (time 26144 17271 994391 943000) (created 26142 14706 928841 697000)
  (position . 151) (end-position . 1644))
 #1=
 (#("Benjamin on self-alienation in cinema" 0 37 (bmkp-full-record #1#))
- (filename .
-	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Cultural Theory/Walter Benjamin/Walter Benjamin - The Work of Art in the Age of Its Technological Reproducibility, and Other Writings on Media  -Belknap Press of Harvard University Press (2008).pdf")
- (buffer-name .
-	      "Walter Benjamin - The Work of Art in the Age of Its Technological Reproducibility, and Other Writings on Media  -Belknap Press of Harvard University Press (2008).pdf")
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/Cultural Theory/Walter Benjamin/Walter Benjamin - The Work of Art in the Age of Its Technological Reproducibility, and Other Writings on Media  -Belknap Press of Harvard University Press (2008).pdf")
+ (buffer-name
+  . "Walter Benjamin - The Work of Art in the Age of Its Technological Reproducibility, and Other Writings on Media  -Belknap Press of Harvard University Press (2008).pdf")
  (visits . 2) (time 26192 64167 832566 522000)
  (created 26141 25578 761176 190000) (position . 1) (page . 45)
  (slice) (size . fit-width) (origin 0.0 . 0.4694167852062589)
@@ -941,8 +1134,8 @@
 #1=
 (#("Zizek, Book Archive" 0 19 (bmkp-full-record #1#))
  (filename . "   - no file -")
- (location .
-	   "https://archive.org/details/slavoj-zizek-pdf-archive/Freedom%20%282023%29%20by%20Slavoj%20Z%CC%8Ciz%CC%8Cek/")
+ (location
+  . "https://archive.org/details/slavoj-zizek-pdf-archive/Freedom%20%282023%29%20by%20Slavoj%20Z%CC%8Ciz%CC%8Cek/")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Fernando Pessoa" 0 15 (bmkp-full-record #1#))
@@ -968,13 +1161,12 @@
  (position . 5049) (filename . "   - no file -")
  (desktop-file . "~/.emacs.desktop") (handler . bmkp-jump-desktop))
 #1=
-(#(
-   "Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf"
+(#("Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf"
    0 76 (bmkp-full-record #1#))
- (filename .
-	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Haskell/Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf")
- (buffer-name .
-	      "Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf")
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Haskell/Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf")
+ (buffer-name
+  . "Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf")
  (visits . 2) (time 26148 49223 40233 270000)
  (created 26128 63008 862084 756000) (position . 1) (page . 1) (slice)
  (size . fit-page) (origin 0.0 . 0.0)
@@ -1014,30 +1206,30 @@
 #1=
 (#("Weyl's conclusions on formalism and intuitionism" 0 48
    (bmkp-full-record #1#))
- (filename .
-	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Mathematics/Philosophy of Mathematics/Hermann Weyl/Weyl H. - Philosophy of mathematics and natural science-PUP (1949).pdf")
- (buffer-name .
-	      "Weyl H. - Philosophy of mathematics and natural science-PUP (1949).pdf")
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Mathematics/Philosophy of Mathematics/Hermann Weyl/Weyl H. - Philosophy of mathematics and natural science-PUP (1949).pdf")
+ (buffer-name
+  . "Weyl H. - Philosophy of mathematics and natural science-PUP (1949).pdf")
  (visits . 2) (time 26127 26397 46269 233000)
  (created 26119 1437 179507 153000) (position . 1) (page . 70) (slice)
  (size . 3.9683377308707124) (origin 0.0 . 0.01867572156196944)
  (handler . pdf-view-bookmark-jump-handler))
 #1=
 (#("Weyl's summary on Hilbert's formalism" 0 37 (bmkp-full-record #1#))
- (filename .
-	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Mathematics/Philosophy of Mathematics/Hermann Weyl/Weyl H. - Philosophy of mathematics and natural science-PUP (1949).pdf")
- (buffer-name .
-	      "Weyl H. - Philosophy of mathematics and natural science-PUP (1949).pdf")
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Mathematics/Philosophy of Mathematics/Hermann Weyl/Weyl H. - Philosophy of mathematics and natural science-PUP (1949).pdf")
+ (buffer-name
+  . "Weyl H. - Philosophy of mathematics and natural science-PUP (1949).pdf")
  (visits . 2) (time 26185 1949 704157 910000)
  (created 26119 963 563294 32000) (position . 1) (page . 69) (slice)
  (size . 3.17467018469657) (origin 0.0 . 0.10503978779840847)
  (handler . pdf-view-bookmark-jump-handler))
 #1=
 (#("Weyl on Hilbert's metamathematics" 0 33 (bmkp-full-record #1#))
- (filename .
-	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Mathematics/Philosophy of Mathematics/Hermann Weyl/Weyl H. - Philosophy of mathematics and natural science-PUP (1949).pdf")
- (buffer-name .
-	      "Weyl H. - Philosophy of mathematics and natural science-PUP (1949).pdf")
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Mathematics/Philosophy of Mathematics/Hermann Weyl/Weyl H. - Philosophy of mathematics and natural science-PUP (1949).pdf")
+ (buffer-name
+  . "Weyl H. - Philosophy of mathematics and natural science-PUP (1949).pdf")
  (visits . 1) (time 26185 1935 152161 987000)
  (created 26119 356 643030 178000) (position . 1) (page . 67) (slice)
  (size . fit-width) (origin 0.0 . 0.04482173174872666)
@@ -1045,10 +1237,10 @@
 #1=
 (#("Weyl on gaps in intuitionism and formalism" 0 42
    (bmkp-full-record #1#))
- (filename .
-	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Mathematics/Philosophy of Mathematics/Hermann Weyl/Weyl H. - Philosophy of mathematics and natural science-PUP (1949).pdf")
- (buffer-name .
-	      "Weyl H. - Philosophy of mathematics and natural science-PUP (1949).pdf")
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Mathematics/Philosophy of Mathematics/Hermann Weyl/Weyl H. - Philosophy of mathematics and natural science-PUP (1949).pdf")
+ (buffer-name
+  . "Weyl H. - Philosophy of mathematics and natural science-PUP (1949).pdf")
  (visits . 0) (time . #2=(26118 65054 162465 648000)) (created . #2#)
  (position . 1) (page . 63) (slice) (size . fit-width)
  (origin 0.0 . 0.02240325865580448)
@@ -1073,40 +1265,40 @@
  (dired-subdirs) (dired-hidden-dirs) (handler . bmkp-jump-dired))
 #1=
 (#("Kerberg's Disjunction between Sexes" 0 35 (bmkp-full-record #1#))
- (filename .
-	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Psychology/Psychoanalysis/Object Relations and Contemporary Psychoanalysis/Otto Kernberg/Love Relations Normality and Pathology by Otto Kernberg (z-lib.org).pdf")
- (buffer-name .
-	      "Love Relations Normality and Pathology by Otto Kernberg (z-lib.org).pdf")
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/Psychology/Psychoanalysis/Object Relations and Contemporary Psychoanalysis/Otto Kernberg/Love Relations Normality and Pathology by Otto Kernberg (z-lib.org).pdf")
+ (buffer-name
+  . "Love Relations Normality and Pathology by Otto Kernberg (z-lib.org).pdf")
  (visits . 0) (time . #2=(26118 18850 3965 662000)) (created . #2#)
  (position . 1) (page . 106) (slice) (size . fit-width)
  (origin 0.0 . 0.0) (handler . pdf-view-bookmark-jump-handler))
 #1=
 (#("Why Currying?" 0 13 (bmkp-full-record #1#))
- (filename .
-	   "~/notes/org/org-roam/ref/Graham Hutton, Programming in Haskell.org")
+ (filename
+  . "~/notes/org/org-roam/ref/Graham Hutton, Programming in Haskell.org")
  (buffer-name . "Graham Hutton, Programming in Haskell.org")
  (front-context-string . "Curried functions are more flexible than")
  (rear-context-string . "\n#+end_src\n\n*** Why is Currying Useful?\n")
- (front-context-region-string .
-			      "*partially applying* a curried function.")
- (rear-context-region-string .
-			     "\n\n*** Currying Conventions\n+ The arrow ~")
+ (front-context-region-string
+  . "*partially applying* a curried function.")
+ (rear-context-region-string
+  . "\n\n*** Currying Conventions\n+ The arrow ~")
  (visits . 7) (time 26135 21672 785424 768000)
  (created 26115 29102 616590 648000) (position . 2632)
  (end-position . 2780))
 #1=
 (#("Point of SRS" 0 12 (bmkp-full-record #1#))
  (last-modified 26115 29385 737646 416000)
- (annotation .
-	     "This is the whole idea of SRS, whenever you really forget why the hell you're doing SRS, comeback to this.")
+ (annotation
+  . "This is the whole idea of SRS, whenever you really forget why the hell you're doing SRS, comeback to this.")
  (filename . "~/notes/org/org-roam/main/spaced_repetition.org")
  (buffer-name . "spaced_repetition.org")
  (front-context-string . "What this perspective focuses on is the ")
  (rear-context-string . "contrast to fact-oriented perspective). ")
- (front-context-region-string .
-			      " (remember how facts weave) the /where/.")
- (rear-context-region-string .
-			     "\n\n** Conclusion: An Analogy with Writing")
+ (front-context-region-string
+  . " (remember how facts weave) the /where/.")
+ (rear-context-region-string
+  . "\n\n** Conclusion: An Analogy with Writing")
  (visits . 10) (time 26138 10605 374001 789000)
  (created 26115 28757 252026 943000) (position . 8747)
  (end-position . 9210))
@@ -1137,8 +1329,8 @@
  (tags "cs" "history" "links" "papers" "classics"
        "programmig languages")
  (filename . "   - no file -")
- (location .
-	   "https://www.cis.upenn.edu/~bcpierce/courses/670Fall04/GreatWorksInPL.shtml")
+ (location
+  . "https://www.cis.upenn.edu/~bcpierce/courses/670Fall04/GreatWorksInPL.shtml")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("OCaml" 0 5 (bmkp-full-record #1#)) (buffer-name . "OCaml<2>")
@@ -1165,8 +1357,8 @@
 #1=
 (#("Don Quixote (EPUB)" 0 18 (bmkp-full-record #1#))
  (time 26127 41550 577604 370000) (visits . 3)
- (filename .
-	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Literature/Cervantes/Miguel de Cervantes Saavedra, Edith Grossman (Translator), Harold Bloom (Introduction) - Don Quixote-Harper Perennial (2005).epub")
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/Literature/Cervantes/Miguel de Cervantes Saavedra, Edith Grossman (Translator), Harold Bloom (Introduction) - Don Quixote-Harper Perennial (2005).epub")
  (index . 9) (position . 52788) (handler . nov-bookmark-jump-handler))
 #1=
 (#("Learning Latin Textbook" 0 23 (bmkp-full-record #1#))
@@ -1202,17 +1394,16 @@
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Lichtenberg on reading" 0 22 (bmkp-full-record #1#))
- (filename .
-	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Philosophy/(Suny Series in Contemporary Continental Philosophy) Lichtenberg, Georg Christoph_ Tester, Steven - Georg Christoph Lichtenberg_ Philosophical Writings-State University of New York Press (2012).pdf")
- (buffer-name .
-	      "(Suny Series in Contemporary Continental Philosophy) Lichtenberg, Georg Christoph_ Tester, Steven - Georg Christoph Lichtenberg_ Philosophical Writings-State University of New York Press (2012).pdf")
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/Philosophy/(Suny Series in Contemporary Continental Philosophy) Lichtenberg, Georg Christoph_ Tester, Steven - Georg Christoph Lichtenberg_ Philosophical Writings-State University of New York Press (2012).pdf")
+ (buffer-name
+  . "(Suny Series in Contemporary Continental Philosophy) Lichtenberg, Georg Christoph_ Tester, Steven - Georg Christoph Lichtenberg_ Philosophical Writings-State University of New York Press (2012).pdf")
  (visits . 1) (time 26111 10770 662607 671000)
  (created 26111 10495 551043 846000) (position . 1) (page . 107)
  (slice) (size . fit-width) (origin 0.0 . 0.3585185185185185)
  (handler . pdf-view-bookmark-jump-handler))
 #1=
-(#(
-   "5 ways to actually use the notes you take | Dann Berg: blog, newsletter, shop, and more"
+(#("5 ways to actually use the notes you take | Dann Berg: blog, newsletter, shop, and more"
    0 87 (bmkp-full-record #1#))
  (tags "note-taking" "blog" "links") (buffer-name . "*eww*")
  (buffer-name . "*eww*") (front-context-string . "Home About Start")
@@ -1224,10 +1415,10 @@
  (handler . bmkp-jump-eww))
 #1=
 (#("Lyotard on education" 0 20 (bmkp-full-record #1#))
- (filename .
-	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Philosophy/(Theory and History of Literature) Jean-Francois Lyotard - Postmodern Condition The Postmodern Condition_ A Report on Knowledge-University of Minnesota Press (1984).pdf")
- (buffer-name .
-	      "(Theory and History of Literature) Jean-Francois Lyotard - Postmodern Condition The Postmodern Condition_ A Report on Knowledge-University of Minnesota Press (1984).pdf")
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/Philosophy/(Theory and History of Literature) Jean-Francois Lyotard - Postmodern Condition The Postmodern Condition_ A Report on Knowledge-University of Minnesota Press (1984).pdf")
+ (buffer-name
+  . "(Theory and History of Literature) Jean-Francois Lyotard - Postmodern Condition The Postmodern Condition_ A Report on Knowledge-University of Minnesota Press (1984).pdf")
  (visits . 2) (time 26112 20309 359601 801000)
  (created 26111 9330 638622 803000) (position . 1) (page . 79) (slice)
  (size . fit-width) (origin 0.0 . 0.20576271186440678)
@@ -1251,8 +1442,8 @@
 #1=
 (#("Let's Lisp like it's 1959" 0 25 (bmkp-full-record #1#))
  (tags "papers" "links" "cs" "lisp") (filename . "   - no file -")
- (location .
-	   "https://mirror.linux.org.au/pub/linux.conf.au/2019/a1/Thursday/Lets_LISP_like_its_1959.webm")
+ (location
+  . "https://mirror.linux.org.au/pub/linux.conf.au/2019/a1/Thursday/Lets_LISP_like_its_1959.webm")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Don Quixote" 0 11 (bmkp-full-record #1#))
@@ -1262,8 +1453,8 @@
  (front-context-region-string) (rear-context-region-string)
  (visits . 5) (time 26159 59623 422368 178000)
  (created 26108 21272 677516 1000) (position . 652)
- (location .
-	   "https://www.gutenberg.org/cache/epub/996/pg996-images.html")
+ (location
+  . "https://www.gutenberg.org/cache/epub/996/pg996-images.html")
  (handler . bmkp-jump-eww))
 #1=
 (#("Vladmir Lenin" 0 13 (bmkp-full-record #1#))
@@ -1283,7 +1474,7 @@
  (front-context-string . "(Bloomsbury Reve")
  (rear-context-string . "71 Jan 13  2021 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 6) (time 26291 29185 717509 629000)
+ (visits . 9) (time 26333 27360 427233 421000)
  (created 26108 19998 500314 536000) (position . 161)
  (filename . #2=
 	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Politics/Political Philosophy/Communism/Marxism/Slavoj Zizek/")
@@ -1332,8 +1523,8 @@
  (tags "turing" "blog" "links" "cs" "history" "ai"
        "computational neuroscience" "neural network")
  (filename . "   - no file -")
- (location .
-	   "https://thechipletter.substack.com/p/neural-networks-and-the-origins-of")
+ (location
+  . "https://thechipletter.substack.com/p/neural-networks-and-the-origins-of")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Leibniz Translations" 0 20 (bmkp-full-record #1#))
@@ -1354,7 +1545,7 @@
  (front-context-string . "Foundations of A")
  (rear-context-string . "50 Mar 18 10:10 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 2) (time 26172 29068 724532 223000)
+ (visits . 3) (time 26320 17592 914860 124000)
  (created 26104 4989 288743 252000) (position . 255)
  (filename . #2=
 	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/History of Computer Science/")
@@ -1366,8 +1557,8 @@
  (tags "history" "computational neuroscience" "ai" "logic" "article"
        "links")
  (filename . "   - no file -")
- (location .
-	   "https://nautil.us/the-man-who-tried-to-redeem-the-world-with-logic-235253/")
+ (location
+  . "https://nautil.us/the-man-who-tried-to-redeem-the-world-with-logic-235253/")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("CS251: Great Ideas in Theoretical CS" 0 36 (bmkp-full-record #1#))
@@ -1383,15 +1574,15 @@
 (#("History of Spaced Repetition" 0 28 (bmkp-full-record #1#))
  (tags "psychology" "cognitive science" "history" "spaced repetition")
  (filename . "   - no file -")
- (location .
-	   "https://supermemo.guru/wiki/History_of_spaced_repetition")
+ (location
+  . "https://supermemo.guru/wiki/History_of_spaced_repetition")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Benjamin on Dostoevsky's Idiot" 0 30 (bmkp-full-record #1#))
- (filename .
-	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Cultural Theory/Walter Benjamin/Selected Writings, 1913-1940 [ed. Jennings et al] (4 vols.)/Vol. 1_ 1913-1926/Benjamin, Walter - Selected Writings, Vol. 1_ 1913-1926 (Harvard, 1996).pdf")
- (buffer-name .
-	      "Benjamin, Walter - Selected Writings, Vol. 1_ 1913-1926 (Harvard, 1996).pdf")
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/Cultural Theory/Walter Benjamin/Selected Writings, 1913-1940 [ed. Jennings et al] (4 vols.)/Vol. 1_ 1913-1926/Benjamin, Walter - Selected Writings, Vol. 1_ 1913-1926 (Harvard, 1996).pdf")
+ (buffer-name
+  . "Benjamin, Walter - Selected Writings, Vol. 1_ 1913-1926 (Harvard, 1996).pdf")
  (visits . 1) (time 26104 2711 239588 895000)
  (created 26102 38143 235717 661000) (position . 1) (page . 87)
  (slice) (size . fit-height) (origin 0.0 . 0.0)
@@ -1405,10 +1596,10 @@
  (handler . bmkp-jump-url-browse))
 #1=
 (#("SPJ on research" 0 15 (bmkp-full-record #1#))
- (filename .
-	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Hacking/Peter Seibel - Coders at Work_ Reflections on the Craft of Programming-Apress (2009).pdf")
- (buffer-name .
-	      "Peter Seibel - Coders at Work_ Reflections on the Craft of Programming-Apress (2009).pdf")
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Hacking/Peter Seibel - Coders at Work_ Reflections on the Craft of Programming-Apress (2009).pdf")
+ (buffer-name
+  . "Peter Seibel - Coders at Work_ Reflections on the Craft of Programming-Apress (2009).pdf")
  (visits . 3) (time 26206 31436 979273 429000)
  (created 26097 32428 900986 807000) (position . 1) (page . 265)
  (slice) (size . fit-width) (origin 0.0 . 0.0)
@@ -1533,10 +1724,10 @@
  (created 26086 59425 498042 87000) (position . 113))
 #1=
 (#("Brouwer's Constructivism by Weyl" 0 32 (bmkp-full-record #1#))
- (filename .
-	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Mathematics/Philosophy of Mathematics/Hermann Weyl/Weyl H. - Philosophy of mathematics and natural science-PUP (1949).pdf")
- (buffer-name .
-	      "Weyl H. - Philosophy of mathematics and natural science-PUP (1949).pdf")
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Mathematics/Philosophy of Mathematics/Hermann Weyl/Weyl H. - Philosophy of mathematics and natural science-PUP (1949).pdf")
+ (buffer-name
+  . "Weyl H. - Philosophy of mathematics and natural science-PUP (1949).pdf")
  (visits . 4) (time 26185 1926 992629 47000)
  (created 26082 6938 991639 739000) (position . 1) (page . 59) (slice)
  (size . fit-width) (origin 0.0 . 0.0074702886247877765)
@@ -1545,8 +1736,8 @@
 (#("Complete Abstractions" 0 21 (bmkp-full-record #1#))
  (tags "functional progamming" "books" "math" "cs" "links")
  (filename . "   - no file -")
- (location .
-	   "https://gustavus.edu/academics/departments/mathematics-computer-science-and-statistics/max/concrete-abstractions.html")
+ (location
+  . "https://gustavus.edu/academics/departments/mathematics-computer-science-and-statistics/max/concrete-abstractions.html")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Lisp Journey" 0 12 (bmkp-full-record #1#))
@@ -1647,39 +1838,38 @@
  (location . "https://www.lacan.com/zizphilosophy1.htm")
  (handler . bmkp-jump-url-browse))
 #1=
-(#(
-   "Dioguardi, E. (2021). Lacans Sinthome; or, the Point of Psychoanalysis"
+(#("Dioguardi, E. (2021). Lacans Sinthome; or, the Point of Psychoanalysis"
    0 71 (bmkp-full-record #1#))
  (time 26134 4159 957645 953000) (visits . 0)
  (tags "article" "sinthome" "lacan" "psychoanalysis")
  (filename . "   - no file -")
- (location .
-	   "https://www.journal-psychoanalysis.eu/articles/lacans-sinthome-or-the-point-of-psychoanalysis/")
+ (location
+  . "https://www.journal-psychoanalysis.eu/articles/lacans-sinthome-or-the-point-of-psychoanalysis/")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("17th Century Maths" 0 18 (bmkp-full-record #1#))
  (tags "links" "classics" "history" "math" "books")
- (time 26075 14886 519957 15000) (visits . 1)
+ (time 26312 5081 153425 893000) (visits . 2)
  (filename . "   - no file -")
  (location . "http://www.17centurymaths.com/")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Branches of math during Fermat" 0 30 (bmkp-full-record #1#))
  (last-modified 26073 61584 704259 60000)
- (annotation .
-	     "Annotation for bookmark `Branches of math during Fermat':\n\n\nThis shows the ways mathematics was divided and pursued during the time of Fermat, and thus comparing his way of going about it with the rest.")
- (filename .
-	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Mathematics/History of Mathematics/Biographical/Michael_Sean_Mahoney_The_Mathematical_Career_of_Pierre_de_Fermat.pdf")
- (buffer-name .
-	      "Michael_Sean_Mahoney_The_Mathematical_Career_of_Pierre_de_Fermat.pdf")
+ (annotation
+  . "Annotation for bookmark `Branches of math during Fermat':\n\n\nThis shows the ways mathematics was divided and pursued during the time of Fermat, and thus comparing his way of going about it with the rest.")
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Mathematics/History of Mathematics/Biographical/Michael_Sean_Mahoney_The_Mathematical_Career_of_Pierre_de_Fermat.pdf")
+ (buffer-name
+  . "Michael_Sean_Mahoney_The_Mathematical_Career_of_Pierre_de_Fermat.pdf")
  (visits . 4) (time 26185 2704 849691 523000)
  (created 26073 21339 833661 255000) (position . 1) (page . 24)
  (slice) (size . fit-width) (origin 0.0 . 0.28085106382978725)
  (handler . pdf-view-bookmark-jump-handler))
 #1=
 (#("singular simplices" 0 18 (bmkp-full-record #1#))
- (filename .
-	   "~/notes/org/org-roam/ref/18_905_algebraic_topology_i.org")
+ (filename
+  . "~/notes/org/org-roam/ref/18_905_algebraic_topology_i.org")
  (buffer-name . "18_905_algebraic_topology_i.org")
  (front-context-string . "linear combinati")
  (rear-context-string . "ich in turn are ")
@@ -1689,8 +1879,8 @@
 #1=
 (#("Marx's Historiography with Economic and Sociological aspects" 0 60
    (bmkp-full-record #1#))
- (filename .
-	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/History/Eric Hobsbawm/Eric Hobsbawm - On History-The New Press (1998).pdf")
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/History/Eric Hobsbawm/Eric Hobsbawm - On History-The New Press (1998).pdf")
  (buffer-name . "Eric Hobsbawm - On History-The New Press (1998).pdf")
  (visits . 13) (time 26115 27457 705373 297000)
  (created 26071 46415 290708 627000) (position . 1) (page . 167)
@@ -1730,8 +1920,8 @@
 #1=
 (#("Emacs Calc Refcard" 0 18 (bmkp-full-record #1#))
  (end-position . 1) (time 26051 7118 683576 264000) (visits . 0)
- (filename .
-	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Emacs/calccard.pdf")
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Emacs/calccard.pdf")
  (position . 1) (created 26051 7114 962447 844000))
 #1=
 (#("Foundations of Artificial Intelligence" 0 38
@@ -1753,7 +1943,7 @@
  (buffer-name . "Theory of Programming Languages")
  (front-context-string) (rear-context-string . "96 Jan 27 05:04 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 3) (time 26229 35646 378697 559000)
+ (visits . 8) (time 26324 30447 978978 705000)
  (created 26049 3494 941854 246000) (position . 220)
  (filename . #2=
 	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Theoretical/Theory of Programming Languages/")
@@ -1766,7 +1956,7 @@
  (front-context-string . "[Undergraduate T")
  (rear-context-string . "60 Jan 22 18:51 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 1) (time 26236 32456 402629 499000)
+ (visits . 2) (time 26325 35257 783941 912000)
  (created 26049 3491 648164 999000) (position . 1647)
  (filename . #2=
 	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Theoretical/Theory of Computation/")
@@ -1877,8 +2067,8 @@
 #1=
 (#("Artificial Intelligence" 0 23 (bmkp-full-record #1#))
  (tags "ai" "dirs" "cs")
- (buffer-name .
-	      "Artificial Intelligence<Computer Science and Programming>")
+ (buffer-name
+  . "Artificial Intelligence<Computer Science and Programming>")
  (front-context-string . "Machine Learning")
  (rear-context-string . "96 Feb  5 16:31 ")
  (front-context-region-string) (rear-context-region-string)
@@ -1899,8 +2089,8 @@
  (time 26205 4080 120878 481000) (visits . 0)
  (tags "functional programming" "lisp" "cs" "blog" "links")
  (filename . "   - no file -")
- (location .
-	   "https://michaelnielsen.org/ddi/lisp-as-the-maxwells-equations-of-software/")
+ (location
+  . "https://michaelnielsen.org/ddi/lisp-as-the-maxwells-equations-of-software/")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Alan Kay - Interview" 0 20 (bmkp-full-record #1#))
@@ -1913,8 +2103,8 @@
 (#("Maxwell's Equations of Software - Examined" 0 42
    (bmkp-full-record #1#))
  (tags "links" "blog" "cs") (filename . "   - no file -")
- (location .
-	   "http://www.righto.com/2008/07/maxwells-equations-of-software-examined.html")
+ (location
+  . "http://www.righto.com/2008/07/maxwells-equations-of-software-examined.html")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Norvig, Lis.py" 0 14 (bmkp-full-record #1#))
@@ -1944,8 +2134,8 @@
  (time 26043 18677 187769 166000) (visits . 0)
  (tags "books" "cs" "functional programming" "links" "lisp")
  (filename . "   - no file -")
- (location .
-	   "https://spritely.institute/static/papers/scheme-primer.html")
+ (location
+  . "https://spritely.institute/static/papers/scheme-primer.html")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Foundations of Statistical Natural Language Processing" 0 54
@@ -1962,7 +2152,7 @@
  (front-context-string . "(Algebra, Logic,")
  (rear-context-string . "00 Jan 18 15:06 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 7) (time 26242 64248 751012 391000)
+ (visits . 8) (time 26312 18972 366017 437000)
  (created 26030 43206 789349 182000) (position . 156)
  (filename . #2=
 	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Functional Programming/")
@@ -2027,8 +2217,7 @@
  (location . "https://courses.cs.cornell.edu/cs3110/2021sp/textbook/")
  (handler . bmkp-jump-url-browse))
 #1=
-(#(
-   "Cornell CS 6117: Category Theory for Computer Scientists (Fall 2022)"
+(#("Cornell CS 6117: Category Theory for Computer Scientists (Fall 2022)"
    0 68 (bmkp-full-record #1#))
  (tags "courses" "category theory" "functional programming" "cs")
  (filename . "   - no file -")
@@ -2046,8 +2235,8 @@
  (time 26043 19217 276184 176000) (visits . 1)
  (tags "cs" "papers" "functional programming")
  (filename . "   - no file -")
- (location .
-	   "https://wiki.haskell.org/Research_papers/Functional_pearls")
+ (location
+  . "https://wiki.haskell.org/Research_papers/Functional_pearls")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("A Gentle Introduction to Haskell" 0 32 (bmkp-full-record #1#))
@@ -2060,8 +2249,8 @@
 (#("nextgen torrent" 0 15 (bmkp-full-record #1#))
  (time 26055 39718 227219 449000) (visits . 3)
  (tags "torrent" "ipfs" "links") (filename . "   - no file -")
- (location .
-	   "https://ipfs.io/ipfs/bafybeibdvh7bkqlh72witdvtk2dndlndj67zgws5rutawenton4qckjjfy/index.html")
+ (location
+  . "https://ipfs.io/ipfs/bafybeibdvh7bkqlh72witdvtk2dndlndj67zgws5rutawenton4qckjjfy/index.html")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Latex" 0 5 (bmkp-full-record #1#)) (tags "cs" "latex")
@@ -2080,7 +2269,7 @@
  (front-context-string . "docs\n  -rwxrw-rw")
  (rear-context-string . "96 Jan  9 20:18 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 182) (time 26301 40358 788146 908000)
+ (visits . 197) (time 26330 46368 505843 590000)
  (created 26019 43822 533971 931000) (position . 504)
  (filename . #2=
 	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Sociology/Gender Mainstreaming/Megha/")
@@ -2111,30 +2300,30 @@
  (tags "functional programming" "courses" "haskell" "cs")
  (time 26127 42249 521723 326000) (visits . 7)
  (filename . "   - no file -")
- (location .
-	   "https://www.youtube.com/playlist?list=PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3")
+ (location
+  . "https://www.youtube.com/playlist?list=PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Emacs Refcard" 0 13 (bmkp-full-record #1#))
  (tags "cs" "emacs" "refcard") (time 26051 7089 773774 482000)
  (visits . 2)
- (filename .
-	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Emacs/refcard.pdf")
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Emacs/refcard.pdf")
  (position . 1) (created 26005 30138 634706 169000))
 #1=
 (#("Emacs Manual" 0 12 (bmkp-full-record #1#))
  (tags "manual" "cs" "emacs") (time 26188 61047 661808 576000)
  (visits . 13)
- (filename .
-	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Emacs/emacs-manual.pdf")
+ (filename
+  . "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Emacs/emacs-manual.pdf")
  (position . 1) (created 26005 30120 842864 893000))
 #1=
 (#("SICP" 0 4 (bmkp-full-record #1#))
  (tags "lisp" "cs" "books" "classics" "functional programming"
        "scheme" "MIT")
  (end-position . 1) (time 26290 5433 925146 429000) (visits . 10)
- (filename .
-	   "~/cs/LISP/(MIT Electrical Engineering and Computer Science) Harold Abelson, Gerald Jay Sussman - Structure and Interpretation of Computer Programs - 2nd Edition-The MIT Press (1996).pdf")
+ (filename
+  . "~/cs/LISP/(MIT Electrical Engineering and Computer Science) Harold Abelson, Gerald Jay Sussman - Structure and Interpretation of Computer Programs - 2nd Edition-The MIT Press (1996).pdf")
  (position . 1) (created 26005 29811 562989 949000))
 #1=
 (#("John McCarthy" 0 13 (bmkp-full-record #1#))
@@ -2159,25 +2348,24 @@
  (front-context-region-string) (rear-context-region-string)
  (visits . 1) (time 26239 9689 231385 738000)
  (created 26003 3992 75040 486000) (position . 219)
- (filename .
-	   "/home/divya/math/Geometrical Anatomy Of Theoretical Physics/")
- (dired-directory .
-		  "~/math/Geometrical Anatomy Of Theoretical Physics/")
+ (filename
+  . "/home/divya/math/Geometrical Anatomy Of Theoretical Physics/")
+ (dired-directory
+  . "~/math/Geometrical Anatomy Of Theoretical Physics/")
  (dired-marked) (dired-switches . "-al") (dired-subdirs)
  (dired-hidden-dirs) (handler . bmkp-jump-dired))
 #1=
-(#("LISP" 0 4 (bmkp-full-record #1#)) (tags "dirs" "cs" "lisp")
- (buffer-name . "LISP<Computer Science and Programming>")
+(#("LISP" 0 4 (bmkp-full-record #1#)) (annotation)
+ (tags "dirs" "cs" "lisp") (buffer-name . "LISP")
  (front-context-string . "(MIT Electrical ")
- (rear-context-string . "76 Oct 11  2022 ")
+ (rear-context-string . "29 Mar  6 05:18 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 11) (time 26300 17394 294175 921000)
- (created 26002 46451 937210 29000) (position . 108)
- (filename .
-	   "/home/divya/books/Computer Science and Programming/LISP/")
- (dired-directory . "~/books/Computer Science and Programming/LISP/")
- (dired-marked) (dired-switches . "-al") (dired-subdirs)
- (dired-hidden-dirs) (handler . bmkp-jump-dired))
+ (visits . 2) (time 26325 31084 959771 82000)
+ (created 26318 43340 529634 151000) (position . 138)
+ (filename . #2=
+	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/LISP/")
+ (dired-directory . #2#) (dired-marked) (dired-switches . "-al")
+ (dired-subdirs) (dired-hidden-dirs) (handler . bmkp-jump-dired))
 #1=
 (#("Immersive Linear Algebra" 0 24 (bmkp-full-record #1#))
  (time 26104 4095 913188 420000) (visits . 1)
@@ -2202,8 +2390,8 @@
  (front-context-region-string) (rear-context-region-string)
  (visits . 5) (time 26143 42946 203590 251000)
  (created 26000 19098 125767 1000) (position . 737)
- (filename .
-	   "/home/divya/cs/Donald Knuth/Art of Computer Programming/")
+ (filename
+  . "/home/divya/cs/Donald Knuth/Art of Computer Programming/")
  (dired-directory . "~/cs/Donald Knuth/Art of Computer Programming/")
  (dired-marked) (dired-switches . "-al") (dired-subdirs)
  (dired-hidden-dirs) (handler . bmkp-jump-dired))
@@ -2218,8 +2406,8 @@
 (#("CEC Lectures on Urdu Script" 0 27 (bmkp-full-record #1#))
  (time 26127 42248 928010 214000) (visits . 4)
  (tags "urdu" "links" "courses") (filename . "   - no file -")
- (location .
-	   "https://www.youtube.com/playlist?list=PLNsppmbLKJ8Ixf9BWwUc1ZzCt34VMn37v")
+ (location
+  . "https://www.youtube.com/playlist?list=PLNsppmbLKJ8Ixf9BWwUc1ZzCt34VMn37v")
  (handler . bmkp-jump-url-browse))
 #1=
 (#("Haskell Wiki" 0 12 (bmkp-full-record #1#))
@@ -2267,7 +2455,7 @@
  (buffer-name . "Haskell") (front-context-string . "hutton-prog-hask")
  (rear-context-string . " 0 Dec 24 03:48 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 42) (time 26302 7444 506148 563000)
+ (visits . 56) (time 26325 33303 401837 121000)
  (created 25995 61164 904034 285000) (position . 975)
  (filename . "/home/divya/cs/Haskell/")
  (dired-directory . "~/cs/Haskell/") (dired-marked)
@@ -2309,7 +2497,7 @@
  (buffer-name . "src") (front-context-string . "aur-picom-animat")
  (rear-context-string . "96 Nov  3 05:21 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 2) (time 26291 54947 545229 183000)
+ (visits . 4) (time 26316 39636 863716 2000)
  (created 25979 35432 501223 95000) (position . 248)
  (filename . "/home/divya/src/") (dired-directory . "~/src/")
  (dired-marked) (dired-switches . "-al") (dired-subdirs)
@@ -2330,20 +2518,20 @@
 (#("org-capture-last-stored-marker" 0 30 (bmkp-full-record #1#))
  (annotation) (tags) (filename . "~/notes/org/org-agenda/tasks.org")
  (buffer-name . "tasks.org")
- (front-context-string . "** TODO Stabilit")
- (rear-context-string . "D: <2024-07-22>\n")
+ (front-context-string . "** TODO Recurse ")
+ (rear-context-string . "Mon 16:00 .+2w>\n")
  (front-context-region-string) (rear-context-region-string)
- (visits . 0) (time . #2=(26277 7020 891712 137000)) (created . #2#)
- (position . 19112))
+ (visits . 0) (time . #2=(26307 34983 648333 878000)) (created . #2#)
+ (position . 21571))
 #1=
 (#("org-refile-last-stored" 0 22 (bmkp-full-record #1#)) (annotation)
  (tags) (filename . "~/notes/org/org-agenda/tasks.org")
  (buffer-name . "tasks.org")
- (front-context-string . "** TODO Stabilit")
- (rear-context-string . "D: <2024-07-22>\n")
+ (front-context-string . "** TODO Recurse ")
+ (rear-context-string . "Mon 16:00 .+2w>\n")
  (front-context-region-string) (rear-context-region-string)
- (visits . 0) (time . #2=(26277 7020 888617 652000)) (created . #2#)
- (position . 19112))
+ (visits . 0) (time . #2=(26307 34983 644468 760000)) (created . #2#)
+ (position . 21571))
 #1=
 (#("Symptoms" 0 8 (bmkp-full-record #1#))
  (time 25995 60699 743521 992000) (visits . 0)
@@ -2408,7 +2596,7 @@
  (tags "dirs" "emacs" "dots") (buffer-name . "config")
  (front-context-string) (rear-context-string . "57 Nov 11 18:20 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 128) (time 26303 1012 824618 880000)
+ (visits . 134) (time 26330 51254 876579 923000)
  (created 25937 46480 550571 831000) (position . 1132)
  (filename . "/home/divya/.emacs.d/config/")
  (dired-directory . "~/.emacs.d/config/") (dired-marked)
@@ -2416,12 +2604,13 @@
  (handler . bmkp-jump-dired))
 #1=
 (#("org-capture-last-stored" 0 23 (bmkp-full-record #1#)) (annotation)
- (tags) (filename . "~/notes/org/org-roam/main/erlang.org")
- (buffer-name . "erlang.org") (front-context-string)
- (rear-context-string . "#+TITLE: Erlang\n")
+ (tags) (filename . "~/notes/org/org-roam/main/richard_eisenberg.org")
+ (buffer-name . "richard_eisenberg.org")
+ (front-context-string . "A [[id:9d6dd6c6-")
+ (rear-context-string . "chard Eisenberg\n")
  (front-context-region-string) (rear-context-region-string)
- (visits . 0) (time . #2=(26297 57719 85381 73000)) (created . #2#)
- (position . 84))
+ (visits . 0) (time . #2=(26330 54547 61041 777000)) (created . #2#)
+ (position . 95))
 #1=
 (#("Sourcehut Dots" 0 14 (bmkp-full-record #1#))
  (time 25935 44218 9881 262000) (visits . 0) (tags "links" "dots")
@@ -2443,10 +2632,10 @@
  (front-context-region-string) (rear-context-region-string)
  (visits . 0) (time . #2=(25932 38301 443128 197000)) (created . #2#)
  (position . 7331)
- (filename .
-	   "/home/divya/psychoanalysis/Object Relations and Contemporary Psychoanalysis/")
- (dired-directory .
-		  "~/psychoanalysis/Object Relations and Contemporary Psychoanalysis/")
+ (filename
+  . "/home/divya/psychoanalysis/Object Relations and Contemporary Psychoanalysis/")
+ (dired-directory
+  . "~/psychoanalysis/Object Relations and Contemporary Psychoanalysis/")
  (dired-marked) (dired-switches . "-al") (dired-subdirs)
  (dired-hidden-dirs) (handler . bmkp-jump-dired))
 #1=
@@ -2455,7 +2644,7 @@
  (front-context-string . "Edward Glover\n  ")
  (rear-context-string . "96 Nov  7 14:57 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 5) (time 26237 23527 966785 745000)
+ (visits . 6) (time 26311 64471 168568 980000)
  (created 25932 38143 7011 387000) (position . 1753)
  (filename . "/home/divya/psychoanalysis/The Freudian School/")
  (dired-directory . "~/psychoanalysis/The Freudian School/")
@@ -2496,16 +2685,21 @@
  (rear-context-string . " 0 Oct 16 02:13 ") (position . 1001)
  (last-modified 25905 23207 245791 357000))
 #1=
-(#("Lacanian Psychoanalysis" 0 23 (bmkp-full-record #1#))
- (end-position . 13622) (time 26291 29347 261940 485000) (visits . 18)
+(#("Lacanian Psychoanalysis" 0 23 (bmkp-full-record #1#)) (annotation)
  (tags "psychoanalysis" "dirs")
- (filename . "~/psychoanalysis/Lacanian Psychoanalysis/")
- (front-context-string . "Slavoj Zizek\n  -")
- (rear-context-string . "76 Oct 19 14:24 ") (position . 13622)
- (last-modified 25905 23173 101585 594000))
+ (buffer-name . "Lacanian Psychoanalysis")
+ (front-context-string . "Shoshana Felman ")
+ (rear-context-string . "81 Jun  5  2023 ")
+ (front-context-region-string) (rear-context-region-string)
+ (visits . 0) (time . #2=(26315 57830 173762 954000)) (created . #2#)
+ (position . 13647)
+ (filename . #3=
+	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Psychology/Psychoanalysis/Lacanian Psychoanalysis/")
+ (dired-directory . #3#) (dired-marked) (dired-switches . "-al")
+ (dired-subdirs) (dired-hidden-dirs) (handler . bmkp-jump-dired))
 #1=
 (#("Anki Org" 0 8 (bmkp-full-record #1#))
- (time 26234 11332 781003 850000) (visits . 11) (tags "org")
+ (time 26327 4040 373838 46000) (visits . 14) (tags "org")
  (filename . "~/notes/org/anki.org")
  (front-context-string . "** 12:08        ")
  (rear-context-string . "\n*** Back\nshape\n") (position . 972)

@@ -119,14 +119,14 @@
 ;;; LSP Support in Emacs
 (require 'eglot)
 
-;; Extending Eglot
-(use-package eglot-x
-  :straight (eglot-x
-	     :type git
-	     :host github
-	     :repo "nemethf/eglot-x"
-	     :files ("*.el"))
-  :init (eglot-x-setup))
+;; ;; Extending Eglot
+;; (use-package eglot-x
+;;   :straight (eglot-x
+;; 	     :type git
+;; 	     :host github
+;; 	     :repo "nemethf/eglot-x"
+;; 	     :files ("*.el"))
+;;   :init (eglot-x-setup))
 
 
 ;;; ElDoc Boxes
@@ -205,7 +205,7 @@
 (use-package forth-mode
   :straight t)
 
-;;; Scheme
+;;; Scheme Dialects
 (use-package geiser
   :straight t)
 
@@ -223,15 +223,27 @@
 
 ;;; Racket
 (use-package racket-mode
-  :straight t)
+  :straight t
+  :hook ((racket-mode . racket-xp-mode)))
+
+;; A linter for racket. Already must be installed using `raco pkg install review`
+;; (flycheck-define-checker racket-review
+;;   "check racket source code using racket-review"
+;;   :command ("raco" "review" source)
+;;   :error-patterns
+;;   ((error line-start (file-name) ":" line ":" column ":error:" (message) line-end)
+;;    (warning line-start (file-name) ":" line ":" column ":warning:" (message) line-end))
+;;   :modes racket-mode)
+
+;; (add-to-list 'flycheck-checkers 'racket-review)
 
 ;;; Pollen
 (use-package pollen-mode
   :straight t)
 
-;;; Geiser Racket
-(use-package geiser-racket
-  :straight t)
+;; ;;; Geiser Racket
+;; (use-package geiser-racket
+;;   :straight t)
 
 ;;; For Lisps in general
 (use-package paredit
@@ -241,34 +253,58 @@
 	 (scheme-mode . paredit-mode)
 	 (emacs-lisp-mode . paredit-mode)))
 
-;;; SLIME For Superior Lisp Editing
+;;; For semantic highlighting in Lisps
+(use-package paren-face
+  :straight t
+  :init (global-paren-face-mode))
+
+;;; SLIME For Superior Common Lisp Editing
 (use-package slime
   :straight t
   :hook (slime-repl-mode . paredit-mode)
   :config
   (setq inferior-lisp-program "sbcl"))
 
+;;; For colorful paranthesis
+(use-package rainbow-delimiters
+  :straight t
+  :hook ((lisp-mode . rainbow-delimiters-mode)
+	 (racket-mode . rainbow-delimiters-mode)
+	 (scheme-mode . rainbow-delimiters-mode)
+	 (emacs-lisp-mode . rainbow-delimiters-mode)))
+
+;; For scheme completion
+(use-package scheme-complete
+  :straight t
+  :bind (:map scheme-mode-map ("C-/" . scheme-smart-complete)) )
+
+(autoload 'scheme-get-current-symbol-info "scheme-complete" nil t)
+(add-hook 'scheme-mode-hook
+  (lambda ()
+    (make-local-variable 'eldoc-documentation-function)
+    (setq eldoc-documentation-function 'scheme-get-current-symbol-info)
+    (eldoc-mode)))
 
 ;;; Lean4
-(use-package lean4-mode
-  :straight (lean4-mode
-	     :type git
-	     :host github
-	     :repo "leanprover/lean4-mode"
-	     :files ("*.el" "data"))
-  ;; to defer loading the package until required
-  :commands (lean4-mode))
+;; (use-package lean4-mode
+;;   :straight (lean4-mode
+;; 	     :type git
+;; 	     :host github
+;; 	     :repo "leanprover/lean4-mode"
+;; 	     :files ("*.el" "data"))
+;;   ;; to defer loading the package until required
+;;   :commands (lean4-mode))
 
 ;;; Emacs Lisp
 
 ;; (add-hook 'emacs-lisp-mode-hook #'flycheck-mode)
 
-;; (use-package elisp-refs
-;;   :demand t
-;;   :straight
-;;   (elisp-refs :type git :host github :repo "Wilfred/elisp-refs"
-;;                    ;; Skip the autoloads phase because straight.el can't seem to get it right.
-;;                    :build (:not autoloads)))
+(use-package elisp-refs
+  :demand t
+  :straight
+  (elisp-refs :type git :host github :repo "Wilfred/elisp-refs"
+                   ;; Skip the autoloads phase because straight.el can't seem to get it right.
+                   :build (:not autoloads)))
 ;; Better help-menu
 (use-package helpful
   :straight t
@@ -280,6 +316,7 @@
   ([remap describe-key] . helpful-key))
 
 ;; Code Folding
+(require 'hideshow)
 (add-hook 'prog-mode-hook 'hs-minor-mode)
 (define-key hs-minor-mode-map (kbd "C-c f a") 'hs-hide-all)
 (define-key hs-minor-mode-map (kbd "C-c f s") 'hs-show-all)
@@ -362,7 +399,7 @@
 
 (define-key project-prefix-map (kbd "b") 'consult-project-buffer)
 
-;; Magit :  The best git management there is!
+;;; Magit :  The best git management there is!
 
 (use-package magit
   :straight t
@@ -371,6 +408,12 @@
   :commands (magit-status magit-get-current-branch)
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+
+;; Forges for git
+
+(use-package forge
+  :straight t
+  :after magit)
 
 ;;; Code Completion
 ;; Autocomplete
@@ -385,13 +428,13 @@
   :straight t
   :hook (prog-mode . corfu-mode)
   :custom
-  (corfu-auto t)          ;; Enable auto completion
+  (corfu-auto t) ;; Enable auto completion
   ;; (corfu-separator ?_) ;; Set to orderless separator, if not using space
   :bind
   ;; Another key binding can be used, such as S-SPC.
   (:map corfu-map ("M-SPC" . corfu-insert-separator))
   :init
-  ;(global-corfu-mode)
+					;(global-corfu-mode)
   )
 
 ;; using corfu in terminal
@@ -554,7 +597,8 @@
 
 (define-key global-map (kbd "C-c i") 'crux-find-user-init-file)
 
-
+;; Authentication sources
+(setq auth-sources '("~/.authinfo.gpg"))
 
 
 (provide 'init)
@@ -564,33 +608,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
- '(gameoflife-screensaver-mode t)
- '(org-agenda-files
-   '("/home/divya/notes/org/org-agenda/tasks.org"
-     "/home/divya/notes/org/org-agenda/habits.org"
-     "/home/divya/notes/org/org-roam/projects/on_hermeneutic_temptation.org"
-     "/home/divya/notes/org/org-roam/ref/kaggle_introduction_to_machine_learning.org"
-     "/home/divya/notes/org/org-roam/ref/kaggle_intro_to_deep_learning.org"
-     "/home/divya/notes/org/org-roam/main/category_theory.org"
-     "/home/divya/notes/org/org-roam/main/kaggle.org"
-     "/home/divya/notes/org/org-roam/main/foundations_of_machine_learning.org"
-     "/home/divya/notes/org/org-roam/main/intuitionism.org"
-     "/home/divya/notes/org/org-roam/main/computer_vision.org"
-     "/home/divya/notes/org/org-roam/projects/org_mobile.org"
-     "/home/divya/notes/org/org-roam/projects/digit_recognizer.org"
-     "/home/divya/notes/org/org-roam/projects/biblio_rogue.org"
-     "/home/divya/notes/org/org-roam/projects/vesuvius_challenge.org"
-     "/home/divya/notes/org/org-roam/projects/retracing_freud_s_oeuvre.org"
-     "/home/divya/notes/org/org-roam/projects/bibliophile_el.org"
-     "/home/divya/notes/org/org-roam/ref/in_search_of_lost_time.org"
-     "/home/divya/notes/org/org-roam/ref/stanford_231n.org"
-     "/home/divya/notes/org/org-roam/projects/reader_el.org"
-     "/home/divya/notes/org/org-roam/main/mathematical_logic.org"
-     "/home/divya/notes/org/org-roam/ref/18_905_algebraic_topology_i.org"
-     "/home/divya/notes/org/org-roam/projects/thesis_gender_mainstreaming_in_urban_governance_a_study_of_women_councillors_of_ajmer_division_in_rajasthan.org"
-     "/home/divya/notes/org/org-roam/projects/bibliotheca_aeterna.org"
-     "/home/divya/notes/org/journal/20240812.org.gpg")))
+ '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

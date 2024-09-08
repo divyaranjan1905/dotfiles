@@ -110,7 +110,10 @@ if [ -d "$HOME/Applications" ] ;
 then PATH="$HOME/Applications:$PATH"
 fi
 
+if [ -d "/home/divya/.ghcup/bin" ] ;
+then PATH="/home/divya/.ghcup/bin:$PATH"
+fi
+
 if [ -d "/home/divya/.local/share/gem/ruby/3.0.0/bin" ];
 then PATH="/home/divya/.local/share/gem/ruby/3.0.0/bin:$PATH"
 fi
-

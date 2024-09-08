@@ -3,7 +3,7 @@
 ;; AucTeX Mostly from https://gist.github.com/karthink/7d89df35ee9b7ac0c93d0177b862dadb
 
 ;;; Code:
-(use-package latex 
+(use-package latex
   :straight auctex
   :hook ((LaTeX-mode . prettify-symbols-mode))
   :bind (:map LaTeX-mode-map
@@ -23,7 +23,7 @@
 					  calc-prefer-frac t
 					  calc-angle-mode rad)))))
 	  (t (let ((l (thing-at-point 'line)))
-	       (end-of-line 1) (kill-line 0) 
+	       (end-of-line 1) (kill-line 0)
 	       (insert (calc-eval `(,l
 				    calc-language latex
 				    calc-prefer-frac t
@@ -33,8 +33,8 @@
 ;; (use-package auto-complete-auctex
 ;;   :straight t)
 
-(use-package auctex-latexmk
-  :straight t)
+;; (use-package auctex-latexmk
+;;   :straight t)
 
 ;; (add-hook 'LaTeX-mode-hook
 ;;   (defun preview-larger-previews ()
@@ -109,7 +109,7 @@
 	  (cdlatex-tab)
 	(yas-next-field-or-maybe-expand)))))
 
-;; Array/tabular input with org-tables and cdlatex 
+;; Array/tabular input with org-tables and cdlatex
 (use-package org
   :after cdlatex
   :bind (:map orgtbl-mode-map
@@ -164,7 +164,7 @@
       (align-regexp (region-beginning) (region-end) "\\([:space:]*\\)& ")
       (orgtbl-mode -1)
       (advice-remove 'orgtbl-ctrl-c-ctrl-c #'lazytab-orgtbl-replace)))
-  
+
   (defun lazytab-orgtbl-to-amsmath (table params)
     (orgtbl-to-generic
      table

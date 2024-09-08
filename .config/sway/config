@@ -202,7 +202,7 @@ bindsym $mod+r mode "resize"
 
 input "type:keyboard" {
       xkb_layout us
-      xkb_options caps:swapescape
+      # xkb_options caps:swapescape
 }
 #
 # Status Bar:

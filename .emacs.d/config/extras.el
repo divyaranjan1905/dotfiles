@@ -133,7 +133,7 @@ and ending with the extension of the requested TYPE."
 (defun totd ()
   (interactive)
   (with-output-to-temp-buffer "*Tip of the day*"
-    (let* ((commands (loop for s being the symbols
+    (let* ((commands (cl-loop for s being the symbols
                            when (commandp s) collect s))
            (command (nth (random (length commands)) commands)))
       (princ
@@ -189,6 +189,10 @@ and ending with the extension of the requested TYPE."
     :body "You do not have a head."))
 
 (run-with-timer 0 (* 60 60) 'divya/moments)
+
+;; To explore bugs in GNU projects
+(use-package debbugs
+  :straight t)
 
 
 (provide 'extras)
