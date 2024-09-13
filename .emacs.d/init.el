@@ -280,10 +280,10 @@
 
 (autoload 'scheme-get-current-symbol-info "scheme-complete" nil t)
 (add-hook 'scheme-mode-hook
-  (lambda ()
-    (make-local-variable 'eldoc-documentation-function)
-    (setq eldoc-documentation-function 'scheme-get-current-symbol-info)
-    (eldoc-mode)))
+	  (lambda ()
+	    (make-local-variable 'eldoc-documentation-function)
+	    (setq eldoc-documentation-function 'scheme-get-current-symbol-info)
+	    (eldoc-mode)))
 
 ;;; Lean4
 ;; (use-package lean4-mode
@@ -303,8 +303,8 @@
   :demand t
   :straight
   (elisp-refs :type git :host github :repo "Wilfred/elisp-refs"
-                   ;; Skip the autoloads phase because straight.el can't seem to get it right.
-                   :build (:not autoloads)))
+              ;; Skip the autoloads phase because straight.el can't seem to get it right.
+              :build (:not autoloads)))
 ;; Better help-menu
 (use-package helpful
   :straight t
@@ -429,13 +429,12 @@
   :hook (prog-mode . corfu-mode)
   :custom
   (corfu-auto t) ;; Enable auto completion
-  ;; (corfu-separator ?_) ;; Set to orderless separator, if not using space
+  (corfu-separator ?_) ;; Set to orderless separator, if not using space
   :bind
   ;; Another key binding can be used, such as S-SPC.
   (:map corfu-map ("M-SPC" . corfu-insert-separator))
   :init
-					;(global-corfu-mode)
-  )
+  (global-corfu-mode))
 
 ;; using corfu in terminal
 
@@ -517,17 +516,12 @@
   (add-hook 'eshell-pre-command-hook 'eshell-save-some-history)
 
   ;; Truncate buffer for performance
-  (add-to-list 'eshell-output-filter-functions 'eshell-truncate-buffer))
+  (add-to-list 'eshell-output-filter-functions 'eshell-truncate-buffer)
 
-  ;; Bind some useful keys for evil-mode
-  ;; (evil-define-key '(normal insert visual) eshell-mode-map (kbd "C-r") 'counsel-esh-history)
-  ;; (evil-define-key '(normal insert visual) eshell-mode-map (kbd "<home>") 'eshell-bol)
-  ;; (evil-normalize-keymaps)
-
-  ;; (setq eshell-history-size         10000
-  ;; 	eshell-buffer-maximum-lines 10000
-  ;; 	eshell-hist-ignoredups t
-  ;; 	eshell-scroll-to-bottom-on-input t))
+  (setq eshell-history-size         10000
+	eshell-buffer-maximum-lines 10000
+	eshell-hist-ignoredups t
+	eshell-scroll-to-bottom-on-input t)))
 
 (use-package eshell-git-prompt
   :straight t)
@@ -603,12 +597,41 @@
 
 (provide 'init)
 ;;; init.el ends here
+;;;
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks"))
+ '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
+ '(org-agenda-files
+   '("/home/divya/notes/org/org-agenda/tasks.org"
+     "/home/divya/notes/org/org-agenda/habits.org"
+     "/home/divya/notes/org/org-roam/projects/on_hermeneutic_temptation.org"
+     "/home/divya/notes/org/org-roam/projects/retracing_freud_s_oeuvre.org"
+     "/home/divya/notes/org/org-roam/projects/vesuvius_challenge.org"
+     "/home/divya/notes/org/org-roam/projects/thesis_gender_mainstreaming_in_urban_governance_a_study_of_women_councillors_of_ajmer_division_in_rajasthan.org"
+     "/home/divya/notes/org/org-roam/projects/biblio_rogue.org"
+     "/home/divya/notes/org/org-roam/projects/reader_el.org"
+     "/home/divya/notes/org/org-roam/projects/digit_recognizer.org"
+     "/home/divya/notes/org/org-roam/projects/bibliophile_el.org"
+     "/home/divya/notes/org/org-roam/projects/org_mobile.org"
+     "/home/divya/notes/org/org-roam/main/computer_vision.org"
+     "/home/divya/notes/org/org-roam/main/intuitionism.org"
+     "/home/divya/notes/org/org-roam/main/foundations_of_machine_learning.org"
+     "/home/divya/notes/org/org-roam/main/kaggle.org"
+     "/home/divya/notes/org/org-roam/main/category_theory.org"
+     "/home/divya/notes/org/org-roam/main/mathematical_logic.org"
+     "/home/divya/notes/org/org-roam/ref/kaggle_intro_to_deep_learning.org"
+     "/home/divya/notes/org/org-roam/ref/in_search_of_lost_time.org"
+     "/home/divya/notes/org/org-roam/ref/stanford_231n.org"
+     "/home/divya/notes/org/org-roam/ref/kaggle_introduction_to_machine_learning.org"
+     "/home/divya/notes/org/org-roam/ref/18_905_algebraic_topology_i.org"
+     "/home/divya/notes/org/org-roam/projects/illusion_of_simplicity.org"
+     "/home/divya/notes/org/org-roam/projects/haskell_by_problem_solving.org"
+     "/home/divya/notes/org/org-roam/projects/bibliotheca_aeterna.org"
+     "/home/divya/notes/org/org-roam/projects/shades_of_lambda.org"
+     "/home/divya/notes/org/journal/20240909.org.gpg")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
