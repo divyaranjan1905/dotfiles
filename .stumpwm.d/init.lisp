@@ -4,17 +4,16 @@
 (set-prefix-key (kbd "s-/"))
 
 ;; Setting up Modules
-(set-module-dir
-  (pathname-as-directory (concat (getenv "HOME") "~/.stumpwm.d/modules")))
+(set-module-dir "~/.stumpwm.d/modules/")
 
-;; (load-module "swm-gaps")
-;; (load-module "amixer")
-;; (load-module "binwarp")
-;; (load-module "winner-mode")
-;; (load-module "scratchpad")
-;; (load-module "end-session")
-;; ;(load-module "notify")
-;; (load-module "mpd")
+(load-module "swm-gaps")
+(load-module "amixer")
+(load-module "binwarp")
+(load-module "winner-mode")
+(load-module "scratchpad")
+(load-module "end-session")
+;(load-module "notify")
+(load-module "mpd")
 
 ;; Setting up windows
 (setf *message-window-gravity* :center
@@ -95,16 +94,17 @@
 ;; turn on/off the mode line for the current head only.
 (define-key *root-map* (kbd "B") "mode-line")
 
+;;; Scratchpads
 ;; ;; Toggle-able Scratchpads
-;; (defcommand scratchpad-term () ()
-;;             (scratchpad:toggle-floating-scratchpad "st" *alacritty*
-;;                                                    :initial-gravity :center
-;;                                                    :initial-width 800
-;;                                                    :initial-height 500))
-;; (define-key *top-map*  (kbd "s-S-RET") "scratchpad-term")
+(defcommand scratchpad-term () ()
+            (scratchpad:toggle-floating-scratchpad "st" *alacritty*
+                                                   :initial-gravity :center
+                                                   :initial-width 800
+                                                   :initial-height 500))
+(define-key *top-map*  (kbd "s-S-RET") "scratchpad-term")
 
 ;; Frames
-;;Instead of just creating an empty frame, create a horizontal split and focus on the right window
+;; Instead of just creating an empty frame, create a horizontal split and focus on the right window
 (defcommand hsplit-focus () ()
             (hsplit)
             (move-focus :right))
@@ -127,19 +127,7 @@
         m))
 (define-key *root-map* (kbd "f") '*frame-map*)
 
-;(setf *resize-increment* 25)
-;(define-key *top-map* (kbd "M-l") "resize-direction Right")
-;(define-key *top-map* (kbd "M-h") "resize-direction Left")
-;(define-key *top-map* (kbd "M-k") "resize-direction Up")
-;(define-key *top-map* (kbd "M-j") "resize-direction Down")
-
-;; Scratchpads
-;;(defcommand scratchpad-term () ()
-;; (scratchpad:toggle-floating-scratchpad "st"
-;;                                         :initial-gravity :center
-;;                                         :initial-width 1900
-;;                                         :initial-height 1200))
-;;(define-key *top-map* (kbd "s-S-RET") "scratchpad-term")
+(setf *resize-increment* 25)
 
 ;; Customizing Groups
 ; Dealing with dynamic groups
@@ -252,28 +240,28 @@
 (define-key *root-map* (kbd "Delete") '*shut-map*)
 
 
-;;Mangaing Gaps
-;; (defcommand increase-gaps () ()
-;;             (setf swm-gaps:*outer-gaps-size* (+ swm-gaps:*outer-gaps-size* 5)
-;;                   swm-gaps:*inner-gaps-size* (+ swm-gaps:*inner-gaps-size* 5))
-;;             (swm-gaps:toggle-gaps)
-;;             (swm-gaps:toggle-gaps))
+;; Mangaing Gaps
+(defcommand increase-gaps () ()
+            (setf swm-gaps:*outer-gaps-size* (+ swm-gaps:*outer-gaps-size* 5)
+                  swm-gaps:*inner-gaps-size* (+ swm-gaps:*inner-gaps-size* 5))
+            (swm-gaps:toggle-gaps)
+            (swm-gaps:toggle-gaps))
 
-;; (defcommand decrease-gaps () ()
-;;             (setf swm-gaps:*outer-gaps-size* (- swm-gaps:*outer-gaps-size* 5)
-;;                   swm-gaps:*inner-gaps-size* (- swm-gaps:*inner-gaps-size* 5))
-;;             (swm-gaps:toggle-gaps)
-;;             (swm-gaps:toggle-gaps))
+(defcommand decrease-gaps () ()
+            (setf swm-gaps:*outer-gaps-size* (- swm-gaps:*outer-gaps-size* 5)
+                  swm-gaps:*inner-gaps-size* (- swm-gaps:*inner-gaps-size* 5))
+            (swm-gaps:toggle-gaps)
+            (swm-gaps:toggle-gaps))
 
-;; (defvar *gaps-map* nil
-;;   "Keymaps for toggling and changing gaps.")
-;; (setf *gaps-map*
-;;       (let ((m(make-sparse-keymap)))
-;;         (define-key m (kbd "t")      "toggle-gaps")
-;;         (define-key m (kbd "x")      "increase-gaps")
-;;         (define-key m (kbd "z")      "decrease-gaps")
-;;         m))
-;; (define-key *root-map* (kbd "o")  '*gaps-map*)
+(defvar *gaps-map* nil
+  "Keymaps for toggling and changing gaps.")
+(setf *gaps-map*
+      (let ((m(make-sparse-keymap)))
+        (define-key m (kbd "t")      "toggle-gaps")
+        (define-key m (kbd "x")      "increase-gaps")
+        (define-key m (kbd "z")      "decrease-gaps")
+        m))
+(define-key *root-map* (kbd "o")  '*gaps-map*)
 
 ;; prompt the user for an interactive command. The first arg is an
 ;; optional initial contents.
@@ -325,14 +313,14 @@
         m))
 (define-key *root-map* (kbd "w") '*web-map*)
 
-;; ;; Using Binwarp to control the cursor with keyboard
-;; (binwarp:define-binwarp-mode my-binwarp-mode "s-m" (:map *top-map*)
-;;                              ((kbd "SPC") "ratclick 1")
-;;                              ((kbd "RET") "ratclick 3")
-;;                              ((kbd "h")   "binwarp left")
-;;                              ((kbd "l")   "binwarp right")
-;;                              ((kbd "j")   "binwarp down")
-;;                              ((kbd  "k")   "binwarp up"))
+;; Using Binwarp to control the cursor with keyboard
+(binwarp:define-binwarp-mode my-binwarp-mode "s-m" (:map *top-map*)
+                             ((kbd "SPC") "ratclick 1")
+                             ((kbd "RET") "ratclick 3")
+                             ((kbd "h")   "binwarp left")
+                             ((kbd "l")   "binwarp right")
+                             ((kbd "j")   "binwarp down")
+                             ((kbd  "k")   "binwarp up"))
 
 ;; Controlling Audio Stuff
 ;; (mpd:mpd-connect)
