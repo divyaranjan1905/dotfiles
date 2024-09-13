@@ -25,22 +25,26 @@
  ;; Packages installed system-wide.  Users can also install packages
  ;; under their own account: use 'guix search KEYWORD' to search
  ;; for packages and 'guix install PACKAGE' to install a package.
- (packages (specification->packages
-	    (list
+ (packages (append (map specification->package
+	   '(
 	     ;;; Wayland
-	     "wayland"
-	     "sway"
+	     ;; "wayland"
+	     ;; "sway"
 
-	      ;;; Window Managers
-	     "awesome"
+	     ;;; Window Managers
+	     ;; "awesome"
 	     "stumpwm"
-	     "xmonad"
+	     ;; "xmonad"
 
 	      ;;; Text Editors
 	     "emacs-next"
 	     "vim"
 
-	      ;;; Audio/Video/Streaming
+	     ;;; Audio/Video/Streaming
+	    ; "alsamixer"
+	     "alsa-utils"
+	     "alsa-lib"
+	     "bluez-alsa"
 	     "pipewire"
 	     "wireplumber"
 	     "qpwgraph"
@@ -48,42 +52,60 @@
 	     "mpd"
 	     "mpv"
 	     "vlc"
-	     "ffmpeg"
 	     "pulsemixer"
 	     "simplescreenrecorder"
 	     "carla"
 
-	      ;;; Browser
+	     ;;; Connectivity
+	     "blueman"
+	     "v4l2loopback-linux-module" ; Webcam
+
+	     ;;; Browser
 	     "librewolf"
+
+	     ;;; Email
+	     "mu"
 	     "isync"
 	     "msmtp"
 
-	      ;;; Graphics/Image
+	     ;;; Graphics/Image
 	     "imagemagick"
 	     "gimp"
 	     "krita"
+	     "imlib2"
+	     "feh"
 
-	      ;;; Mathematics/Computational Software
-	     "sage"
+	     ;;; Fonts
+	     "font-iosevka"
+	     "fontmanager"
+
+	     ;;; Mathematics/Computational Software
+	     ;; "sage"
 	     "octave"
 	     "gnuplot"
 
-	      ;;; LaTeX
+	     ;;; LaTeX
 	     "texlive"
 	     "texlive-xetex"
 	     "texmacs"
 
-	      ;;; Programming Languages
+	     ;;; Programming Languages
 	     "chez-scheme"
 	     "mit-scheme"
 	     "racket"
 	     "gcc-toolchain"
+	     "ghc"
+	     "cabal-install"
+	     "hlint"
 	     "gforth"
 	     "python"
 	     "python-pip"
 	     "r"
 	     "sbcl"
-	     "rust-rustup-toolchain"
+	     "rust"
+	     "rust-cargo"
+	     "rust-analyzer"
+	     "rust-clippy"
 	     "clojure"
 	     "clojure-tools"
 	     "gprolog"
@@ -93,54 +115,60 @@
 	     "opam"
 	     "sqlite"
 
-	      ;;; Terminals
+	     ;;; Terminals
 	     "alacritty"
-	     "foot"
+	     "st"
+	     ;; "foot"
 
-	      ;;; File Manager
+	     ;;; Launchers
+	     "dmenu"
+
+	     ;;; Notifications
+	     "dunst"
+
+	     ;;; Theme
+	     "lxappearance"
+
+	     ;;; File Manager
 	     "thunar"
+	     "thunar-volman"
+	     "gvfs" ; For trash and remote management
 	     "lf"
 
-	      ;;; Search
+	     ;;; Search
 	     "fzf"
 	     "ripgrep"
 
-	      ;;; Screenshot
+	     ;;; Screenshot
 	     "maim"
 
-	      ;;; Syncing
+	     ;;; Syncing
 	     "syncthing"
 	     "syncthing-gtk"
 	     "rsync"
 
-	      ;;; Version Control/Package Management
+	     ;;; Version Control/Package Management
 	     "git"
 	     "stow"
 
-	      ;;; Shell
+	     ;;; Shell
 	     "bash"
 	     "zsh"
 	     "scsh"
 
-              ;;; Keyboard Management
+             ;;; Keyboard Management
 	     "kmonad"
 
-	       ;;; Writing/Reading
-	     "zathura"
-	     "zathura-ps"
-	     "zathura-pdf-mupdf"
-	     "zathura-djvu"
-	     ;;"pdftk"
-	     "mupdf"
-	     "evince"
-	     "djvu2pdf"
-	     "xournalpp"
-	     ;;("pdf2txt")
-	     "pandoc"
-	     "libreoffice"
+
+	     ;;; Password/Security
+	     "gnupg"
+	     "keepassxc"
+	     "password-store"
 
 	      ;;; Utilities
-	     "curl")
+	     "curl"
+	     "ntfs-3g" ;; for mounting ntfs file systems
+	     ))
             %base-packages))
 
  ;; Below is the list of system services.  To search for available
@@ -161,19 +189,20 @@
 
  (bootloader (bootloader-configuration
               (bootloader grub-bootloader)
-              (targets '("/dev/sda"))
+              (targets '("/dev/sdb"))
 	      (default-entry 0)
 	      (menu-entries
 	       (list
 		(menu-entry
 		 (label "arch-root")
-		 (device (uuid "886fb01f-323f-40ab-9434-9f00feb96446" 'ext4))
 		 (linux "/boot/vmlinuz-linux-rt")
-		 (linux-arguments '("root=/dev/sdb1"))
-		 (initrd "/boot/initramfs-linux-rt-fallback.img"))))))
+		 (device (uuid "886fb01f-323f-40ab-9434-9f00feb96446" 'ext4))
+		 (linux-arguments '("root=/dev/sda7"))
+		 (initrd "/boot/initramfs-linux-rt.img"))))))
  ;;(menu-entry
  ;; (label "guix-root")
  ;; (linux-arguments '("root=/dev/sda8")))))))
+
  ;; The list of file systems that get "mounted".  The unique
  ;; file system identifiers there ("UUIDs") can be obtained
  ;; by running 'blkid' in a terminal.
@@ -182,4 +211,27 @@
                        (device (uuid
 				"30dfe5c0-8180-4993-bb11-8a1476f3a003"
 				'ext4))
-                       (type "ext4")) %base-file-systems)))
+                       (type "ext4"))
+
+		      (file-system
+			(mount-point "/mnt/arch")
+			(device (uuid
+				  "886fb01f-323f-40ab-9434-9f00feb96446"
+				  'ext4))
+			(type "ext4"))
+
+		      ;; (file-system
+		      ;; 	(mount-point "/mnt/LDisk-D")
+		      ;; 	(device (uuid
+		      ;; 		  "42E6712AE6711F7B"
+		      ;; 		  'ntfs))
+		      ;; 	(flags '(bind-mount))
+		      ;; 	(type "ntfs"))
+
+		      ;; (file-system
+		      ;; 	(mount-point "/mnt/LDisk-E")
+		      ;; 	(device (uuid
+		      ;; 		  "FA5CCCEF5CCCA7A9"
+		      ;; 		  'ntfs))
+		      ;; 	(type "ntfs"))
+		      %base-file-systems)))

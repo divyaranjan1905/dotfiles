@@ -2,20 +2,54 @@
 	     (gnu home services)
 	     (gnu home services shells)
 	     (gnu services)
+	     (gnu packages)
 	     (gnu packages admin)
 	     (guix gexp))
 
 (home-environment
- (packages (specification->packages (list
+ (packages (append (map specification->package '(
+				     ;; Themes
+				     "materia-theme"
+				     "arc-icon-theme"
+				     "papirus-icon-theme"
+				     "bibata-cursor-theme"
+
+				     ;; Fonts
+				     "font-google-noto-emoji"
+
+				     ;; Audio
 				     "ardour"
 				     "mumble"
 				     "audacity"
+
+				     ;; Reading
 				     "calibre"
+
+				     ;; Research
+
+
+				     ;; Browsers
 				     "nyxt"
-				     "obs-studio"
+
+				     ;; Common Lisp
+				     "cl-anaphora"
+				     "cl-alexandria"
+				     "cl-asdf"
+
+				     ;; Messaging
 				     "gnunet"
 				     "qtox"
+				     "telegram-desktop"
+
+				     ;; Torrenting
 				     "qbittorrent"
 				     "rtorrent"
+
+				     ;; Astrophysics
 				     "stellarium"
-				     "telegram-desktop"))))
+
+				     ;; Utilities
+				     "clipmenu"
+				     "qdirstat"
+
+				     )))))
