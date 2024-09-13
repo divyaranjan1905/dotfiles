@@ -1,17 +1,19 @@
 #!/bin/zsh
 
-#Profile file that runs on login.
+# Profile file that runs on login.
 
-export BROWSER="brave"
+export BROWSER="nyxt"
 export EDITOR="emacsclient -c"
 export VIDEO="mpv"
 export TERMINAL="st"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
+export EINSTEIN="/mnt/LDisk-E/Albert Einstein/"
 export RECORDING="$EINSTEIN/Recordings"
 export FREESPACE_USE_UNSUPPORTED_JAVA_VERSION="1"
 export MOX_ENABLE_WAYLAND=1
+export PASSWORD_STORE_DIR="$HOME/life/passwords/pass/"
 
 # This is the list for lf icons:
 export LF_ICONS="di=📁:\
@@ -93,7 +95,7 @@ ex=🎯:\
 "
 
 
-##PATH
+## PATH
 if [ -d "$HOME/.bin" ] ;
 then PATH="$HOME/.bin:$PATH"
 fi
@@ -112,6 +114,10 @@ fi
 
 if [ -d "/home/divya/.ghcup/bin" ] ;
 then PATH="/home/divya/.ghcup/bin:$PATH"
+fi
+
+if [ -d "/home/divya/.cargo/bin" ] ;
+then PATH="/home/divya/.cargo/bin:$PATH"
 fi
 
 if [ -d "/home/divya/.local/share/gem/ruby/3.0.0/bin" ];
