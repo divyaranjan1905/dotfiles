@@ -1,18 +1,18 @@
-"Set encoding
+"Setting Encoding
 set encoding=utf-8
 
 set autoread
-"This was for setting up Vundle 
-set nocompatible 
+"This was for setting up Vundle
+set nocompatible
 set lazyredraw
 let mapleader=" "
 filetype off
-set shellslash 
-set rtp+=~/.vim/bundle/Vundle.vim 
+set shellslash
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin('~/.vim/bundle')
 
 "Let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim' 
+Plugin 'VundleVim/Vundle.vim'
 
 "Fancy Autocompletion
 
@@ -47,19 +47,19 @@ Plugin 'ap/vim-css-color'
 Plugin 'chriskempson/base16-vim'
 Plugin 'lgalke/vim-compiler-vale'
 
-"All of your plugins must be added before the following line 
+"All of your plugins must be added before the following line
 
 call vundle#end()		"required
 filetype plugin indent on	"required
-set hidden 
+set hidden
 
-"Brief Help for Vundle 
-" :PluginInstall  	-installs plugins 
-" :PluginList 		-lists plugings 
-" :PLuginSearch 	-seaches for foo 
-" :PluginClean 		-confirms removal of unused plugins 
+"Brief Help for Vundle
+" :PluginInstall  	-installs plugins
+" :PluginList 		-lists plugings
+" :PLuginSearch 	-seaches for foo
+" :PluginClean 		-confirms removal of unused plugins
 
-"Put your non-plugin stuff after this line 
+"Put your non-plugin stuff after this line
 
 let g:tex_flavor='latex'
 let g:DefaultTargetFormat='pdf'
@@ -67,27 +67,27 @@ let g:vimtex_view_enabled=1
 let g:vimtex_view_automatic=1
 let g:vimtex_view_method='zathura'
 
-"Some deafults 
-"When started as "evim", evim.vim will already have done these settings 
+"Some deafults
+"When started as "evim", evim.vim will already have done these settings
 if v:progname =~? "evim"
-  finish 
+  finish
 endif
 
 if has("vms")
-   set nobackup 
-   if has('persistent_undo') 
-     set undofile 
-   endif 
-endif 
+   set nobackup
+   if has('persistent_undo')
+     set undofile
+   endif
+endif
 
-"Highlighting 
+"Highlighting
 
 if &t_Co > 2 || has("gui_running")
-   syntax on 
-   set hlsearch 
-endif 
+   syntax on
+   set hlsearch
+endif
 
-"Put these in an autocmd group, so that we can delete them easily. 
+"Put these in an autocmd group, so that we can delete them easily.
 augroup vimrcEx
   au!
 
@@ -98,10 +98,10 @@ augroup vimrcEx
 "For all text files set 'textwidth' to 78 characters
   autocmd FileType text setlocal textwidth=78
 
-augroup END 
+augroup END
 
-"Add (relative) numbers on the side when Vim opens 
-set number relativenumber 
+"Add (relative) numbers on the side when Vim opens
+set number relativenumber
 
 "Spelling
 set spell spelllang=en_us
@@ -113,7 +113,7 @@ hi SpellBad cterm=bold
 hi SpellBad ctermfg=red
 "
 "Use wal color scheme
-"colorscheme wal 
+"colorscheme wal
 
 "Base 16 colorscheme
 "if filereadable(expand("~/.vimrc_background"))
@@ -123,10 +123,10 @@ hi SpellBad ctermfg=red
 set bg=dark
 
 
-"Add TEMP directory 
-set dir=$TEMP 
+"Add TEMP directory
+set dir=$TEMP
 
-"NERDTREE 
+"NERDTREE
 map <leader>n :NERDTreeToggle<CR>
 
 "Turn off swap files
@@ -138,8 +138,8 @@ set nowb
 "Auto indent pasted text
 nnoremap p p=`]<C-o>
 nnoremap P P=`]<C-o>
-				
-"Completion 
+
+"Completion
 set wildmode=list:longest
 set wildmenu
 set wildignore=*.o,*.obj,*~
@@ -154,7 +154,7 @@ set smartcase
 set history=10000
 
 "Ruler
-set ruler 
+set ruler
 
 "Setting Goyo to the "\" + f
 map <leader>f :Goyo \| set linebreak<CR>
@@ -184,17 +184,17 @@ autocmd VimLeave *.tex !texclear %
 let g:airline#extensions#tabline#enabled = 0
 
 "Settings for fugitive
-map <leader>g :G add . \| :G commit -m "Updated from ViM" \| :Git push<CR> 
+map <leader>g :G add . \| :G commit -m "Updated from ViM" \| :Git push<CR>
 map <leader>p :G pull<CR>
-"Setting tabline 
+"Setting tabline
 set showtabline=0
 
 "More color in life
 "set termguicolors
-set go+=c 
+set go+=c
 
 "Binding for compiling beamer presentations using pandoc
-map <leader>bp :!pandoc % --citeproc -t beamer -o presentation.pdf <CR>  
+map <leader>bp :!pandoc % --citeproc -t beamer -o presentation.pdf <CR>
 
 
 "Snippets Configuration of UltiSnips
