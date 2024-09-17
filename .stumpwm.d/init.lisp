@@ -4,7 +4,7 @@
 (set-prefix-key (kbd "s-/"))
 
 ;; Setting up Modules
-(set-module-dir "~/.stumpwm.d/modules/")
+(set-module-dir "~/.dotfiles/.stumpwm.d/modules/")
 
 (load-module "swm-gaps")
 (load-module "amixer")
@@ -425,11 +425,11 @@
       swm-gaps:*outer-gaps-size* 0)
 ;; There still aren't ;)
 
-(when *initializing*
-  (increase-gaps))
+;;(when *initializing*
+ ;; (increase-gaps))
 
-(when *initializing*
-  (swm-gaps:toggle-gaps))
+;;(when *initializing*
+ ;; (swm-gaps:toggle-gaps))
 
 ;; (when (and (< ow width)
 ;; 	   (>= width (- (frame-width frame) ow)))
