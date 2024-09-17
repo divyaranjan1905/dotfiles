@@ -14,6 +14,7 @@ export TERMINAL="st"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
+export PASSWORD_STORE_DIR="$HOME/life/passwords/pass/"
 
 # This is the list for lf icons:
 export LF_ICONS="di=📁:\
@@ -49,7 +50,7 @@ ex=📃:\
 *.xlsx=📓:\
 *.tex=📜:\
 *.md=📘:\
-*.r=📊:\	
+*.r=📊:\
 *.R=📊:\
 *.rmd=📊:\
 *.Rmd=📊:\
@@ -107,5 +108,3 @@ fi
 if [ -d "/usr/local/bin" ] ;
 then PATH="/usr/local/bin:$PATH"
 fi
-
-

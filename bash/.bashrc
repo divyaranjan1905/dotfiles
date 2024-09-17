@@ -1,19 +1,5 @@
 #~/.bashrc
 
-# Set up Guix Home profile
-# if [ -f ~/.profile ]; then . ~/.profile; fi
-
-# Honor per-interactive-shell startup file
-# if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
-
-# Merge search-paths from multiple profiles, the order matters.
-# eval "$(guix package --search-paths \
-# -p $HOME/.config/guix/current \
-# -p $HOME/.guix-home/profile \
-# -p $HOME/.guix-profile \
-# -p /run/current-system/profile)"
-
-
 export XDG_DATA_DIR='/home/divya/.local/share/flatpak/exports/share'
 #VARIABLES
 export BROWSER="nyxt"
@@ -23,6 +9,7 @@ export MATH="/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Mathematics/
 export EINSTEIN="/mnt/LDisk-E/Albert Einstein/"
 export PHIL="/mnt/LDisk-E/Albert Einstein/Books & Resources/Philosophy & Psychology/Philosophy/"
 export PSYCH="/mnt/LDisk-E/Albert Einstein/Books & Resources/Philosophy & Psychology/Psychology/"
+export PASSWORD_STORE_DIR="$HOME/life/passwords/pass/"
 
 # This is the list for lf icons:
 export LF_ICONS="di=📁:\
