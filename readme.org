@@ -1,3 +1,5 @@
-#+TITLE: Divya's Arch Dotfiles
+#+TITLE: Divya's GNU Guix Dotfiles
 
-This repository contains the dotfiiles of my GNU/Linux system from the Arch Linx distribution. It will be slowly updated as I add in more stuff. 
+This repository contains the dotfiiles of my GNU/Linux system from the GNU Guix distribution.
+
+It previously contained the configuraiton for Arch distribution, while some of the generic funcitonality is still the same, but it is currently targeted to work best with GNU Guix and GNU Emacs.
