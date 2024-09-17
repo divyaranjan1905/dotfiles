@@ -9,6 +9,7 @@
   #:use-module (gnu home services gnupg)
   #:use-module (gnu home services shepherd)
   #:use-module (gnu home services sound)
+  #:use-module (gnu home services ssh)
   #:use-module (gnu home services shells)
   #:use-module (gnu services)
   #:use-module (gnu services dbus)
@@ -95,8 +96,10 @@
 			  "stellarium"
 
 	                  ;;; Security
-			  ;; "pinentry"
-			  ;; "pinentry-emacs"
+			  "gnupg" ; Installed here and not in system.scm because the service is home
+			  "pinentry"
+			  "pinentry-emacs"
+			  "pinentry-tty"
 
 			  ;; Utilities
 			  "clipmenu"
@@ -109,20 +112,11 @@
 	     (service home-gpg-agent-service-type
                       (home-gpg-agent-configuration
                        (pinentry-program
-			(file-append pinentry-emacs "/bin/pinentry-emacs"))
+			(file-append pinentry "/bin/pinentry"))
                        (ssh-support? #t)
                        (default-cache-ttl 3000)
                        (max-cache-ttl 6000)
-                       (extra-content "\
-          allow-loopback-pinentry
-          allow-emacs-pinentry\n")))
-
-	     (service home-openssh-service-type
-		      (home-openssh-configuration
-		       (hosts
-			(list (openssh-host (name "git.sr.ht")
-					    (user "divyaranjan"))
-			      ))))
+                       (extra-content "\nallow-loopback-pinentry\nallow-emacs-pinentry\n")))
 	     (service home-dbus-service-type)
 	     (service home-pipewire-service-type
 		      (home-pipewire-configuration

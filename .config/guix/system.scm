@@ -164,10 +164,6 @@
 			  "kmonad"
 
 	     ;;; Password/Security
-			  "gnupg"
-			  "pinentry"
-			  "pinentry-tty"
-			  "pinentry-emacs"
 			  "keepassxc"
 			  "password-store"
 
@@ -209,9 +205,6 @@
 		 (device (uuid "886fb01f-323f-40ab-9434-9f00feb96446" 'ext4))
 		 (linux-arguments '("root=/dev/sda7"))
 		 (initrd "/boot/initramfs-linux-rt.img"))))))
- ;;(menu-entry
- ;; (label "guix-root")
- ;; (linux-arguments '("root=/dev/sda8")))))))
 
  ;; The list of file systems that get "mounted".  The unique
  ;; file system identifiers there ("UUIDs") can be obtained
