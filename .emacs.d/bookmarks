@@ -8,7 +8,7 @@
  (buffer-name . "system.scm")
  (front-context-string . ";; Divya's GNU G") (rear-context-string)
  (front-context-region-string) (rear-context-region-string)
- (visits . 3) (time 26345 35027 870576 397000)
+ (visits . 4) (time 26345 43129 947347 371000)
  (created 26345 23460 981723 65000) (position . 1))
 #1=
 (#("guix home" 0 9 (bmkp-full-record #1#))
@@ -16,7 +16,7 @@
  (buffer-name . "home-divya.scm")
  (front-context-string . ";;; Divya's home") (rear-context-string)
  (front-context-region-string) (rear-context-region-string)
- (visits . 4) (time 26345 37117 962709 691000)
+ (visits . 6) (time 26345 42699 832187 163000)
  (created 26345 23202 707958 798000) (position . 1))
 #1=
 (#("Principles of Programming Languages" 0 35 (bmkp-full-record #1#))
