@@ -4,27 +4,31 @@
 
 ;;; Code:
 
-;; PDF in Emacs
-(use-package pdf-tools
-  ;; :straight '(pdf-tools :location (recipe
-  ;; 				   :fetcher github
-  ;; 				   :repo "dalanicolai/pdf-tools"
-  ;; 				   :branch "pdf-roll"
-  ;; 				   :files ("lisp/*.el"
-  ;; 					   "README"
-  ;; 					   ("build" "Makefile")
-  ;; 					   ("build" "server")
-  ;; 					   (:exclude "lisp/tablist.el" "lisp/tablist-filter.el"))))
-  :straight t
-;  :pin manual
-  :config
-  (pdf-tools-install)
-  ;;   (display-line-numbers-mode-1)
-  (setq-default pdf-view-display-size 'fit-page)
-  (define-key pdf-view-mode-map (kbd "C-,") 'pdf-view-goto-page)
-  (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward)
-  :custom
-  (pdf-annot-activate-created-annotations t "automatically annotate highlights"))
+;; ;; PDF in Emacs
+;; (use-package pdf-tools
+;;   ;; :straight '(pdf-tools :location (recipe
+;;   ;; 				   :fetcher github
+;;   ;; 				   :repo "dalanicolai/pdf-tools"
+;;   ;; 				   :branch "pdf-roll"
+;;   ;; 				   :files ("lisp/*.el"
+;;   ;; 					   "README"
+;;   ;; 					   ("build" "Makefile")
+;;   ;; 					   ("build" "server")
+;;   ;; 					   (:exclude "lisp/tablist.el" "lisp/tablist-filter.el"))))
+;;   :straight t
+;; ;  :pin manual
+;;   :config
+;;   (pdf-tools-install)
+;;   ;;   (display-line-numbers-mode-1)
+;;   :custom
+;;   (pdf-annot-activate-created-annotations t "automatically annotate highlights"))
+
+(require 'pdf-tools)
+(setq-default pdf-view-display-size 'fit-page)
+(define-key pdf-view-mode-map (kbd "C-,") 'pdf-view-goto-page)
+(define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward)
+
+(add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
 
 (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
       TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view))
@@ -51,16 +55,19 @@
 
 ;; Pick up PDF where I left it
 
-(use-package pdf-view-restore
-  :after pdf-tools
-  :defer t
-  :hook (pdf-view-mode . pdf-view-restore-mode)
-  :config
-  (setq pdf-view-restore-filename  "~/.emacs.d/pdf-view-restore"))
+;; (use-package pdf-view-restore
+;;   :straight t
+;;   :hook (pdf-view-mode . pdf-view-restore-mode)
+;;   :config
+;;   (setq pdf-view-restore-filename  "~/.emacs.d/pdf-view-restore"))
+
+(use-package saveplace
+  :straight t)
+
+(require 'saveplace-pdf-view)
 
 (use-package org-noter
   :straight t
-  :after (:any org pdf-view)
   :bind
   ("C-c C-n o" . org-noter)
   ("C-c C-n i" . org-noter-insert-note)
@@ -85,55 +92,46 @@
    org-noter-auto-save-last-location t
    org-noter-doc-property-in-notes t)
 
-  ;; :general
-  ;; (divya/leader-keys
-  ;;   "mi" #'org-noter-insert-note
-  ;;   "mp" #'org-noter-insert-precise-note
-  ;;   "mk" #'org-noter-sync-prev-note
-  ;;   "mj" #'org-noter-sync-next-note
-  ;;   "ms" #'org-noter-create-skeleton
-  ;;   "mq" #'org-noter-kill-session))
-
 
   (setq org-noter-property-doc-file "INTERLEAVE_PDF"
       org-noter-property-note-location "INTERLEAVE_PAGE_NOTE"))
 
 ;; More pdf-tools & org-noter stuff
-(use-package org-pdftools
-  :hook (org-mode . org-pdftools-setup-link))
+;; (use-package org-pdftools
+;;   :hook (org-mode . org-pdftools-setup-link))
 
-(use-package org-noter-pdftools
-  :after org-noter
-  :config
-  ;; Add a function to ensure precise note is inserted
-  (defun org-noter-pdftools-insert-precise-note (&optional toggle-no-questions)
-    (interactive "P")
-    (org-noter--with-valid-session
-     (let ((org-noter-insert-note-no-questions (if toggle-no-questions
-                                                   (not org-noter-insert-note-no-questions)
-                                                 org-noter-insert-note-no-questions))
-           (org-pdftools-use-isearch-link t)
-           (org-pdftools-use-freepointer-annot t))
-       (org-noter-insert-note (org-noter--get-precise-info)))))
+;; (use-package org-noter-pdftools
+;;   :after org-noter
+;;   :config
+;;   ;; Add a function to ensure precise note is inserted
+;;   (defun org-noter-pdftools-insert-precise-note (&optional toggle-no-questions)
+;;     (interactive "P")
+;;     (org-noter--with-valid-session
+;;      (let ((org-noter-insert-note-no-questions (if toggle-no-questions
+;;                                                    (not org-noter-insert-note-no-questions)
+;;                                                  org-noter-insert-note-no-questions))
+;;            (org-pdftools-use-isearch-link t)
+;;            (org-pdftools-use-freepointer-annot t))
+;;        (org-noter-insert-note (org-noter--get-precise-info)))))
 
-  ;; fix https://github.com/weirdNox/org-noter/pull/93/commits/f8349ae7575e599f375de1be6be2d0d5de4e6cbf
-  (defun org-noter-set-start-location (&optional arg)
-    "When opening a session with this document, go to the current location.
-With a prefix ARG, remove start location."
-    (interactive "P")
-    (org-noter--with-valid-session
-     (let ((inhibit-read-only t)
-           (ast (org-noter--parse-root))
-           (location (org-noter--doc-approx-location (when (called-interactively-p 'any) 'interactive))))
-       (with-current-buffer (org-noter--session-notes-buffer session)
-         (org-with-wide-buffer
-          (goto-char (org-element-property :begin ast))
-          (if arg
-              (org-entry-delete nil org-noter-property-note-location)
-            (org-entry-put nil org-noter-property-note-location
-                           (org-noter--pretty-print-location location))))))))
-  (with-eval-after-load 'pdf-annot
-    (add-hook 'pdf-annot-activate-handler-functions #'org-noter-pdftools-jump-to-note)))
+;;   ;; fix https://github.com/weirdNox/org-noter/pull/93/commits/f8349ae7575e599f375de1be6be2d0d5de4e6cbf
+;;   (defun org-noter-set-start-location (&optional arg)
+;;     "When opening a session with this document, go to the current location.
+;; With a prefix ARG, remove start location."
+;;     (interactive "P")
+;;     (org-noter--with-valid-session
+;;      (let ((inhibit-read-only t)
+;;            (ast (org-noter--parse-root))
+;;            (location (org-noter--doc-approx-location (when (called-interactively-p 'any) 'interactive))))
+;;        (with-current-buffer (org-noter--session-notes-buffer session)
+;;          (org-with-wide-buffer
+;;           (goto-char (org-element-property :begin ast))
+;;           (if arg
+;;               (org-entry-delete nil org-noter-property-note-location)
+;;             (org-entry-put nil org-noter-property-note-location
+;;                            (org-noter--pretty-print-location location))))))))
+;;   (with-eval-after-load 'pdf-annot
+;;     (add-hook 'pdf-annot-activate-handler-functions #'org-noter-pdftools-jump-to-note)))
 
 ;;; EPUBs in Emacs : Nov mode
 (defun nov-font-setup ()
