@@ -1,5 +1,20 @@
 #~/.bashrc
 
+# Set up Guix Home profile
+# if [ -f ~/.profile ]; then . ~/.profile; fi
+
+# Honor per-interactive-shell startup file
+# if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
+
+# Merge search-paths from multiple profiles, the order matters.
+# eval "$(guix package --search-paths \
+# -p $HOME/.config/guix/current \
+# -p $HOME/.guix-home/profile \
+# -p $HOME/.guix-profile \
+# -p /run/current-system/profile)"
+
+
+export XDG_DATA_DIR='/home/divya/.local/share/flatpak/exports/share'
 #VARIABLES
 export BROWSER="nyxt"
 export EDITOR="vim"
@@ -89,7 +104,7 @@ export LF_ICONS="di=📁:\
 	"
 
 ##Enabling VI Mode
-set -o vi 
+set -o vi
 
 ##PATH
 
@@ -107,7 +122,6 @@ fi
 
 ##ALIASES##
 
-alias lf='lfrun'
 alias yta='ytfzf -t -m'
 alias yt='ytfzf -t'
 alias mutt='neomutt'
@@ -116,4 +130,3 @@ alias cd-einstein='cd "/mnt/LDisk-E/Albert Einstein/"'
 alias cd-phil='cd "/mnt/LDisk-E/Albert Einstein/Books & Resources/Philosophy & Psychology/Philosophy/"'
 alias cd-psych='cd "/mnt/LDisk-E/Albert Einstein/Books & Resources/Philosophy & Psychology/Psychology/"'
 alias alt='LIBGL_ALWAYS_SOFTWARE=1 alacritty'
-

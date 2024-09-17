@@ -12,7 +12,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export EINSTEIN="/mnt/LDisk-E/Albert Einstein/"
 export RECORDING="$EINSTEIN/Recordings"
 export FREESPACE_USE_UNSUPPORTED_JAVA_VERSION="1"
-export MOX_ENABLE_WAYLAND=1
+# export MOX_ENABLE_WAYLAND=1
 export PASSWORD_STORE_DIR="$HOME/life/passwords/pass/"
 
 # This is the list for lf icons:

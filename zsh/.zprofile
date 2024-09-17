@@ -1,5 +1,10 @@
 #!/bin/zsh
 
+# Set up the system, user profile, and related variables.
+source /etc/profile
+# Set up the home environment profile.
+source ~/.profile
+
 #Profile file that runs on login.
 
 export BROWSER="nyxt"
@@ -9,7 +14,6 @@ export TERMINAL="st"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_CURRENT_DESKTOP='wayfire'
 
 # This is the list for lf icons:
 export LF_ICONS="di=📁:\
@@ -104,5 +108,4 @@ if [ -d "/usr/local/bin" ] ;
 then PATH="/usr/local/bin:$PATH"
 fi
 
-kmonad ~/.config/kmonad/default.kbd
 
