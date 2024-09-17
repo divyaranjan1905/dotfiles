@@ -182,13 +182,13 @@ and ending with the extension of the requested TYPE."
 
 ;; Some koans every hour
 
-(defun divya/moments ()
-  (interactive)
-   (notifications-notify
-    :title "Moments"
-    :body "You do not have a head."))
+;; (defun divya/moments ()
+;;   (interactive)
+;;    (notifications-notify
+;;     :title "Moments"
+;;     :body "You do not have a head."))
 
-(run-with-timer 0 (* 60 60) 'divya/moments)
+;; (run-with-timer 0 (* 60 60) 'divya/moments)
 
 ;; To explore bugs in GNU projects
 (use-package debbugs
