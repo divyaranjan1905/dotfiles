@@ -5,11 +5,13 @@
 ;; Indicate which modules to import to access the variables
 ;; used in this configuration.
 (use-modules (gnu))
+(use-modules (gnu services sound))
 (use-service-modules cups desktop networking ssh xorg)
+(use-package-modules ssh)
 
 (operating-system
- (locale "en_IN.utf8")
- (timezone "Europe/London")
+ (locale "en_US.utf8")
+ (timezone "UTC")
  (keyboard-layout (keyboard-layout "us"))
  (host-name "lambda")
 
@@ -26,150 +28,154 @@
  ;; under their own account: use 'guix search KEYWORD' to search
  ;; for packages and 'guix install PACKAGE' to install a package.
  (packages (append (map specification->package
-	   '(
-	     ;;; Wayland
-	     ;; "wayland"
-	     ;; "sway"
+			'(
+	                  ;;; Wayland
+			  ;; "wayland"
+			  ;; "sway"
 
-	     ;;; Window Managers
-	     ;; "awesome"
-	     "stumpwm"
-	     ;; "xmonad"
+	                  ;;; Window Managers
+			  ;; "awesome"
+			  "stumpwm"
+			  ;; "xmonad"
 
-	      ;;; Text Editors
-	     "emacs-next"
-	     "vim"
+	                  ;;; Text Editors
+			  "emacs-next"
+			  "vim"
 
-	     ;;; Audio/Video/Streaming
-	    ; "alsamixer"
-	     "alsa-utils"
-	     "alsa-lib"
-	     "bluez-alsa"
-	     "pipewire"
-	     "wireplumber"
-	     "qpwgraph"
-	     "easyeffects"
-	     "mpd"
-	     "mpv"
-	     "vlc"
-	     "pulsemixer"
-	     "simplescreenrecorder"
-	     "carla"
+	                  ;;; Audio/Video/Streaming
+			  ;; "alsamixer"
+			  "alsa-utils"
+			  "alsa-lib"
+			  "bluez-alsa"
+			  "pipewire"
+			  "pavucontrol"
+			  "wireplumber"
+			  "qpwgraph"
+			  "easyeffects"
+			  "mpd"
+			  "mpv"
+			  "vlc"
+			  "pulsemixer"
+			  "simplescreenrecorder"
+			  "carla"
 
-	     ;;; Connectivity
-	     "blueman"
-	     "v4l2loopback-linux-module" ; Webcam
+	                  ;;; Connectivity
+			  "blueman"
+			  "v4l2loopback-linux-module" ; Webcam
 
-	     ;;; Browser
-	     "librewolf"
+	                  ;;; Browser
+			  "librewolf"
 
-	     ;;; Email
-	     "mu"
-	     "isync"
-	     "msmtp"
+	                  ;;; Email
+			  "mu"
+			  "isync"
+			  "msmtp"
 
-	     ;;; Graphics/Image
-	     "imagemagick"
-	     "gimp"
-	     "krita"
-	     "imlib2"
-	     "feh"
+	                  ;;; Graphics/Image
+			  "imagemagick"
+			  "gimp"
+			  ;; "krita"
+			  "imlib2"
+			  "feh"
 
-	     ;;; Fonts
-	     "font-iosevka"
-	     "fontmanager"
+	                  ;;; Fonts
+			  "font-iosevka"
+			  "fontmanager"
 
-	     ;;; Mathematics/Computational Software
-	     ;; "sage"
-	     "octave"
-	     "gnuplot"
+	                  ;;; Mathematics/Computational Software
+			  ;; "sage"
+			  "octave"
+			  "gnuplot"
 
-	     ;;; LaTeX
-	     "texlive"
-	     "texlive-xetex"
-	     "texmacs"
+	                  ;;; LaTeX
+			  "texlive"
+			  "texlive-xetex"
+			  "texmacs"
 
-	     ;;; Programming Languages
-	     "chez-scheme"
-	     "mit-scheme"
-	     "racket"
-	     "gcc-toolchain"
-	     "ghc"
-	     "cabal-install"
-	     "hlint"
-	     "gforth"
-	     "python"
-	     "python-pip"
-	     "r"
-	     "sbcl"
-	     "rust"
-	     "rust-cargo"
-	     "rust-analyzer"
-	     "rust-clippy"
-	     "clojure"
-	     "clojure-tools"
-	     "gprolog"
-	     "swi-prolog"
-	     "smlnj"
-	     "polyml"
-	     "opam"
-	     "sqlite"
+	                  ;;; Programming Languages
+			  "chez-scheme"
+			  "mit-scheme"
+			  "racket"
+			  "gcc-toolchain"
+			  "ghc"
+			  "cabal-install"
+			  "hlint"
+			  "gforth"
+			  "python"
+			  "python-pip"
+			  "r"
+			  "sbcl"
+			  "rust"
+			  "rust-cargo"
+			  "rust-analyzer"
+			  "rust-clippy"
+			  "clojure"
+			  "clojure-tools"
+			  "gprolog"
+			  "swi-prolog"
+			  "smlnj"
+			  "polyml"
+			  "opam"
+			  "sqlite"
 
-	     ;;; Terminals
-	     "alacritty"
-	     "st"
-	     ;; "foot"
+	     		  ;;; Terminals
+			  "alacritty"
+			  "st"
+			  ;; "foot"
 
-	     ;;; Launchers
-	     "dmenu"
+	     		  ;;; Launchers
+			  "dmenu"
 
-	     ;;; Notifications
-	     "dunst"
+	     		  ;;; Notifications
+			  "dunst"
 
-	     ;;; Theme
-	     "lxappearance"
+	     		  ;;; Theme
+			  "lxappearance"
 
 	     ;;; File Manager
-	     "thunar"
-	     "thunar-volman"
-	     "gvfs" ; For trash and remote management
-	     "lf"
+			  "thunar"
+			  "thunar-volman"
+			  "gvfs" ; For trash and remote management
+			  "lf"
 
 	     ;;; Search
-	     "fzf"
-	     "ripgrep"
+			  "fd"
+			  "fzf"
+			  "ripgrep"
 
 	     ;;; Screenshot
-	     "maim"
+			  "maim"
 
 	     ;;; Syncing
-	     "syncthing"
-	     "syncthing-gtk"
-	     "rsync"
+			  "syncthing"
+			  "syncthing-gtk"
+			  "rsync"
 
 	     ;;; Version Control/Package Management
-	     "git"
-	     "stow"
-
+			  "git"
+			  "stow"
+			  "flatpak"
 	     ;;; Shell
-	     "bash"
-	     "zsh"
-	     "scsh"
+			  "bash"
+			  "zsh"
+			  "scsh"
 
              ;;; Keyboard Management
-	     "kmonad"
-
+			  "kmonad"
 
 	     ;;; Password/Security
-	     "gnupg"
-	     "keepassxc"
-	     "password-store"
+			  "gnupg"
+			  "pinentry"
+			  "pinentry-tty"
+			  "pinentry-emacs"
+			  "keepassxc"
+			  "password-store"
 
 	      ;;; Utilities
-	     "curl"
-	     "ntfs-3g" ;; for mounting ntfs file systems
-	     ))
-            %base-packages))
+			  "curl"
+			  "ntfs-3g" ;; for mounting ntfs file systems
+			  ))
+		   %base-packages))
 
  ;; Below is the list of system services.  To search for available
  ;; services, run 'guix system search KEYWORD' in a terminal.
@@ -180,6 +186,10 @@
            (service openssh-service-type)
            (service tor-service-type)
            (service cups-service-type)
+	   ;; Audio
+	   ;; (service alsa-service-type)
+	   ;; (service pulseaudio-service-type)
+
            (set-xorg-configuration
             (xorg-configuration (keyboard-layout keyboard-layout))))
 
@@ -209,16 +219,16 @@
  (file-systems (cons* (file-system
                        (mount-point "/")
                        (device (uuid
-				"30dfe5c0-8180-4993-bb11-8a1476f3a003"
-				'ext4))
-                       (type "ext4"))
+				"50e2756a-3b56-4f1f-a056-ed0e88f277d2"
+				'btrfs))
+                       (type "btrfs"))
 
 		      (file-system
-			(mount-point "/mnt/arch")
-			(device (uuid
-				  "886fb01f-323f-40ab-9434-9f00feb96446"
-				  'ext4))
-			(type "ext4"))
+		       (mount-point "/mnt/arch")
+		       (device (uuid
+				"886fb01f-323f-40ab-9434-9f00feb96446"
+				'ext4))
+		       (type "ext4"))
 
 		      ;; (file-system
 		      ;; 	(mount-point "/mnt/LDisk-D")
