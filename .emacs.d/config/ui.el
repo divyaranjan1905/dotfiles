@@ -175,6 +175,7 @@
 		which-key-mode-hook
 		erc-mode-hook
 		rcirc-mode-hook
+		magit-popup-mode-hook
 		olivetti-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 ;; Disabling blinking cursor when reading things.
@@ -193,7 +194,7 @@
  )
 
 (defun fontify-frame (frame)
-  (set-frame-parameter frame 'font "Spline Sans Mono-13"))
+  (set-frame-parameter frame 'font "Iosevka-14"))
 
 ;; Fontify current frame
 (fontify-frame nil)
