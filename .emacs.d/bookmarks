@@ -3,10 +3,37 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (#1=
- (#("Lacanian Works Exchange" 0 23 (bmkp-full-record #1#))
-  (filename . "   - no file -")
-  (location . "https://lacanianworksexchange.net/")
-  (handler . bmkp-jump-url-browse))
+(#("guix system" 0 11 (bmkp-full-record #1#))
+ (filename . "~/.dotfiles/.config/guix/system.scm")
+ (buffer-name . "system.scm")
+ (front-context-string . ";; Divya's GNU G") (rear-context-string)
+ (front-context-region-string) (rear-context-region-string)
+ (visits . 3) (time 26345 35027 870576 397000)
+ (created 26345 23460 981723 65000) (position . 1))
+#1=
+(#("guix home" 0 9 (bmkp-full-record #1#))
+ (filename . "~/.dotfiles/.config/guix/home-divya.scm")
+ (buffer-name . "home-divya.scm")
+ (front-context-string . ";;; Divya's home") (rear-context-string)
+ (front-context-region-string) (rear-context-region-string)
+ (visits . 4) (time 26345 37117 962709 691000)
+ (created 26345 23202 707958 798000) (position . 1))
+#1=
+(#("Principles of Programming Languages" 0 35 (bmkp-full-record #1#))
+ (filename . "   - no file -")
+ (location . "https://pl.cs.jhu.edu/pl/index.html")
+ (handler . bmkp-jump-url-browse))
+#1=
+(#("Compiler Design (North Eastern University)" 0 42
+   (bmkp-full-record #1#))
+ (filename . "   - no file -")
+ (location . "https://course.ccs.neu.edu/cs4410/")
+ (handler . bmkp-jump-url-browse))
+#1=
+(#("Lacanian Works Exchange" 0 23 (bmkp-full-record #1#))
+ (filename . "   - no file -")
+ (location . "https://lacanianworksexchange.net/")
+ (handler . bmkp-jump-url-browse))
 #1=
 (#("Claudio Rosso, On Addiction" 0 27 (bmkp-full-record #1#))
  (filename . "   - no file -")
@@ -19,7 +46,7 @@
   . "/mnt/LDisk-E/Albert Einstein/Books & Resources/Politics/Political Philosophy/Communism/Marxism/Slavoj Zizek/Slavoj Zizek - Sex and the Failed Absolute-Bloomsbury Academic (2019 ).pdf")
  (buffer-name
   . "Slavoj Zizek - Sex and the Failed Absolute-Bloomsbury Academic (2019 ).pdf")
- (visits . 1) (time 26337 27144 664913 286000)
+ (visits . 2) (time 26345 22889 740268 785000)
  (created 26336 51941 736765 64000) (position . 1) (page . 276)
  (slice) (size . fit-width) (origin 0.0 . 0.33011003667889294)
  (handler . pdf-view-bookmark-jump-handler))
@@ -30,7 +57,7 @@
   . "/mnt/LDisk-E/Albert Einstein/Books & Resources/Politics/Political Philosophy/Communism/Marxism/Slavoj Zizek/(Short Circuits) Slavoj Zizek - The Parallax View -The MIT Press.pdf")
  (buffer-name
   . "(Short Circuits) Slavoj Zizek - The Parallax View -The MIT Press.pdf")
- (visits . 1) (time 26337 27140 616270 456000)
+ (visits . 3) (time 26345 22982 417390 744000)
  (created 26336 51799 563704 33000) (position . 1) (page . 221)
  (slice) (size . 2.8125) (origin 0.0 . 0.3982446516730664)
  (handler . pdf-view-bookmark-jump-handler))
@@ -41,7 +68,7 @@
   . "/mnt/LDisk-E/Albert Einstein/Books & Resources/Politics/Political Philosophy/Communism/Marxism/Slavoj Zizek/Slavoj Zizek - Sex and the Failed Absolute-Bloomsbury Academic (2019 ).pdf")
  (buffer-name
   . "Slavoj Zizek - Sex and the Failed Absolute-Bloomsbury Academic (2019 ).pdf")
- (visits . 2) (time 26337 27148 400616 510000)
+ (visits . 5) (time 26345 22976 417798 333000)
  (created 26336 50664 555128 649000) (position . 1) (page . 262)
  (slice) (size . fit-height) (origin 0.0 . 0.0)
  (handler . pdf-view-bookmark-jump-handler))
@@ -366,7 +393,7 @@
  (front-context-string . "	block_singe: Bl")
  (rear-context-string . "g(short, long)]\n")
  (front-context-region-string) (rear-context-region-string)
- (visits . 31) (time 26320 13733 265973 530000)
+ (visits . 32) (time 26344 8948 625844 64000)
  (created 26274 33080 137752 248000) (position . 32122))
 #1=
 (#("big-src" 0 7 (bmkp-full-record #1#)) (buffer-name . "big-src")
@@ -594,7 +621,7 @@
  (front-context-string . "flake.lock\n  -rw")
  (rear-context-string . "84 Jun 16 12:48 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 35) (time 26338 28662 329940 345000)
+ (visits . 36) (time 26344 9032 175957 251000)
  (created 26234 11795 602700 370000) (position . 1234)
  (filename . "/home/divya/src/rust/rustlings/")
  (dired-directory . "~/src/rust/rustlings/") (dired-marked)
@@ -1966,7 +1993,7 @@
  (front-context-string . "Mozart\n  -rwxrw-")
  (rear-context-string . "96 Nov 17  2022 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 4) (time 26210 51845 66224 518000)
+ (visits . 5) (time 26344 11855 653481 29000)
  (created 26051 14252 126596 773000) (position . 3316)
  (filename . #2="/mnt/LDisk-E/Albert Einstein/Music/Classical Music/")
  (dired-directory . #2#) (dired-marked) (dired-switches . "-al")
@@ -2323,7 +2350,7 @@
  (front-context-string . "docs\n  -rwxrw-rw")
  (rear-context-string . "96 Jan  9 20:18 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 199) (time 26338 25878 336172 25000)
+ (visits . 203) (time 26345 36817 367440 968000)
  (created 26019 43822 533971 931000) (position . 504)
  (filename . #2=
 	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Sociology/Gender Mainstreaming/Megha/")
@@ -2509,7 +2536,7 @@
  (buffer-name . "Haskell") (front-context-string . "hutton-prog-hask")
  (rear-context-string . " 0 Dec 24 03:48 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 56) (time 26325 33303 401837 121000)
+ (visits . 57) (time 26344 9754 417444 270000)
  (created 25995 61164 904034 285000) (position . 975)
  (filename . "/home/divya/cs/Haskell/")
  (dired-directory . "~/cs/Haskell/") (dired-marked)
@@ -2650,7 +2677,7 @@
  (tags "dirs" "emacs" "dots") (buffer-name . "config")
  (front-context-string) (rear-context-string . "57 Nov 11 18:20 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 134) (time 26330 51254 876579 923000)
+ (visits . 135) (time 26343 13346 120443 144000)
  (created 25937 46480 550571 831000) (position . 1132)
  (filename . "/home/divya/.emacs.d/config/")
  (dired-directory . "~/.emacs.d/config/") (dired-marked)
