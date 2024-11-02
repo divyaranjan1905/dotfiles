@@ -1,0 +1,31 @@
+## Alacritty Configuration
+
+[window]
+
+opacity = 0.8
+padding.x = 10
+padding.y = 10
+
+decorations = "Full"
+decorations_theme_variant = "Dark"
+
+[font]
+normal.family= "Spline Sans Mono"
+bold.family= "Spline Sans Mono"
+italic.family= "Spline Sans Mono"
+bold_italic.family= "Spline Sans Mono"
+
+size = 12.0
+
+[[hints.enabled]]
+regex = "[^ ]+\\.rs:\\d+:\\d+"
+command = { program = "code", args = [ "--goto" ] }
+mouse = { enabled = true }
+
+[shell]
+program = "/run/current-system/profile/bin/zsh"
+
+# Scrollback
+[scrolling]
+history = 10000  # Number of lines in scrollback history
+multiplier = 3
