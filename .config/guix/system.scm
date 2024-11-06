@@ -5,9 +5,48 @@
 ;; Indicate which modules to import to access the variables
 ;; used in this configuration.
 (use-modules (gnu))
-(use-modules (gnu services sound))
+(use-modules (gnu services base)
+ 	     (gnu services sound)
+	     (gnu services cups)
+	     (gnu services mcron)
+	     (gnu services shepherd)
+	     (gnu services xorg)
+	     (nongnu services nvidia))
+(use-modules (gnu packages haskell-apps)
+	     (gnu packages cups)
+	     (nongnu packages nvidia))
+(use-modules (guix))
 (use-service-modules cups desktop networking ssh xorg)
 (use-package-modules ssh)
+
+;;; MCron Services for Scheduled Jobs
+
+;; (define essential-backup-job
+;;   ;; Hourly run a backup script in ~/.dotfiles that backs up notes, dotfiles,
+;;   ;; and anything else into another disk and encrypts whatever is private.
+;;   #~(job "0 */4 * * *"
+;; 	 "./~/.dotfiles/scripts/backup"))
+
+;; (define garbage-collector-job
+;;   ;; Collect garbage 5 minutes after 09:00 AM UTC every day
+;;   #~(job "5 0 * * *"
+;; 	 "guix gc -F 1G"))
+
+;;; Kmonad
+(define kmonad-service
+  (simple-service
+   'kmonad-service
+   shepherd-root-service-type
+   (list (shepherd-service
+	  (documentation "Run the kmonad daemon (kmonad-daemon)." )
+	  (provision '(kmonad-daemon))
+	  (requirement '(udev user-processes))
+	  (start #~(make-forkexec-constructor
+		    (list #$(file-append kmonad "/bin/kmonad")
+			  (string-append
+			   "/home/divya/.config/kmonad/divya.kbd"))
+                    #:log-file "/var/log/kmonad.log"))
+          (stop #~(make-kill-destructor))))))
 
 (operating-system
  (locale "en_US.utf8")
@@ -15,34 +54,44 @@
  (keyboard-layout (keyboard-layout "us"))
  (host-name "lambda")
 
+;; Kernel level modifications
+ ;;(kernel-arguments '("modprobe.blacklist=nouveau"
+;;		     "nvidia_drm.modeset=1"))
+
+(groups (cons*
+	  (user-group
+	    (name "realtime")
+	    (system? #t))
+	  %base-groups))
+
  ;; The list of user accounts ('root' is implicit).
  (users (cons* (user-account
                 (name "divya")
                 (comment "Divya")
                 (group "users")
                 (home-directory "/home/divya")
-                (supplementary-groups '("wheel" "netdev" "audio" "video")))
-               %base-user-accounts))
+                (supplementary-groups '("wheel" "realtime" "netdev" "audio" "video")))
+	       %base-user-accounts))
 
  ;; Packages installed system-wide.  Users can also install packages
  ;; under their own account: use 'guix search KEYWORD' to search
  ;; for packages and 'guix install PACKAGE' to install a package.
  (packages (append (map specification->package
 			'(
-	                  ;;; Wayland
+;;; Wayland
 			  ;; "wayland"
 			  ;; "sway"
 
-	                  ;;; Window Managers
+;;; Window Managers
 			  ;; "awesome"
 			  "stumpwm"
 			  ;; "xmonad"
 
-	                  ;;; Text Editors
+;;; Text Editors
 			  "emacs-next"
 			  "vim"
 
-	                  ;;; Audio/Video/Streaming
+;;; Audio/Video/Streaming
 			  ;; "alsamixer"
 			  "alsa-utils"
 			  "alsa-lib"
@@ -51,7 +100,8 @@
 			  "pavucontrol"
 			  "wireplumber"
 			  "qpwgraph"
-			  "easyeffects"
+			 ;; "jack"
+			  ;; "easyeffects"
 			  "mpd"
 			  "mpv"
 			  "vlc"
@@ -59,40 +109,40 @@
 			  "simplescreenrecorder"
 			  "carla"
 
-	                  ;;; Connectivity
+;;; Connectivity
 			  "blueman"
 			  "v4l2loopback-linux-module" ; Webcam
 
-	                  ;;; Browser
+;;; Browser
 			  "librewolf"
 
-	                  ;;; Email
+;;; Email
 			  "mu"
 			  "isync"
 			  "msmtp"
 
-	                  ;;; Graphics/Image
+;;; Graphics/Image
 			  "imagemagick"
 			  "gimp"
 			  ;; "krita"
 			  "imlib2"
 			  "feh"
 
-	                  ;;; Fonts
+;;; Fonts
 			  "font-iosevka"
 			  "fontmanager"
 
-	                  ;;; Mathematics/Computational Software
+;;; Mathematics/Computational Software
 			  ;; "sage"
 			  "octave"
 			  "gnuplot"
 
-	                  ;;; LaTeX
+;;; LaTeX
 			  "texlive"
 			  "texlive-xetex"
 			  "texmacs"
 
-	                  ;;; Programming Languages
+;;; Programming Languages
 			  "chez-scheme"
 			  "mit-scheme"
 			  "racket"
@@ -101,6 +151,7 @@
 			  "cabal-install"
 			  "hlint"
 			  "gforth"
+			  ;; "java"
 			  "python"
 			  "python-pip"
 			  "r"
@@ -118,58 +169,78 @@
 			  "opam"
 			  "sqlite"
 
-	     		  ;;; Terminals
+;;; Terminals
 			  "alacritty"
-			  "st"
+			  "xst"
 			  ;; "foot"
 
-	     		  ;;; Launchers
+;;; Launchers
 			  "dmenu"
 
-	     		  ;;; Notifications
+;;; Notifications
 			  "dunst"
 
-	     		  ;;; Theme
+;;; Theme
 			  "lxappearance"
 
-	     ;;; File Manager
+;;; File Manager
 			  "thunar"
 			  "thunar-volman"
-			  "gvfs" ; For trash and remote management
+			  "gvfs"     ; For trash and remote management
 			  "lf"
 
-	     ;;; Search
+			  ;; Clipboard
+			  "xclip"
+
+;;; Search
 			  "fd"
 			  "fzf"
 			  "ripgrep"
 
-	     ;;; Screenshot
+;;; Screenshot
 			  "maim"
 
-	     ;;; Syncing
-			  "syncthing"
-			  "syncthing-gtk"
+			  ;; Pritning
+			  "hplip"
+			  "hplip-minimal"
+			  "system-config-printer"
+
+;;; Syncing
+			  ;; "syncthing"
+			  ;; "syncthing-gtk"
 			  "rsync"
 
-	     ;;; Version Control/Package Management
+;;; Version Control/Package Management
 			  "git"
 			  "stow"
 			  "flatpak"
-	     ;;; Shell
+;;; Shell
 			  "bash"
 			  "zsh"
 			  "scsh"
 
-             ;;; Keyboard Management
+;;; Keyboard Management
 			  "kmonad"
 
-	     ;;; Password/Security
+;;; Password/Security
 			  "keepassxc"
 			  "password-store"
 
-	      ;;; Utilities
+;;; Utilities
 			  "curl"
 			  "ntfs-3g" ;; for mounting ntfs file systems
+			  "zip"
+			  "tree"
+			  "ncurses"
+
+			  ;; Xorg
+			  "xset"
+
+			  ;; Graphics Drivers
+			  "mesa"
+			  "mesa-utils"
+			  "xf86-video-nouveau"
+
 			  ))
 		   %base-packages))
 
@@ -181,17 +252,46 @@
            ;; record as a second argument to 'service' below.
            (service openssh-service-type)
            (service tor-service-type)
-           (service cups-service-type)
+           (service cups-service-type
+		    (cups-configuration
+		     (web-interface? #t)
+		     (extensions
+		      (list cups-filters hplip-minimal))))
+
 	   ;; Audio
 	   ;; (service alsa-service-type)
 	   ;; (service pulseaudio-service-type)
 
            (set-xorg-configuration
-            (xorg-configuration (keyboard-layout keyboard-layout))))
+            (xorg-configuration (keyboard-layout keyboard-layout)))
+
+	   (service pam-limits-service-type
+		    (list
+		     (pam-limits-entry "@realtime" 'both 'rtprio 99)
+		     (pam-limits-entry "@realtime" 'both 'memlock 'unlimited)))
+
+	   kmonad-service
+
+
+	   )
+	  (modify-services %desktop-services
+			    (delete pulseaudio-service-type)
+			    (delete alsa-service-type))
+	  ;; (service nvidia-service-type)
+	  ;; (set-xorg-configuration
+	  ;;  (xorg-configuration
+	   ;;  (modules (cons nvda %default-xorg-modules))
+	    ;; (drivers '("nvidia")))))
+
+	  ;; mcron services
+	  ;; (simple-service 'lambda-cron-jobs
+	  ;; 		  mcron-service-type
+	  ;; 		  (garbage-collector-job))
 
           ;; This is the default list of services we
           ;; are appending to.
-          %desktop-services))
+	  ;; Alsa shouldn’t route through pulseaudio
+          ))
 
  (bootloader (bootloader-configuration
               (bootloader grub-bootloader)
@@ -203,18 +303,18 @@
 		 (label "arch-root")
 		 (linux "/boot/vmlinuz-linux-rt")
 		 (device (uuid "886fb01f-323f-40ab-9434-9f00feb96446" 'ext4))
-		 (linux-arguments '("root=/dev/sda7"))
+		 (linux-arguments '("root=/dev/sda6"))
 		 (initrd "/boot/initramfs-linux-rt.img"))))))
 
  ;; The list of file systems that get "mounted".  The unique
  ;; file system identifiers there ("UUIDs") can be obtained
  ;; by running 'blkid' in a terminal.
  (file-systems (cons* (file-system
-                       (mount-point "/")
-                       (device (uuid
+		       (mount-point "/")
+		       (device (uuid
 				"50e2756a-3b56-4f1f-a056-ed0e88f277d2"
 				'btrfs))
-                       (type "btrfs"))
+		       (type "btrfs"))
 
 		      (file-system
 		       (mount-point "/mnt/arch")
@@ -222,19 +322,4 @@
 				"886fb01f-323f-40ab-9434-9f00feb96446"
 				'ext4))
 		       (type "ext4"))
-
-		      ;; (file-system
-		      ;; 	(mount-point "/mnt/LDisk-D")
-		      ;; 	(device (uuid
-		      ;; 		  "42E6712AE6711F7B"
-		      ;; 		  'ntfs))
-		      ;; 	(flags '(bind-mount))
-		      ;; 	(type "ntfs"))
-
-		      ;; (file-system
-		      ;; 	(mount-point "/mnt/LDisk-E")
-		      ;; 	(device (uuid
-		      ;; 		  "FA5CCCEF5CCCA7A9"
-		      ;; 		  'ntfs))
-		      ;; 	(type "ntfs"))
 		      %base-file-systems)))

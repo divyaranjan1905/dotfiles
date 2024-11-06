@@ -10,12 +10,15 @@
   #:use-module (gnu home services shepherd)
   #:use-module (gnu home services sound)
   #:use-module (gnu home services ssh)
+  #:use-module (gnu home services syncthing)
   #:use-module (gnu home services shells)
   #:use-module (gnu services)
   #:use-module (gnu services dbus)
+  #:use-module (gnu services shepherd)
   #:use-module (gnu packages)
   #:use-module (gnu packages linux)
   #:use-module (gnu packages pulseaudio)
+  #:use-module (gnu packages haskell-apps)
   #:use-module (gnu packages gnupg)
   #:use-module (gnu system shadow))
 
@@ -41,7 +44,6 @@
 ;;    (default-value #f)
 ;;    (description "Emacs daemon as a Shepherd service.")))
 
-
 (home-environment
  (packages (append (map specification->package
 			'(
@@ -57,10 +59,12 @@
 			  ;; Audio
 			  "ardour"
 			  "mumble"
-			  "audacity"
+			  ;; "audacity"
 
 			  ;; Reading
 			  "calibre"
+			  "djvulibre"
+			  "djvu2pdf"
 
 			  ;; Research
 			  "anki"
@@ -75,17 +79,35 @@
 			  "r-magrittr"
 			  "r-ggplot2"
 
+			  ;; YouTube
+			  "ytfzf"
+
+			  ;; LaTeX
+			  "texlive-biber"
+
 			  ;; Browsers
-			  "nyxt"
+			  ;; "nyxt"
+
+			  ;; Compression
+			  "unzip"
 
 			  ;; Common Lisp
 			  "cl-anaphora"
 			  "cl-alexandria"
 			  "cl-asdf"
 
+			  ;; Spelling
+			  "ispell"
+
+			  ;; Printing
+			  "cups"
+			  "hplip"
+			  "hplip-minimal"
+
 			  ;; Messaging
 			  "gnunet"
-			  "qtox"
+			  ;; "qtox"
+			  "jami"
 			  "telegram-desktop"
 
 			  ;; Torrenting
@@ -93,13 +115,17 @@
 			  "rtorrent"
 
 			  ;; Astrophysics
-			  "stellarium"
+			  ;; "stellarium"
 
-	                  ;;; Security
-			  "gnupg" ; Installed here and not in system.scm because the service is home
+			  ;; Security
+			  "gnupg" ; Installed here and not in system.scm because the service is in home
 			  "pinentry"
 			  "pinentry-emacs"
 			  "pinentry-tty"
+
+			  ;; Syncing
+			  "syncthing"
+			  "syncthing-gtk"
 
 			  ;; Utilities
 			  "clipmenu"
@@ -117,7 +143,10 @@
                        (default-cache-ttl 3000)
                        (max-cache-ttl 6000)
                        (extra-content "\nallow-loopback-pinentry\nallow-emacs-pinentry\n")))
+
+	     (service home-syncthing-service-type)
 	     (service home-dbus-service-type)
 	     (service home-pipewire-service-type
 		      (home-pipewire-configuration
-		       (wireplumber wireplumber-minimal)))))))
+		       (wireplumber wireplumber)
+		       (enable-pulseaudio? #f)))))))
