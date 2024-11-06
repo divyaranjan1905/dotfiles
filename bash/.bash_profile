@@ -18,4 +18,10 @@ eval "$(guix package --search-paths \
 # Prepend setuid programs.
 export PATH=/run/setuid-programs:$PATH
 
-emacs --daemon
+export LIBGL_ALWAYS_SOFTWARE=0
+export LIBGL_DRI3_DISABLE=0
+export VDPAU_DRIVER=nouveau
+export LIBVA_DRIVER_NAME=nouveau
+
+
+# emacs --daemon
