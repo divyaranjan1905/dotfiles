@@ -3,6 +3,7 @@
 (define-module (divya-packages-audio)
   #:use-module (guix packages)
   #:use-module (guix download)
+  #:use-module (guix build utils)
   #:use-module (guix build-system meson)
   #:use-module (guix licenses)
 
@@ -30,7 +31,17 @@
 	       (base32
 		"059v4r5avh67p402kwr47vb2k5hl3fpj4kfkk75b0mhry36by338"))))
     (build-system meson-build-system)
-    (arguments '(#:build-type "release"))
+    (arguments
+     (list
+      #:build-type '("releases")
+      #:phases #~(modify-phases %standard-phases
+		   (add-after 'unpack 'path-patch
+		     (lambda _ (substitute* '("^meson.build")
+				      (("raysessiondir =")
+				       (string-append "raysessiondir = join_paths('"
+						      #$output
+						      "', 'raysession', 'client_templates', '35_jackmixer')"))))))
+      ))
     (native-inputs
      (list gcc-toolchain
 	   pkg-config
