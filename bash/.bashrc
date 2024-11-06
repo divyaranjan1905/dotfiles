@@ -1,5 +1,41 @@
 #~/.bashrc
 
+GREEN='\[\033[0;32m\]'
+BLUE='\[\033[0;34m\]'
+YELLOW='\[\033[0;33m\]'
+RED='\[\033[0;31m\]'
+PURPLE='\[\033[0;35m\]'
+RESET='\[\033[0m\]'
+
+# Function to get the current git branch
+git_branch() {
+    git branch 2> /dev/null | grep '*' | sed 's/* //'
+}
+
+# Function to set the prompt
+set_bash_prompt() {
+    # Get the current git branch
+    local branch=$(git_branch)
+
+    # Define the left part of the prompt (username, hostname, and pwd)
+    local left_prompt="${GREEN}[${RESET}\u${GREEN}@${RESET}\h${GREEN}]${RESET}:${YELLOW}\w${RESET}"
+
+    # If we are in a git repo, show the branch on the right
+    if [ -n "$branch" ]; then
+        local right_prompt=" [${PURPLE}${branch}${RESET}]"
+    else
+        local right_prompt=""
+    fi
+
+    # Set the prompt
+    PS1="${left_prompt}${right_prompt}\n\$ "
+}
+
+# Activate the custom prompt
+PROMPT_COMMAND=set_bash_prompt
+
+# PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'; PS1='[\u@\h \W] ${PS1_CMD1}'
+
 export XDG_DATA_DIR='/home/divya/.local/share/flatpak/exports/share'
 #VARIABLES
 export BROWSER="nyxt"
@@ -93,6 +129,10 @@ export LF_ICONS="di=📁:\
 ##Enabling VI Mode
 set -o vi
 
+
+# Bindings
+bind -x '"\C-l": clear'
+
 ##PATH
 
 if [ -d "$HOME/.bin" ] ;
@@ -117,3 +157,5 @@ alias cd-einstein='cd "/mnt/LDisk-E/Albert Einstein/"'
 alias cd-phil='cd "/mnt/LDisk-E/Albert Einstein/Books & Resources/Philosophy & Psychology/Philosophy/"'
 alias cd-psych='cd "/mnt/LDisk-E/Albert Einstein/Books & Resources/Philosophy & Psychology/Psychology/"'
 alias alt='LIBGL_ALWAYS_SOFTWARE=1 alacritty'
+
+source "/home/divya/.emacs.d/straight/repos/eat/integration/bash"

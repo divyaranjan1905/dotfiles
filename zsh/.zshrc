@@ -21,7 +21,7 @@ HISTFILE=~/.cache/zsh/history
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 
 #Load Plugins
-#source ~/Git/zsh-autocomplete/zsh-autocomplete.plugin.zsh 
+#source ~/Git/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 #source ~/Git/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
@@ -77,4 +77,4 @@ bindkey '^e' edit-command-line
 # Load syntax highlighting; should be last.
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
 
-
+source "/home/divya/.emacs.d/straight/repos/eat/integration/zsh"
