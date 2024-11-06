@@ -23,10 +23,6 @@
 
 (run-with-timer 0 (* 60 60) 'bookmark-save)
 
-;; Hi-lock
-
-(global-hi-lock-mode 1)
-(setq hi-lock-file-patterns-policy #'(lambda (dummy) t))
 
 (provide 'bookmarks)
 ;;; bookmarks.el ends here

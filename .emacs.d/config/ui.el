@@ -146,6 +146,7 @@
 (dolist (mode '(org-mode-hook
 		eshell-mode-hook
 		term-mode-hook
+		eat-mode-hook
 		pdf-view-mode-hook
 		doc-view-mode-hook
 		image-dired-mode-hook
@@ -250,7 +251,7 @@
   (setq writeroom-width 100
 	writeroom-fullscreen-effect 1
 	writeroom-mode-line t
-	writeroom-major-modes '(text-mode org-mode markdown-mode nov-mode Info-mode)))
+	writeroom-major-modes '(org-mode markdown-mode nov-mode Info-mode)))
 
 (defun divya/enable-focus ()
   "To enable the focus-mode."

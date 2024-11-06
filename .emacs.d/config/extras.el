@@ -126,6 +126,14 @@ and ending with the extension of the requested TYPE."
 (define-key global-map (kbd "C-c C-t u") 'timeclock-update-mode-line)
 (define-key global-map (kbd "C-c C-t w") 'timeclock-when-to-leave-string)
 
+;;; Emacs Bibliography Manager
+(use-package ebib
+  :straight t)
+
+
+;;; To retrieve BibTeX
+(use-package biblio
+  :straight t)
 
 ;; Emacs Tip of the Day
 
@@ -194,6 +202,16 @@ and ending with the extension of the requested TYPE."
 (use-package debbugs
   :straight t)
 
+;; Hi-lock (Minor-mode for interactive highlighting in any Emacs buffer)
+
+(global-hi-lock-mode 1)
+(setq hi-lock-file-patterns-policy #'(lambda (dummy) t))
+
+
+;;; Element in Emacs
+
+(use-package ement
+  :straight t)
 
 (provide 'extras)
 

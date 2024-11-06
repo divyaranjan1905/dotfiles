@@ -219,13 +219,16 @@
 (use-package citar
   :straight t
   :custom
-  (org-cite-global-bibliography '("~/bib/gm-thesis.bib")
+  (org-cite-global-bibliography '("/mnt/LDisk-E/Albert Einstein/Books & Resources/Sociology/Gender Mainstreaming/Megha/thesis/chapters/gm-thesis.bib")
 				'("~/bib/neuroscience.bib")
 				'("~/bib/divya-library.bib"))
   (org-cite-insert-processor 'citar)
   (org-cite-follow-processor 'citar)
   (org-cite-activate-processor 'citar)
   (citar-bibliography org-cite-global-bibliography)
+
+  :config
+  (setq citar-org-styles-format 'short)
 
   :hook
   (LaTeX-mode . citar-capf-setup)
@@ -750,6 +753,7 @@
 
 ;; Org Async Export
 (setq org-export-async-init-file "~/.emacs.d/config/org-async.el")
+(setq org-export-in-background t)
 
 ;;; Writing Setup
 ;; A free grammar-checker: Langtool
@@ -770,6 +774,10 @@
 (add-hook 'org-mode-hook (lambda ()
                            (flymake-mode)
                            (flymake-proselint-setup)))
+
+
+;; To export captions below
+(setq org-latex-caption-above nil)
 
 (provide 'org)
 ;;; org.el ends here

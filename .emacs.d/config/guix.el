@@ -7,8 +7,7 @@
 (use-package guix
   :straight t)
 
-(provide 'guix.el)
-
 (global-set-key (kbd "C-x C-g") 'guix)
 
+(provide 'guix.el)
 ;;; guix.el ends here

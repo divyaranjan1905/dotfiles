@@ -29,6 +29,7 @@
 (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward)
 
 (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
+(add-hook 'pdf-view-mode-hook 'pdf-annot-minor-mode)
 
 (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
       TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view))
@@ -60,6 +61,10 @@
 ;;   :hook (pdf-view-mode . pdf-view-restore-mode)
 ;;   :config
 ;;   (setq pdf-view-restore-filename  "~/.emacs.d/pdf-view-restore"))
+
+(define-key pdf-view-mode-map (kbd "H") 'pdf-view-fit-height-to-window)
+(define-key pdf-view-mode-map (kbd "W") 'pdf-view-fit-width-to-window)
+(define-key pdf-view-mode-map (kbd "o") 'pdf-outline)
 
 (use-package saveplace
   :straight t)
@@ -186,6 +191,12 @@
 
 ;; DJVUs in Emacs
 (use-package djvu
+  :straight t)
+
+
+;;; Handling multi-file writing systems
+
+(use-package binder
   :straight t)
 
 (provide 'books)

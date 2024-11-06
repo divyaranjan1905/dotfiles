@@ -59,9 +59,9 @@
 ;; (move-focus :right)
 ;; (*alacritty*))
 
-(define-key *top-map* (kbd "s-RET") "exec st")
+(define-key *top-map* (kbd "s-RET") "exec alacritty")
 ;;(defien-key *top-map* (kbd "s-S-RET") "alacritty-hsplit")
-(define-key *top-map* (kbd "s-C-RET") *alacritty*)
+(define-key *top-map* (kbd "s-C-RET") "exec xst")
 
 ;; Kill a window but also murder the frame, because we can't waste another 3 keypresses to do that!
 (defcommand del-win-and-frame ()()
@@ -170,7 +170,7 @@
   "Keymaps for running custom scripts.")
 (setf *script-map*
       (let ((m (make-sparse-keymap)))
-        (define-key m (kbd "Sys_Req")  "exec maimpick")
+        (define-key m (kbd "Sys_Req")  "exec ~/.local/bin/maimpick")
         (define-key m (kbd "C-SunPrint_Screen")  "exec dmenurecord")
         (define-key m (kbd "C-Sys_Req") "exec dmenurecord kill") ; Shift + SunPrint_Screen is understood as Sys_Req by StumpWM
         (define-key m (kbd "C-c") "exec clipmenu")

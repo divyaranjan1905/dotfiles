@@ -197,8 +197,8 @@
 (use-package rust-mode
   ;; :straight (:build (:not compile autoloads))
   :straight t
-  :hook (rust-mode . eglot-ensure)
-  :hook (rust-mode . subword-mode))
+  :hook (rust-ts-mode . eglot-ensure)
+  :hook (rust-ts-mode . subword-mode))
 
 ;; (use-package rust-ts-mode
 ;;   :straight t
@@ -495,6 +495,10 @@
 ;;    telega-server-libs-prefix "/usr"
 ;;    telega-autoplay-mode t))
 
+;;; Termianl in Emacs
+(use-package eat
+   :straight t)
+
 ;;; Shell in Emacs
 
 ;; A pop up shell
@@ -532,7 +536,8 @@
 
 (use-package eshell
   :straight t
-  :hook (eshell-first-time-mode . divya/configure-eshell)
+  :hook ((eshell-first-time-mode . divya/configure-eshell)
+	 (eshell-mode . eat-eshell-mode))
   :config
 
   (with-eval-after-load 'esh-opt
@@ -580,6 +585,7 @@
 	(elisp "https://github.com/Wilfred/tree-sitter-elisp")
 	(go "https://github.com/tree-sitter/tree-sitter-go")
 	(html "https://github.com/tree-sitter/tree-sitter-html")
+	(haskell "https://github.com/tree-sitter/tree-sitter-haskell")
 	(javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
 	(rust "https://github.com/tree-sitter/tree-sitter-rust")
 	(json "https://github.com/tree-sitter/tree-sitter-json")
@@ -598,7 +604,6 @@
 ;; Authentication sources
 (setq auth-sources '("~/.authinfo.gpg"))
 
-
 (provide 'init)
 ;;; init.el ends here
 ;;;
@@ -608,37 +613,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
- '(org-agenda-files
-   '("/home/divya/notes/org/org-agenda/tasks.org"
-     "/home/divya/notes/org/org-agenda/habits.org"
-     "/home/divya/notes/org/org-roam/projects/shades_of_lambda.org"
-     "/home/divya/notes/org/org-roam/projects/retracing_freud_s_oeuvre.org"
-     "/home/divya/notes/org/org-roam/projects/vesuvius_challenge.org"
-     "/home/divya/notes/org/org-roam/projects/thesis_gender_mainstreaming_in_urban_governance_a_study_of_women_councillors_of_ajmer_division_in_rajasthan.org"
-     "/home/divya/notes/org/org-roam/projects/on_hermeneutic_temptation.org"
-     "/home/divya/notes/org/org-roam/projects/haskell_by_problem_solving.org"
-     "/home/divya/notes/org/org-roam/projects/biblio_rogue.org"
-     "/home/divya/notes/org/org-roam/projects/reader_el.org"
-     "/home/divya/notes/org/org-roam/projects/bibliotheca_aeterna.org"
-     "/home/divya/notes/org/org-roam/projects/digit_recognizer.org"
-     "/home/divya/notes/org/org-roam/projects/bibliophile_el.org"
-     "/home/divya/notes/org/org-roam/projects/org_mobile.org"
-     "/home/divya/notes/org/org-roam/projects/illusion_of_simplicity.org"
-     "/home/divya/notes/org/org-roam/main/computer_vision.org"
-     "/home/divya/notes/org/org-roam/main/intuitionism.org"
-     "/home/divya/notes/org/org-roam/main/foundations_of_machine_learning.org"
-     "/home/divya/notes/org/org-roam/main/kaggle.org"
-     "/home/divya/notes/org/org-roam/main/category_theory.org"
-     "/home/divya/notes/org/org-roam/main/mathematical_logic.org"
-     "/home/divya/notes/org/org-roam/ref/kaggle_intro_to_deep_learning.org"
-     "/home/divya/notes/org/org-roam/ref/in_search_of_lost_time.org"
-     "/home/divya/notes/org/org-roam/ref/stanford_231n.org"
-     "/home/divya/notes/org/org-roam/ref/kaggle_introduction_to_machine_learning.org"
-     "/home/divya/notes/org/org-roam/ref/18_905_algebraic_topology_i.org"
-     "/home/divya/notes/org/journal/20240916.org.gpg")))
+ '(canlock-password "aa18b12ca5332929221c2d77447196e9911ebca8"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(put 'list-threads 'disabled nil)
