@@ -6,6 +6,7 @@
   #:use-module (guix build utils)
   #:use-module (guix build-system meson)
   #:use-module (guix licenses)
+  #:use-module (guix gexp)
 
   #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages commencement)
@@ -33,14 +34,13 @@
     (build-system meson-build-system)
     (arguments
      (list
-      #:build-type '("releases")
+      #:build-type "release"
       #:phases #~(modify-phases %standard-phases
 		   (add-after 'unpack 'path-patch
-		     (lambda _ (substitute* '("^meson.build")
-				      (("raysessiondir =")
-				       (string-append "raysessiondir = join_paths('"
-						      #$output
-						      "', 'raysession', 'client_templates', '35_jackmixer')"))))))
+		     (lambda _
+		       (substitute* '("meson.build")
+			 (("'/', 'etc', 'xdg'")
+			  (string-append "'" #$output "'"))))))
       ))
     (native-inputs
      (list gcc-toolchain
@@ -50,12 +50,14 @@
 	   python-docutils
 	   gnu-gettext
 	   glib
+	   gtk+
+	   `(,gtk+ "bin")
 	   ))
     (inputs
-    (list python
-	  python-pygobject
-	  python-pycairo
-	  python-platformdirs
+     (list python
+	   python-pygobject
+	   python-pycairo
+	   python-platformdirs
 	  jack-2))
    (synopsis "JACK Mixer: A multi-channel audio mixer desktop application for the JACK Audio Connection Kit.")
    (description
