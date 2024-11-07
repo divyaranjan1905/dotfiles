@@ -149,4 +149,4 @@
 	     (service home-pipewire-service-type
 		      (home-pipewire-configuration
 		       (wireplumber wireplumber)
-		       (enable-pulseaudio? #f)))))))
+		       (enable-pulseaudio? #t)))))))
