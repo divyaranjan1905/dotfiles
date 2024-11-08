@@ -73,7 +73,7 @@
  (front-context-string . "manifest.scm\n  d")
  (rear-context-string . "73 Sep 23 22:08 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 6) (time 26406 5397 252200 811000)
+ (visits . 7) (time 26411 36131 556342 761000)
  (created 26353 59239 885784 859000) (position . 1544)
  (filename . #2="/mnt/LDisk-D/src/guix/") (dired-directory . #2#)
  (dired-marked) (dired-switches . "-al") (dired-subdirs)
@@ -2846,11 +2846,11 @@
  (rear-context-string . "45 Nov  3 00:39 ") (position . 500)
  (last-modified 25930 22642 592366 993000))
 #1=
-(#("dotfiles" 0 8 (bmkp-full-record #1#)) (end-position . 764)
- (time 26406 9482 650819 581000) (visits . 10) (tags "dirs" "dots")
+(#("dotfiles" 0 8 (bmkp-full-record #1#)) (end-position . 818)
+ (time 26411 37785 220667 960000) (visits . 11) (tags "dirs" "dots")
  (filename . "~/.dotfiles/")
  (front-context-string . "suckless\n  drwxr")
- (rear-context-string . "96 Nov  4 12:25 ") (position . 764)
+ (rear-context-string . "96 Nov  4 12:25 ") (position . 818)
  (last-modified 25930 1291 445382 843000))
 #1=
 (#("math" 0 4 (bmkp-full-record #1#)) (end-position . 2742)

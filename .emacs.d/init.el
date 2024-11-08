@@ -612,8 +612,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
- '(canlock-password "aa18b12ca5332929221c2d77447196e9911ebca8"))
+ '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
