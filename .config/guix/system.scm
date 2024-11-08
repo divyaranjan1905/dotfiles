@@ -10,11 +10,10 @@
 	     (gnu services cups)
 	     (gnu services mcron)
 	     (gnu services shepherd)
-	     (gnu services xorg)
-	     (nongnu services nvidia))
+	     (gnu services xorg))
 (use-modules (gnu packages haskell-apps)
 	     (gnu packages cups)
-	     (nongnu packages nvidia))
+	     (gnu packages version-control))
 (use-modules (guix))
 (use-service-modules cups desktop networking ssh xorg)
 (use-package-modules ssh)
@@ -76,173 +75,172 @@
  ;; Packages installed system-wide.  Users can also install packages
  ;; under their own account: use 'guix search KEYWORD' to search
  ;; for packages and 'guix install PACKAGE' to install a package.
- (packages (append (map specification->package
-			'(
-;;; Wayland
-			  ;; "wayland"
-			  ;; "sway"
+ (packages
+  (append (map (compose list specification->package+output)
+	       `( ;;; Wayland
+		 ;; "wayland"
+		 ;; "sway"
 
 ;;; Window Managers
-			  ;; "awesome"
-			  "stumpwm"
-			  ;; "xmonad"
+		 ;; "awesome"
+		 "stumpwm"
+		 ;; "xmonad"
 
 ;;; Text Editors
-			  "emacs-next"
-			  "vim"
+		 "emacs-next"
+		 "vim"
 
 ;;; Audio/Video/Streaming
-			  ;; "alsamixer"
-			  "alsa-utils"
-			  "alsa-lib"
-			  "bluez-alsa"
-			  "pipewire"
-			  "pavucontrol"
-			  "wireplumber"
-			  "qpwgraph"
-			 ;; "jack"
-			  ;; "easyeffects"
-			  "mpd"
-			  "mpv"
-			  "vlc"
-			  "pulsemixer"
-			  "simplescreenrecorder"
-			  "carla"
+		 ;; "alsamixer"
+		 "alsa-utils"
+		 "alsa-lib"
+		 "bluez-alsa"
+		 "pipewire"
+		 "pavucontrol"
+		 "wireplumber"
+		 "qpwgraph"
+		 ;; "jack"
+		 ;; "easyeffects"
+		 "mpd"
+		 "mpv"
+		 "vlc"
+		 "pulsemixer"
+		 "simplescreenrecorder"
+		 "carla"
 
 ;;; Connectivity
-			  "blueman"
-			  "v4l2loopback-linux-module" ; Webcam
+		 "blueman"
+		 "v4l2loopback-linux-module" ; Webcam
 
 ;;; Browser
-			  "librewolf"
+		 "librewolf"
 
 ;;; Email
-			  "mu"
-			  "isync"
-			  "msmtp"
+		 "mu"
+		 "isync"
+		 "msmtp"
 
 ;;; Graphics/Image
-			  "imagemagick"
-			  "gimp"
-			  ;; "krita"
-			  "imlib2"
-			  "feh"
+		 "imagemagick"
+		 "gimp"
+		 ;; "krita"
+		 "imlib2"
+		 "feh"
 
 ;;; Fonts
-			  "font-iosevka"
-			  "fontmanager"
+		 "font-iosevka"
+		 "fontmanager"
 
 ;;; Mathematics/Computational Software
-			  ;; "sage"
-			  "octave"
-			  "gnuplot"
+		 ;; "sage"
+		 "octave"
+		 "gnuplot"
 
 ;;; LaTeX
-			  "texlive"
-			  "texlive-xetex"
-			  "texmacs"
+		 "texlive"
+		 "texlive-xetex"
+		 "texmacs"
 
 ;;; Programming Languages
-			  "chez-scheme"
-			  "mit-scheme"
-			  "racket"
-			  "gcc-toolchain"
-			  "ghc"
-			  "cabal-install"
-			  "hlint"
-			  "gforth"
-			  ;; "java"
-			  "python"
-			  "python-pip"
-			  "r"
-			  "sbcl"
-			  "rust"
-			  "rust-cargo"
-			  "rust-analyzer"
-			  "rust-clippy"
-			  "clojure"
-			  "clojure-tools"
-			  "gprolog"
-			  "swi-prolog"
-			  "smlnj"
-			  "polyml"
-			  "opam"
-			  "sqlite"
+		 "chez-scheme"
+		 "mit-scheme"
+		 "racket"
+		 "gcc-toolchain"
+		 "ghc"
+		 "cabal-install"
+		 "hlint"
+		 "gforth"
+		 ;; "java"
+		 "python"
+		 "python-pip"
+		 "r"
+		 "sbcl"
+		 "rust"
+		 "rust-cargo"
+		 "rust-analyzer"
+		 "rust-clippy"
+		 "clojure"
+		 "clojure-tools"
+		 "gprolog"
+		 "swi-prolog"
+		 "smlnj"
+		 "polyml"
+		 "opam"
+		 "sqlite"
 
 ;;; Terminals
-			  "alacritty"
-			  "xst"
-			  ;; "foot"
+		 "alacritty"
+		 "xst"
+		 ;; "foot"
 
 ;;; Launchers
-			  "dmenu"
+		 "dmenu"
 
 ;;; Notifications
-			  "dunst"
+		 "dunst"
 
 ;;; Theme
-			  "lxappearance"
+		 "lxappearance"
 
 ;;; File Manager
-			  "thunar"
-			  "thunar-volman"
-			  "gvfs"     ; For trash and remote management
-			  "lf"
+		 "thunar"
+		 "thunar-volman"
+		 "gvfs"		     ; For trash and remote management
+		 "lf"
 
-			  ;; Clipboard
-			  "xclip"
+		 ;; Clipboard
+		 "xclip"
 
 ;;; Search
-			  "fd"
-			  "fzf"
-			  "ripgrep"
+		 "fd"
+		 "fzf"
+		 "ripgrep"
 
 ;;; Screenshot
-			  "maim"
+		 "maim"
 
-			  ;; Pritning
-			  "hplip"
-			  "hplip-minimal"
-			  "system-config-printer"
+		 ;; Pritning
+		 "hplip"
+		 "hplip-minimal"
+		 "system-config-printer"
 
 ;;; Syncing
-			  ;; "syncthing"
-			  ;; "syncthing-gtk"
-			  "rsync"
+		 ;; "syncthing"
+		 ;; "syncthing-gtk"
+		 "rsync"
 
 ;;; Version Control/Package Management
-			  "git"
-			  "stow"
-			  "flatpak"
+		 "git"
+		 "git:send-email"
+		 "stow"
+		 "flatpak"
 ;;; Shell
-			  "bash"
-			  "zsh"
-			  "scsh"
+		 "bash"
+		 "zsh"
+		 "scsh"
 
 ;;; Keyboard Management
-			  "kmonad"
+		 "kmonad"
 
 ;;; Password/Security
-			  "keepassxc"
-			  "password-store"
+		 "keepassxc"
+		 "password-store"
 
 ;;; Utilities
-			  "curl"
-			  "ntfs-3g" ;; for mounting ntfs file systems
-			  "zip"
-			  "tree"
-			  "ncurses"
+		 "curl"
+		 "ntfs-3g" ;; for mounting ntfs file systems
+		 "zip"
+		 "tree"
+		 "ncurses"
 
-			  ;; Xorg
-			  "xset"
+		 ;; Xorg
+		 "xset"
 
-			  ;; Graphics Drivers
-			  "mesa"
-			  "mesa-utils"
-			  "xf86-video-nouveau"
-
-			  ))
-		   %base-packages))
+		 ;; Graphics Drivers
+		 "mesa"
+		 "mesa-utils"
+		 "xf86-video-nouveau"))
+	  %base-packages))
 
  ;; Below is the list of system services.  To search for available
  ;; services, run 'guix system search KEYWORD' in a terminal.
