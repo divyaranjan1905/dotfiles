@@ -91,32 +91,30 @@
 		 "vim"
 
 ;;; Audio/Video/Streaming
-		 ;; "alsamixer"
 		 "alsa-utils"
 		 "alsa-lib"
 		 "bluez-alsa"
-		 "pipewire"
-		 "pavucontrol"
-		 "wireplumber"
-		 "qpwgraph"
+		 ;; "pipewire"
+		 ;; "pavucontrol"
+		 ;; "wireplumber"
+		 ;; "qpwgraph"
 		 ;; "jack"
 		 ;; "easyeffects"
 		 "mpd"
 		 "mpv"
 		 "vlc"
-		 "pulsemixer"
 		 "simplescreenrecorder"
-		 "carla"
+		 ;; "carla"
 
 ;;; Connectivity
-		 "blueman"
+		 ;; "blueman"
 		 "v4l2loopback-linux-module" ; Webcam
 
 ;;; Browser
 		 "librewolf"
 
 ;;; Email
-		 "mu"
+		 ;; "mu"
 		 "isync"
 		 "msmtp"
 
@@ -258,7 +256,7 @@
 
 	   ;; Audio
 	   ;; (service alsa-service-type)
-	   ;; (service pulseaudio-service-type)
+	   ;; (service pulseaudio-service-type) Already included in %desktop-services
 
            (set-xorg-configuration
             (xorg-configuration (keyboard-layout keyboard-layout)))
@@ -268,13 +266,8 @@
 		     (pam-limits-entry "@realtime" 'both 'rtprio 99)
 		     (pam-limits-entry "@realtime" 'both 'memlock 'unlimited)))
 
-	   kmonad-service
-
-
-	   )
-	  (modify-services %desktop-services
-			    (delete pulseaudio-service-type)
-			    (delete alsa-service-type))
+	   kmonad-service)
+	  %desktop-services
 	  ;; (service nvidia-service-type)
 	  ;; (set-xorg-configuration
 	  ;;  (xorg-configuration
@@ -285,10 +278,6 @@
 	  ;; (simple-service 'lambda-cron-jobs
 	  ;; 		  mcron-service-type
 	  ;; 		  (garbage-collector-job))
-
-          ;; This is the default list of services we
-          ;; are appending to.
-	  ;; Alsa shouldn’t route through pulseaudio
           ))
 
  (bootloader (bootloader-configuration
