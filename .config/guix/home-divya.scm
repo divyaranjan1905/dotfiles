@@ -59,6 +59,11 @@
 			  ;; Audio
 			  "ardour"
 			  "mumble"
+			  "pipewire"
+			  "wireplumber"
+			  "qpwgraph"
+			  "pavucontrol"
+			  "carla"
 			  ;; "audacity"
 
 			  ;; Reading
