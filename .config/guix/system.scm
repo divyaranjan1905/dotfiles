@@ -13,6 +13,8 @@
 	     (gnu services xorg))
 (use-modules (gnu packages haskell-apps)
 	     (gnu packages cups)
+	     (nongnu packages printers) ;; For non-free hp drivers
+	     (btv rust) ;; For latest rust that is not yet in guix
 	     (gnu packages version-control))
 (use-modules (guix))
 (use-service-modules cups desktop networking ssh xorg)
@@ -54,7 +56,7 @@
  (host-name "lambda")
 
 ;; Kernel level modifications
- ;;(kernel-arguments '("modprobe.blacklist=nouveau"
+;;(kernel-arguments '("modprobe.blacklist=nouveau"
 ;;		     "nvidia_drm.modeset=1"))
 
 (groups (cons*
@@ -69,7 +71,7 @@
                 (comment "Divya")
                 (group "users")
                 (home-directory "/home/divya")
-                (supplementary-groups '("wheel" "realtime" "netdev" "audio" "video")))
+                (supplementary-groups '("lp" "lpadmin" "wheel" "realtime" "netdev" "audio" "video")))
 	       %base-user-accounts))
 
  ;; Packages installed system-wide.  Users can also install packages
@@ -153,6 +155,9 @@
 		 "python-pip"
 		 "r"
 		 "sbcl"
+		 ;; "rust-next" ;; from (btv rust)
+		 ;; "rust-next:tools"
+		 ;; "rust-next:cargo"
 		 "rust"
 		 "rust-cargo"
 		 "rust-analyzer"
@@ -199,6 +204,7 @@
 
 		 ;; Pritning
 		 "hplip"
+		 "hplip-plugin"
 		 "hplip-minimal"
 		 "system-config-printer"
 
