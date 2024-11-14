@@ -3,6 +3,22 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (#1=
+(#("CS 6115: Certified Software Systems (Cornell)" 0 45
+   (bmkp-full-record #1#))
+ (filename . "   - no file -")
+ (location . "https://www.cs.cornell.edu/courses/cs6115/2024fa/")
+ (handler . bmkp-jump-url-browse))
+#1=
+(#("src" 0 3 (bmkp-full-record #1#)) (buffer-name . "src")
+ (front-context-string . "jack_mixer\n  -rw")
+ (rear-context-string . "96 Nov  2 07:54 ")
+ (front-context-region-string) (rear-context-region-string)
+ (visits . 2) (time 26419 20657 769634 276000)
+ (created 26415 29277 411641 316000) (position . 684)
+ (filename . #2="/mnt/LDisk-D/src/") (dired-directory . #2#)
+ (dired-marked) (dired-switches . "-al") (dired-subdirs)
+ (dired-hidden-dirs) (handler . bmkp-jump-dired))
+#1=
 (#("Francais Par La Methode Nature" 0 30 (bmkp-full-record #1#))
  (filename . "   - no file -")
  (location
@@ -73,7 +89,7 @@
  (front-context-string . "manifest.scm\n  d")
  (rear-context-string . "73 Sep 23 22:08 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 7) (time 26411 36131 556342 761000)
+ (visits . 16) (time 26420 41191 7210 720000)
  (created 26353 59239 885784 859000) (position . 1544)
  (filename . #2="/mnt/LDisk-D/src/guix/") (dired-directory . #2#)
  (dired-marked) (dired-switches . "-al") (dired-subdirs)
@@ -105,7 +121,7 @@
  (buffer-name . "system.scm")
  (front-context-string . ";; Divya's GNU G") (rear-context-string)
  (front-context-region-string) (rear-context-region-string)
- (visits . 19) (time 26407 5584 193188 69000)
+ (visits . 25) (time 26420 30589 4006 14000)
  (created 26345 23460 981723 65000) (position . 1))
 #1=
 (#("guix home" 0 9 (bmkp-full-record #1#))
@@ -113,7 +129,7 @@
  (buffer-name . "home-divya.scm")
  (front-context-string . ";;; Divya's home") (rear-context-string)
  (front-context-region-string) (rear-context-region-string)
- (visits . 24) (time 26411 33323 931908 167000)
+ (visits . 27) (time 26419 18127 279399 505000)
  (created 26345 23202 707958 798000) (position . 1))
 #1=
 (#("Principles of Programming Languages" 0 35 (bmkp-full-record #1#))
@@ -306,11 +322,11 @@
  (front-context-string . "..\n* -rwxrw-rw- ")
  (rear-context-string . "08 Aug 23 09:00 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 0) (time . #2=(26312 20385 877386 355000)) (created . #2#)
- (position . 203)
- (filename . #3=
+ (visits . 3) (time 26419 28930 65803 793000)
+ (created 26312 20385 877386 355000) (position . 203)
+ (filename . #2=
 	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Haskell/Haskell Papers/")
- (dired-directory . #3#)
+ (dired-directory . #2#)
  (dired-marked
   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Haskell/Haskell Papers/Comprehending Monads -- Wadler P_ -- 2004 -- U_ of Glasgow -- 9a72614cb8da64f16164bbd58cfd950f -- Anna’s Archive.pdf"
   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Haskell/Haskell Papers/Monads for functional programming -- Wadler P_ -- 2001 -- U_ of Glasgow -- 5e4510950ed43fbb3a40d0308e254bdc -- Anna’s Archive.pdf"
@@ -496,7 +512,7 @@
 (#("big-src" 0 7 (bmkp-full-record #1#)) (buffer-name . "big-src")
  (front-context-string) (rear-context-string . "44 Jul 24 06:43 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 33) (time 26411 34035 181631 588000)
+ (visits . 34) (time 26419 20654 856958 604000)
  (created 26272 43169 37554 238000) (position . 216)
  (filename . #2="/mnt/LDisk-D/big-src/") (dired-directory . #2#)
  (dired-marked) (dired-switches . "-al") (dired-subdirs)
@@ -888,7 +904,7 @@
  (front-context-string . "cardone-hindley.")
  (rear-context-string . "13 Apr 18 20:30 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 11) (time 26287 64784 713170 737000)
+ (visits . 12) (time 26416 49193 332371 401000)
  (created 26213 1493 913330 421000) (position . 1907)
  (filename . #2=
 	   "/mnt/LDisk-E/Albert Einstein/Books & Resources/Computer Science and Programming/Theoretical/Foundations of Computer Science/Lambda Calculus/")
@@ -2092,7 +2108,7 @@
  (front-context-string . "Mozart\n  -rwxrw-")
  (rear-context-string . "96 Nov 17  2022 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 13) (time 26406 14495 351978 129000)
+ (visits . 16) (time 26419 26369 645416 101000)
  (created 26051 14252 126596 773000) (position . 3316)
  (filename . #2="/mnt/LDisk-E/Albert Einstein/Music/Classical Music/")
  (dired-directory . #2#) (dired-marked) (dired-switches . "-al")
@@ -2635,7 +2651,7 @@
  (buffer-name . "Haskell") (front-context-string . "hutton-prog-hask")
  (rear-context-string . " 0 Dec 24 03:48 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 58) (time 26350 51251 645224 804000)
+ (visits . 61) (time 26420 18677 346974 21000)
  (created 25995 61164 904034 285000) (position . 975)
  (filename . "/home/divya/cs/Haskell/")
  (dired-directory . "~/cs/Haskell/") (dired-marked)
@@ -2673,16 +2689,6 @@
  (dired-directory . #2#) (dired-marked) (dired-switches . "-al")
  (dired-subdirs) (dired-hidden-dirs) (handler . bmkp-jump-dired))
 #1=
-(#("src" 0 3 (bmkp-full-record #1#)) (tags "dots" "dirs")
- (buffer-name . "src") (front-context-string . "aur-picom-animat")
- (rear-context-string . "96 Nov  3 05:21 ")
- (front-context-region-string) (rear-context-region-string)
- (visits . 6) (time 26398 37283 394281 427000)
- (created 25979 35432 501223 95000) (position . 248)
- (filename . "/home/divya/src/") (dired-directory . "~/src/")
- (dired-marked) (dired-switches . "-al") (dired-subdirs)
- (dired-hidden-dirs) (handler . bmkp-jump-dired))
-#1=
 (#("Golden Movies" 0 13 (bmkp-full-record #1#)) (tags "movies" "dirs")
  (buffer-name . "Golden Movies")
  (front-context-string . "Aa Gale Lag Jaa ")
@@ -2698,20 +2704,20 @@
 (#("org-capture-last-stored-marker" 0 30 (bmkp-full-record #1#))
  (annotation) (tags) (filename . "~/notes/org/org-agenda/tasks.org")
  (buffer-name . "tasks.org")
- (front-context-string . "** TODO NPSA Fri")
- (rear-context-string . "eight=20pts\\]]]\n")
+ (front-context-string . "** TODO Grothend")
+ (rear-context-string . "6-03 Sat 04:13]\n")
  (front-context-region-string) (rear-context-region-string)
- (visits . 0) (time . #2=(26393 740 143140 684000)) (created . #2#)
- (position . 5531))
+ (visits . 0) (time . #2=(26419 39894 392949 411000)) (created . #2#)
+ (position . 1764))
 #1=
 (#("org-refile-last-stored" 0 22 (bmkp-full-record #1#)) (annotation)
  (tags) (filename . "~/notes/org/org-agenda/tasks.org")
  (buffer-name . "tasks.org")
- (front-context-string . "** TODO NPSA Fri")
- (rear-context-string . "eight=20pts\\]]]\n")
+ (front-context-string . "** TODO Grothend")
+ (rear-context-string . "6-03 Sat 04:13]\n")
  (front-context-region-string) (rear-context-region-string)
- (visits . 0) (time . #2=(26393 739 908420 960000)) (created . #2#)
- (position . 5531))
+ (visits . 0) (time . #2=(26419 39894 383582 318000)) (created . #2#)
+ (position . 1764))
 #1=
 (#("Symptoms" 0 8 (bmkp-full-record #1#))
  (time 25995 60699 743521 992000) (visits . 0)
@@ -2784,15 +2790,13 @@
  (handler . bmkp-jump-dired))
 #1=
 (#("org-capture-last-stored" 0 23 (bmkp-full-record #1#)) (annotation)
- (tags)
- (filename
-  . "~/notes/org/org-roam/ref/Condillac, The Language of Calculus (1798).org")
- (buffer-name . "Condillac, The Language of Calculus (1798).org")
- (front-context-string . "\nA text from the")
- (rear-context-string . "Calculus (1798)\n")
+ (tags) (filename . "~/notes/org/org-agenda/tasks.org")
+ (buffer-name . "tasks.org")
+ (front-context-string . "* TODO Grothendi")
+ (rear-context-string . "7-23 Tue 07:40>\n")
  (front-context-region-string) (rear-context-region-string)
- (visits . 0) (time . #2=(26400 59115 320179 500000)) (created . #2#)
- (position . 120))
+ (visits . 0) (time . #2=(26419 39887 773178 921000)) (created . #2#)
+ (position . 24878))
 #1=
 (#("Sourcehut Dots" 0 14 (bmkp-full-record #1#))
  (time 25935 44218 9881 262000) (visits . 0) (tags "links" "dots")
@@ -2826,7 +2830,7 @@
  (front-context-string . "Edward Glover\n  ")
  (rear-context-string . "96 Nov  7 14:57 ")
  (front-context-region-string) (rear-context-region-string)
- (visits . 6) (time 26311 64471 168568 980000)
+ (visits . 7) (time 26420 38176 933738 838000)
  (created 25932 38143 7011 387000) (position . 1753)
  (filename . "/home/divya/psychoanalysis/The Freudian School/")
  (dired-directory . "~/psychoanalysis/The Freudian School/")
@@ -2881,7 +2885,7 @@
  (dired-subdirs) (dired-hidden-dirs) (handler . bmkp-jump-dired))
 #1=
 (#("Anki Org" 0 8 (bmkp-full-record #1#))
- (time 26338 22486 864497 488000) (visits . 15) (tags "org")
+ (time 26419 17743 753199 275000) (visits . 16) (tags "org")
  (filename . "~/notes/org/anki.org")
  (front-context-string . "** 12:08        ")
  (rear-context-string . "\n*** Back\nshape\n") (position . 972)
