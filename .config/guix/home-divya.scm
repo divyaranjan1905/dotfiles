@@ -136,6 +136,9 @@
 			  "clipmenu"
 			  "qdirstat"
 
+			  ;; Board
+			  "xournalpp"
+
 			  ))))
 
  (services (append

@@ -1,6 +1,6 @@
 ;;; Divya’s Guix audio or sound related packages
 
-(define-module (audio)
+(define-module (divya-lambda packages audio)
   #:use-module (gnu packages audio)
   #:use-module (gnu packages commencement)
   #:use-module (gnu packages gettext)
@@ -15,7 +15,7 @@
   #:use-module (guix build-system meson)
   #:use-module (guix gexp)
   #:use-module (guix git-download)
-  #:use-module (guix licenses)
+  #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
   #:use-module (guix utils))
 
@@ -56,16 +56,15 @@
                            `("GUIX_PYTHONPATH" ":" prefix
                              (,(getenv "GUIX_PYTHONPATH") ,lib))
 			   `("GI_TYPELIB_PATH" ":" prefix (,gi-typelib-path)))))))))
-    (native-inputs (list gcc-toolchain
-                         pkg-config
+    (native-inputs (list pkg-config
                          python-cython
                          python-docutils
-                         gnu-gettext
+                         gettext-minimal
                          glib))
+    (inputs (list bash-minimal))
     (propagated-inputs (list gtk+
 			     `(,gtk+ "bin")
 			     python
-			     bash-minimal
 			     python-wrapper
 			     python-pygobject
 			     python-pycairo
@@ -78,6 +77,4 @@
 similar to hardware mixing desks.  It has lot of useful features, apart
 from being able to mix multiple JACK audio streams.")
     (home-page "https://rdio.space/jackmixer/")
-    (license gpl2+)))
-
-jack-mixer
+    (license license:gpl2+)))
