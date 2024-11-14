@@ -59,9 +59,6 @@
 (setopt erc-track-faces-priority-list
 	(remq 'erc-notice-face erc-track-faces-priority-list))
 
-
-
-
 (setq erc-server "irc.libera.chat"
       erc-nick "divya"
       erc-user-full-name "Divya Ranjan"
@@ -69,13 +66,14 @@
       erc-autojoin-channels-alist '(("irc.libera.chat"
 				     "#emacs"
 				     "#haskell"
+				     "#guix"
+				     "#guile"
+				     "#fsf"
+				     "#fsf-sys"
+				     "#racket"
+				     "#rust"
 				     "#lisp")))
 
-;; (setq erc-server "irc.tilde.chat"
-;;       erc-nick "divya"
-;;       erc-user-full-name "Divya Ranjan"
-;;       erc-autojoin-channels-alist '(("irc.tilde.chat"
-;; 				     #)))
 
 (provide 'irc)
 ;;; irc.el ends here

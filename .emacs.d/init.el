@@ -80,8 +80,8 @@
 
 ;;; IRC
 
-;; (load (concat user-emacs-directory
-;; 	      "config/irc.el"))
+(load (concat user-emacs-directory
+	      "config/irc.el"))
 
 ;;; Calendar
 (load (concat user-emacs-directory
