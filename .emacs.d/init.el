@@ -54,6 +54,10 @@
 ;; (load (concat user-emacs-directory
 ;; 	      "config/mail.el"))
 
+;;; Math
+(load (concat user-emacs-directory
+	      "config/math.el"))
+
 ;;; Dired
 (load (concat user-emacs-directory
 	      "config/dired.el"))
@@ -148,7 +152,7 @@
   :config
   (eldoc-box-only-multi-line t)
   :custom
-  (set-face-font eldoc-box-body "Spline Sans Mono-11"))
+  (set-face-font eldoc-box-body "Iosevka"))
 
 ;;; Golang
 (use-package go-mode
@@ -289,16 +293,6 @@
 	    (setq eldoc-documentation-function 'scheme-get-current-symbol-info)
 	    (eldoc-mode)))
 
-;;; Lean4
-;; (use-package lean4-mode
-;;   :straight (lean4-mode
-;; 	     :type git
-;; 	     :host github
-;; 	     :repo "leanprover/lean4-mode"
-;; 	     :files ("*.el" "data"))
-;;   ;; to defer loading the package until required
-;;   :commands (lean4-mode))
-
 ;;; Emacs Lisp
 
 ;; (add-hook 'emacs-lisp-mode-hook #'flycheck-mode)
@@ -346,7 +340,7 @@
 		    (markdown-header-face-5 . 1.0)))
       (set-face-attribute (car face) nil :weight 'normal :height (cdr face)))
 
-    (set-face-attribute 'variable-pitch nil :font "ET Bembo"))
+    (set-face-attribute 'variable-pitch nil :font "ETbb"))
 
   (defun divya/markdown-mode-hook ()
     (divya/set-markdown-header-font-sizes))
@@ -447,46 +441,6 @@
    :type git
    :repo "https://codeberg.org/akib/emacs-corfu-terminal.git"))
 
-
-;; (use-package cape
-;;   ;; Bind dedicated completion commands
-;;   ;; Alternative prefix keys: C-c p, M-p, M-+, ...
-;;   :bind (("C-c p p" . completion-at-point) ;; capf
-;;          ("C-c p t" . complete-tag)        ;; etags
-;;          ("C-c p d" . cape-dabbrev)        ;; or dabbrev-completion
-;;          ("C-c p h" . cape-history)
-;;          ("C-c p f" . cape-file)
-;;          ("C-c p k" . cape-keyword)
-;;          ("C-c p s" . cape-elisp-symbol)
-;;          ("C-c p e" . cape-elisp-block)
-;;          ("C-c p a" . cape-abbrev)
-;;          ("C-c p l" . cape-line)
-;;          ("C-c p w" . cape-dict)
-;;          ("C-c p :" . cape-emoji)
-;;          ("C-c p \\" . cape-tex)
-;;          ("C-c p _" . cape-tex)
-;;          ("C-c p ^" . cape-tex)
-;;          ("C-c p &" . cape-sgml)
-;;          ("C-c p r" . cape-rfc1345))
-;;   :init
-;;   ;; Add to the global default value of `completion-at-point-functions' which is
-;;   ;; used by `completion-at-point'.  The order of the functions matters, the
-;;   ;; first function returning a result wins.  Note that the list of buffer-local
-;;   ;; completion functions takes precedence over the global list.
-;;   (add-to-list 'completion-at-point-functions #'cape-dabbrev)
-;;   (add-to-list 'completion-at-point-functions #'cape-file)
-;;   (add-to-list 'completion-at-point-functions #'cape-elisp-block)
-;;   (add-to-list 'completion-at-point-functions #'cape-history)
-;;   (add-to-list 'completion-at-point-functions #'cape-keyword)
-;;   (add-to-list 'completion-at-point-functions #'cape-tex)
-;;   (add-to-list 'completion-at-point-functions #'cape-sgml)
-;;   (add-to-list 'completion-at-point-functions #'cape-rfc1345)
-;;   (add-to-list 'completion-at-point-functions #'cape-abbrev)
-;;   (add-to-list 'completion-at-point-functions #'cape-dict)
-;;   (add-to-list 'completion-at-point-functions #'cape-elisp-symbol)
-;;   (add-to-list 'completion-at-point-functions #'cape-line)
-;; )
-
 ;; Telegram in Emacs
 ;; (use-package telega
 ;;   :straight t
@@ -495,9 +449,17 @@
 ;;    telega-server-libs-prefix "/usr"
 ;;    telega-autoplay-mode t))
 
-;;; Termianl in Emacs
-(use-package eat
-   :straight t)
+;;; Terminal in Emacs
+
+(straight-use-package
+   '(eat :type git
+	:host codeberg
+	:repo "akib/emacs-eat"
+	:files ("*.el" ("term" "term/*.el") "*.texi"
+		"*.ti" ("terminfo/e" "terminfo/e/*")
+		("terminfo/65" "terminfo/65/*")
+		("integration" "integration/*")
+		(:exclude ".dir-locals.el" "*-tests.el"))))
 
 ;;; Shell in Emacs
 
@@ -620,3 +582,4 @@
  ;; If there is more than one, they won't work right.
  )
 (put 'list-threads 'disabled nil)
+(put 'magit-clean 'disabled nil)
