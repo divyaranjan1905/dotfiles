@@ -7,16 +7,17 @@ source ~/.profile
 
 #Profile file that runs on login.
 
-export BROWSER="nyxt"
+export BROWSER="librewolf"
 export EDITOR="emacsclient -c"
 export VIDEO="mpv"
-export TERMINAL="st"
+export TERMINAL="alacritty"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export PASSWORD_STORE_DIR="$HOME/life/passwords/pass/"
+# export SSL_CERT_DIR="/etc/ssl/certs"
 
-# This is the list for lf icons:
+# THIS is the list for lf icons:
 export LF_ICONS="di=📁:\
 fi=📃:\
 tw=🤝:\
@@ -107,4 +108,8 @@ fi
 
 if [ -d "/usr/local/bin" ] ;
 then PATH="/usr/local/bin:$PATH"
+fi
+
+if [ -d "/home/divya/.elan/bin" ] ;
+then PATH="/home/divya/.elan/bin:$PATH"
 fi

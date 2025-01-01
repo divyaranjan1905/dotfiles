@@ -77,4 +77,4 @@ bindkey '^e' edit-command-line
 # Load syntax highlighting; should be last.
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
 
-source "/home/divya/.emacs.d/straight/repos/eat/integration/zsh"
+source "/home/divya/.emacs.d/straight/repos/emacs-eat/integration/zsh"
