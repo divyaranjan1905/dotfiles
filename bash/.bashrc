@@ -38,8 +38,8 @@ PROMPT_COMMAND=set_bash_prompt
 
 export XDG_DATA_DIR='/home/divya/.local/share/flatpak/exports/share'
 #VARIABLES
-export BROWSER="nyxt"
-export EDITOR="vim"
+export BROWSER="librewolf"
+export EDITOR="emacsclient -c -t"
 export VIDEO="mpv"
 export MATH="/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Mathematics/"
 export EINSTEIN="/mnt/LDisk-E/Albert Einstein/"
@@ -131,7 +131,7 @@ set -o vi
 
 
 # Bindings
-bind -x '"\C-l": clear'
+# bind -x '"\C-l": clear'
 
 ##PATH
 
@@ -151,11 +151,12 @@ fi
 
 alias yta='ytfzf -t -m'
 alias yt='ytfzf -t'
-alias mutt='neomutt'
 alias cd-math='cd "/mnt/LDisk-E/Albert Einstein/Books & Resources/MIT OCW/Mathematics/"'
 alias cd-einstein='cd "/mnt/LDisk-E/Albert Einstein/"'
 alias cd-phil='cd "/mnt/LDisk-E/Albert Einstein/Books & Resources/Philosophy & Psychology/Philosophy/"'
 alias cd-psych='cd "/mnt/LDisk-E/Albert Einstein/Books & Resources/Philosophy & Psychology/Psychology/"'
-alias alt='LIBGL_ALWAYS_SOFTWARE=1 alacritty'
 
-source "/home/divya/.emacs.d/straight/repos/eat/integration/bash"
+source "/home/divya/.emacs.d/straight/repos/emacs-eat/integration/bash"
+
+# Added by Radicle.
+export PATH="$PATH:/home/divya/.radicle/bin"

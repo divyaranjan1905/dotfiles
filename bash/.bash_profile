@@ -8,6 +8,8 @@ if [ -f ~/.profile ]; then . ~/.profile; fi
 # Honor per-interactive-shell startup file
 if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
 
+source ~/.config/shell/profile
+
 # Merge search-paths from multiple profiles, the order matters.
 eval "$(guix package --search-paths \
 -p $HOME/.config/guix/current \
@@ -18,10 +20,7 @@ eval "$(guix package --search-paths \
 # Prepend setuid programs.
 export PATH=/run/setuid-programs:$PATH
 
-export LIBGL_ALWAYS_SOFTWARE=0
-export LIBGL_DRI3_DISABLE=0
-export VDPAU_DRIVER=nouveau
-export LIBVA_DRIVER_NAME=nouveau
-
+# Correct path for SSL certificates
+# export SSL_CERT_DIR="/etc/ssl/certs"
 
 # emacs --daemon
