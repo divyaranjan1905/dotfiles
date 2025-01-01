@@ -70,6 +70,10 @@
     (let ((yas-buffer-local-condition ''(require-snippet-condition . auto)))
       (yas-expand))))
 
+;; Snippets for Guix commit messages
+(with-eval-after-load 'yasnippet
+       (add-to-list 'yas-snippet-dirs "/mnt/LDisk-D/src/guix/etc/snippets/yas"))
+
 ;; CDLatex integration with YaSnippet: Allow cdlatex tab to work inside Yas
 ;; fields
 (use-package cdlatex
