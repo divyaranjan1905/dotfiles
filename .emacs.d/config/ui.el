@@ -50,6 +50,11 @@
 (use-package ef-themes
   :straight t)
 
+(use-package sexy-monochrome-theme
+  :straight t)
+
+;;(load-theme 'sexy-monochrome-theme t)
+
 (global-set-key (kbd "C-<f12>") 'consult-theme)
 
 ;(load-theme 'ef-dark t)
@@ -195,7 +200,7 @@
  )
 
 (defun fontify-frame (frame)
-  (set-frame-parameter frame 'font "Iosevka-14"))
+  (set-frame-parameter frame 'font "Iosevka-11"))
 
 ;; Fontify current frame
 (fontify-frame nil)
