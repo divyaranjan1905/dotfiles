@@ -52,20 +52,26 @@
                     #:log-file "/var/log/kmonad.log"))
           (stop #~(make-kill-destructor))))))
 
+
 (operating-system
  (locale "en_US.utf8")
  (timezone "UTC")
  (keyboard-layout (keyboard-layout "us"))
  (host-name "lambda")
 
-;; Kernel level modifications
-;;(kernel-arguments '("modprobe.blacklist=nouveau"
-;;		     "nvidia_drm.modeset=1"))
+;;; Kernel level modifications
+ (kernel linux)
+ ;; (initrd microcode-initrd)
+ (firmware (list linux-firmware))
+ ;; To enable module for USB Wifi/BT Adapter: Swiztek BT+WIFI
+ (kernel-arguments '("modprobe.blacklist=rtw88_8821cu"))
+ (kernel-loadable-modules (list rtl8821cu-linux-module))
 
-(groups (cons*
+;;; User Groups
+ (groups (cons*
 	  (user-group
-	    (name "realtime")
-	    (system? #t))
+	   (name "realtime")
+	   (system? #t))
 	  %base-groups))
 
  ;; The list of user accounts ('root' is implicit).
