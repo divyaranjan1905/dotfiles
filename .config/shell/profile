@@ -2,18 +2,17 @@
 
 # Profile file that runs on login.
 
-export BROWSER="nyxt"
+export BROWSER="librewolf"
 export EDITOR="emacsclient -c"
 export VIDEO="mpv"
-export TERMINAL="st"
+export TERMINAL="alacritty"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export EINSTEIN="/mnt/LDisk-E/Albert Einstein/"
 export RECORDING="$EINSTEIN/Recordings"
-export FREESPACE_USE_UNSUPPORTED_JAVA_VERSION="1"
-# export MOX_ENABLE_WAYLAND=1
 export PASSWORD_STORE_DIR="$HOME/life/passwords/pass/"
+# export SSL_CERT_DIR="/etc/ssl/certs"
 
 # This is the list for lf icons:
 export LF_ICONS="di=📁:\
@@ -120,6 +119,14 @@ if [ -d "/home/divya/.cargo/bin" ] ;
 then PATH="/home/divya/.cargo/bin:$PATH"
 fi
 
-if [ -d "/home/divya/.local/share/gem/ruby/3.0.0/bin" ];
+if [ -d "/home/divya/.local/share/gem/ruby/3.0.0/bin" ] ;
 then PATH="/home/divya/.local/share/gem/ruby/3.0.0/bin:$PATH"
+fi
+
+if [ -d "/home/divya/.radicle/bin" ] ;
+then PATH="/home/divya/.radicle/bin:$PATH"
+fi
+
+if [ -d "/home/divya/.elan/bin" ] ;
+then PATH="/home/divya/.elan/bin:$PATH"
 fi
