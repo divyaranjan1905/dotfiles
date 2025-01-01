@@ -13,11 +13,14 @@
 	     (gnu services xorg))
 (use-modules (gnu packages haskell-apps)
 	     (gnu packages cups)
+	     (nongnu packages linux) ;; For mainline linux, since AMD Ryzen 7 APU doesn't seem to work with linux-libre
+	     (nongnu system linux-initrd)
 	     (nongnu packages printers) ;; For non-free hp drivers
 	     (btv rust) ;; For latest rust that is not yet in guix
+	     (divya-lambda emacs)
 	     (gnu packages version-control))
 (use-modules (guix))
-(use-service-modules cups desktop networking ssh xorg)
+(use-service-modules cups desktop networking ssh xorg sddm)
 (use-package-modules ssh)
 
 ;;; MCron Services for Scheduled Jobs
