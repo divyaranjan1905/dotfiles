@@ -25,7 +25,7 @@
 ;; (define essential-backup-job
 ;;   ;; Hourly run a backup script in ~/.dotfiles that backs up notes, dotfiles,
 ;;   ;; and anything else into another disk and encrypts whatever is private.
-;;   #~(job "0 */4 * * *"
+;;   (job "0 */4 * * *"
 ;; 	 "./~/.dotfiles/scripts/backup"))
 
 ;; (define garbage-collector-job
@@ -89,19 +89,16 @@
 		 ;; "xmonad"
 
 ;;; Text Editors
-		 "emacs-next"
+		 ;; "emacs-next"
+		 ;; "emacs-master-xwidgets"
+		 "emacs-master-lucid"
 		 "vim"
 
 ;;; Audio/Video/Streaming
 		 "alsa-utils"
 		 "alsa-lib"
+		 "bluez"
 		 "bluez-alsa"
-		 ;; "pipewire"
-		 ;; "pavucontrol"
-		 ;; "wireplumber"
-		 ;; "qpwgraph"
-		 ;; "jack"
-		 ;; "easyeffects"
 		 "mpd"
 		 "mpv"
 		 "vlc"
@@ -109,11 +106,12 @@
 		 ;; "carla"
 
 ;;; Connectivity
-		 ;; "blueman"
+		 "blueman"
 		 "v4l2loopback-linux-module" ; Webcam
 
 ;;; Browser
 		 "librewolf"
+		 "ungoogled-chromium"
 
 ;;; Email
 		 ;; "mu"
@@ -130,6 +128,8 @@
 ;;; Fonts
 		 "font-iosevka"
 		 "fontmanager"
+		 "font-google-noto-emoji"
+		 "font-lohit"
 
 ;;; Mathematics/Computational Software
 		 ;; "sage"
@@ -146,6 +146,7 @@
 		 "mit-scheme"
 		 "racket"
 		 "gcc-toolchain"
+		 "gdb"
 		 "ghc"
 		 "cabal-install"
 		 "hlint"
@@ -155,20 +156,24 @@
 		 "python-pip"
 		 "r"
 		 "sbcl"
-		 ;; "rust-next" ;; from (btv rust)
+		 ;;"rust-next" ;; from (btv rust)
 		 ;; "rust-next:tools"
 		 ;; "rust-next:cargo"
 		 "rust"
+		 "rust:rust-src"
 		 "rust-cargo"
 		 "rust-analyzer"
 		 "rust-clippy"
 		 "clojure"
 		 "clojure-tools"
+		 "go"
+		 "gopls"
 		 "gprolog"
-		 "swi-prolog"
-		 "smlnj"
-		 "polyml"
+		 ;; "swi-prolog"
+		 ;; "smlnj"
+		 ;; "polyml"
 		 "opam"
+		 "ocaml"
 		 "sqlite"
 
 ;;; Terminals
@@ -204,7 +209,7 @@
 
 		 ;; Pritning
 		 "hplip"
-		 "hplip-plugin"
+		 ;; "hplip-plugin"
 		 "hplip-minimal"
 		 "system-config-printer"
 
