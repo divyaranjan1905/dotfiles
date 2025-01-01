@@ -140,7 +140,7 @@
 
 ;;; EPUBs in Emacs : Nov mode
 (defun nov-font-setup ()
-  (face-remap-add-relative 'variable-pitch :family "ET Bembo"
+  (face-remap-add-relative 'variable-pitch :family "ETbb"
 			   :height 1.8))
 
 (use-package nov
