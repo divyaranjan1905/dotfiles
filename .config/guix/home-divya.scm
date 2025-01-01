@@ -12,10 +12,12 @@
   #:use-module (gnu home services ssh)
   #:use-module (gnu home services syncthing)
   #:use-module (gnu home services shells)
+
   #:use-module (gnu services)
   #:use-module (gnu services dbus)
   #:use-module (gnu services shepherd)
   #:use-module (gnu packages)
+  #:use-module (gnu packages audio)
   #:use-module (gnu packages linux)
   #:use-module (gnu packages pulseaudio)
   #:use-module (gnu packages haskell-apps)
@@ -24,25 +26,6 @@
 
 
 ;;; Services
-
-;; Emacs Daemon Shepherd Service
-
-;; (define (emacs-daemon-shepherd-service config)
-;;   (list (shepherd-service
-;; 	 (documentation "Emacs server.")
-;; 	 (provision '(emacs-server))
-;; 	 (start #~(make-forkec-constructor
-;; 		   (list #$ (file-append emacs "/bin/emacs")
-;; 			 "--fg-daemon")))
-;; 	 (stop #~(make-kill-destructor)))))
-
-;; (define home-emacs-daemon-service-type
-;;   (service-type
-;;    (name 'home-emacs-daemon)
-;;    (extensions (list (service-extension home-shepherd-service-type
-;; 					emacs-daemon-shepherd-service)))
-;;    (default-value #f)
-;;    (description "Emacs daemon as a Shepherd service.")))
 
 (home-environment
  (packages (append (map specification->package
@@ -53,26 +36,25 @@
 			  "papirus-icon-theme"
 			  "bibata-cursor-theme"
 
-			  ;; Fonts
-			  "font-google-noto-emoji"
-
 			  ;; Audio
-			  "ardour"
+			  ;;"ardour"
 			  "mumble"
 			  "pipewire"
 			  "wireplumber"
 			  "qpwgraph"
 			  "pavucontrol"
 			  "carla"
-			  ;; "audacity"
+			  "jack-mixer"
+			  "audacity"
 
 			  ;; Reading
 			  "calibre"
+			  "sioyek"
 			  "djvulibre"
 			  "djvu2pdf"
 
 			  ;; Research
-			  "anki"
+			 ;; "anki"
 
 			  ;; Emacs
 			  "emacs-pdf-tools"
@@ -90,24 +72,22 @@
 			  ;; LaTeX
 			  "texlive-biber"
 
+			  ;; Document handling
+			  "libreoffice"
 			  ;; Browsers
 			  ;; "nyxt"
-
-			  ;; Compression
-			  "unzip"
 
 			  ;; Common Lisp
 			  "cl-anaphora"
 			  "cl-alexandria"
 			  "cl-asdf"
+			  "sbcl-clx-xembed"
+
+			  ;; Theorem Proving
+			  ;; "lean"
 
 			  ;; Spelling
 			  "ispell"
-
-			  ;; Printing
-			  "cups"
-			  "hplip"
-			  "hplip-minimal"
 
 			  ;; Messaging
 			  "gnunet"
@@ -121,6 +101,8 @@
 
 			  ;; Astrophysics
 			  ;; "stellarium"
+			  ;; Graphics
+			  "blender"
 
 			  ;; Security
 			  "gnupg" ; Installed here and not in system.scm because the service is in home
@@ -135,7 +117,10 @@
 			  ;; Utilities
 			  "clipmenu"
 			  "qdirstat"
+			  "neofetch"
 
+			  ;; Certificates
+			  "nss-certs" ;; it’s installed system-wide but apps in profile sometimes need it.
 			  ;; Board
 			  "xournalpp"
 
