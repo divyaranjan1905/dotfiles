@@ -250,83 +250,82 @@
 		 "zip"
 		 "tree"
 		 "ncurses"
+		 "unzip"
+		 "unrar-free"
+		 "radeontop"
+		 "xsensors"
+		 "bashtop"
+		 "patchelf"
 
 		 ;; Xorg
 		 "xset"
+		 "xdotool"
+		 "picom"
+		 "xwininfo"
+		 "xprop"
 
-		 ;; Graphics Drivers
-		 "mesa"
-		 "mesa-utils"
-		 "xf86-video-nouveau"))
+		 ;; Kernel/Drivers
+		 "rtl8821cu-linux-module" ;; The driver module for the BT/WIFI adapter needs to be installed (from nongnu)
+		 ))
 	  %base-packages))
 
  ;; Below is the list of system services.  To search for available
  ;; services, run 'guix system search KEYWORD' in a terminal.
  (services
   (append (list
-           ;; To configure OpenSSH, pass an 'openssh-configuration'
-           ;; record as a second argument to 'service' below.
            (service openssh-service-type)
            (service tor-service-type)
+
+	   ;; Printers
            (service cups-service-type
 		    (cups-configuration
 		     (web-interface? #t)
 		     (extensions
 		      (list cups-filters hplip-minimal))))
 
+	   ;; Bluetooth
+	   (service bluetooth-service-type
+		    (bluetooth-configuration
+		     (always-pairable? #t)
+		     (fast-connectable? #t)
+		     (auto-enable? #t)))
+
+	   ;; Display Manager
+	   (service sddm-service-type
+		    (sddm-configuration
+		     (display-server "x11")))
 	   ;; Audio
-	   ;; (service alsa-service-type)
-	   ;; (service pulseaudio-service-type) Already included in %desktop-services
-
-           (set-xorg-configuration
-            (xorg-configuration (keyboard-layout keyboard-layout)))
-
 	   (service pam-limits-service-type
 		    (list
 		     (pam-limits-entry "@realtime" 'both 'rtprio 99)
 		     (pam-limits-entry "@realtime" 'both 'memlock 'unlimited)))
 
-	   kmonad-service)
-	  %desktop-services
-	  ;; (service nvidia-service-type)
-	  ;; (set-xorg-configuration
-	  ;;  (xorg-configuration
-	   ;;  (modules (cons nvda %default-xorg-modules))
-	    ;; (drivers '("nvidia")))))
-
-	  ;; mcron services
-	  ;; (simple-service 'lambda-cron-jobs
-	  ;; 		  mcron-service-type
-	  ;; 		  (garbage-collector-job))
-          ))
+	   kmonad-service
+	   )
+	  ;; Delete GDM
+	  (modify-services %desktop-services
+			   (delete gdm-service-type))))
 
  (bootloader (bootloader-configuration
-              (bootloader grub-bootloader)
-              (targets '("/dev/sdb"))
-	      (default-entry 0)
-	      (menu-entries
-	       (list
-		(menu-entry
-		 (label "arch-root")
-		 (linux "/boot/vmlinuz-linux-rt")
-		 (device (uuid "886fb01f-323f-40ab-9434-9f00feb96446" 'ext4))
-		 (linux-arguments '("root=/dev/sda6"))
-		 (initrd "/boot/initramfs-linux-rt.img"))))))
+              (bootloader grub-efi-bootloader)
+              (targets (list "/boot/efi"))
+              (keyboard-layout keyboard-layout)))
+ (swap-devices (list (swap-space
+                      (target (uuid
+                               "87bbb66e-4980-4c9b-8fda-8b53d40efaca")))))
 
  ;; The list of file systems that get "mounted".  The unique
  ;; file system identifiers there ("UUIDs") can be obtained
  ;; by running 'blkid' in a terminal.
- (file-systems (cons* (file-system
-		       (mount-point "/")
-		       (device (uuid
-				"50e2756a-3b56-4f1f-a056-ed0e88f277d2"
-				'btrfs))
-		       (type "btrfs"))
 
-		      (file-system
-		       (mount-point "/mnt/arch")
-		       (device (uuid
-				"886fb01f-323f-40ab-9434-9f00feb96446"
-				'ext4))
-		       (type "ext4"))
-		      %base-file-systems)))
+ (file-systems (cons* (file-system
+                       (mount-point "/")
+                       (device (uuid
+                                "5e43b290-16f4-40e2-aa33-1229bf6de18a"
+                                'btrfs))
+                       (type "btrfs"))
+                      (file-system
+                       (mount-point "/boot/efi")
+                       (device (uuid "1EC0-78B1"
+                                     'fat32))
+                       (type "vfat")) %base-file-systems)))
