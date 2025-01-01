@@ -10,30 +10,25 @@
 ;; Mail
 (setq gnus-select-method
       '(nnimap "divya-autistici"
-		;; (directory "/mnt/LDisk-D/email/autistici")
+		(directory "/mnt/LDisk-D/email/autistici")
 		(nnimap-address "mail.autistici.org") ;; Replace with your IMAP server
 		(nnimap-server-port 993)
-		(nnimap-stream ssl)))
+		))
 
 (setq fast-read-process-output nil)
 (setq gnus-search-use-imap t)
 
 (setq message-send-mail-function 'smtpmail-send-it
       smtpmail-smtp-server "smtp.autistici.org"
-      smtpmail-stream-type 'starttls
-      smtpmail-auth-credentials "~/.authinfo"
-      smtpmail-smtp-service 587)
+      smtpmail-stream-type 'ssl
+      smtpmail-auth-credentials "~/.authinfo.gpg"
+      smtpmail-smtp-service 465)
 
 ;; For RSS Feeds
 ;; (add-to-list 'gnus-secondary-select-methods '(nnrss ""))
 (setq gnus-secondary-select-methods '(
-				      ;; (nnimap "divya-autistici"
-				      ;; 	      (nnimap-address "mail.autistici.org") ;; Replace with your IMAP server
-				      ;; 	      (nnimap-server-port 993)
-				      ;; 	      (nnimap-stream ssl))
-
-				      ;; (nntp "news.gwene.org")
 				      (nntp "news.gmane.io"
+					    (nntp-open-connection-function nntp-open-network-stream)
 					    (nntp-connection-timeout 5))
 				      (nntp "feedbase"
 					    (nntp-open-connection-function nntp-open-tls-stream)
@@ -49,6 +44,7 @@
 (setq gnus-agent-auto-agentize-methods
       '((nnimap "divya-autistici")
 	(nntp "feedbase")
+	(nntp "news.gmane.io")
 	(nntp "news.gwene.org")))
 (setq gnus-agent-fetch-selected-article 'fetch)
 (setq gnus-agent-enable-expiration t)
@@ -66,7 +62,7 @@
       '(("INBOX"
 	 (gnus-fetch-old-headers 100))))
 
-(setq gnus-large-newsgroup 500)
+(setq gnus-large-newsgroup 1000)
 
 
 ;; Groups
