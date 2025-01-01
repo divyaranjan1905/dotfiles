@@ -11,12 +11,12 @@
 ;; Org-capture templates
 
 (setq org-capture-templates
-        '(("t" "Todo" entry (file "~/notes/org/org-agenda/tasks.org")
-           "** TODO %?\n:PROPERTIES:\n:END:\n%^{State:| |DEADLINE:|SCHEDULED:|} <%(org-read-date)>\n  %a\n  %i")
-	  ("a" "Appointment" entry (file "~/notes/org/org-agenda/tasks.org")
-	   "** TODO %?\n:PROPERTIES:\n:CATEGORY: Appointments\n:END:\nSCHEDULED:%T\n")
-	  ("e" "Events" entry (file "~/notes/org/org-agenda/tasks.org")
-	   "** TODO %?\n:PROPERTIES:\nCATEGORY: Events\n:END:\nSCHEDULED:%T\n")))
+      '(("t" "Todo" entry (file "~/notes/org/org-agenda/tasks.org")
+         "** TODO %?\n:PROPERTIES:\n:END:\n%^{State:| |DEADLINE:|SCHEDULED:|} <%(org-read-date)>\n  %a\n  %i")
+	("a" "Appointment" entry (file "~/notes/org/org-agenda/tasks.org")
+	 "** TODO %?\n:PROPERTIES:\n:CATEGORY: Appointments\n:END:\nSCHEDULED:%T\n")
+	("e" "Events" entry (file "~/notes/org/org-agenda/tasks.org")
+	 "** TODO %?\n:PROPERTIES:\nCATEGORY: Events\n:END:\nSCHEDULED:%T\n")))
 
 ;;; Org capture in X
 (defun make-orgcapture-frame ()
@@ -139,7 +139,7 @@
   (setq org-agenda-files (append
 			  '("~/notes/org/org-agenda/tasks.org")
 			  '("~/notes/org/org-agenda/habits.org")
-;;			  '("~/notes/org/org-agenda/journal.org")
+			  ;;			  '("~/notes/org/org-agenda/journal.org")
 			  (divya/org-roam-project-files))))
 
 
@@ -157,8 +157,8 @@
   "Find a particular headings from the current org buffer."
   (interactive)
   (org-ql-select (current-buffer)
-		 '(level 1)
-		 :action #'org-get-heading))
+    '(level 1)
+    :action #'org-get-heading))
 
 ;;;; Org Font Setup
 (defun divya/org-font-setup ()
@@ -280,7 +280,7 @@
 
 (defun efs/org-mode-visual-fill ()
   (setq visual-fill-column-width 100
-     visual-fill-column-center-text t)
+	visual-fill-column-center-text t)
   (visual-fill-column-mode 1))
 
 (use-package visual-fill-column
@@ -294,7 +294,7 @@
 (setq org-insert-heading-respect-content t)
 (setq org-pretty-entities t)
 
-;(use-package org-habit)
+					;(use-package org-habit)
 (add-to-list 'org-modules 'org-habit)
 (setq org-habit-graph-column 60)
 
@@ -363,7 +363,7 @@
 (setq org-outline-path-complete-in-steps nil)
 (setq org-refile-allow-creating-parent-nodes (quote confirm))
 
-; Exclude DONE state tasks from refile targets
+					; Exclude DONE state tasks from refile targets
 (defun divya/verify-refile-target ()
   "Exclude todo keywords with a done state from refile targets."
   (not (member (nth 2 (org-heading-components)) org-done-keywords)))
@@ -537,31 +537,31 @@
   :straight t)
 
 (use-package consult-org-roam
-   :ensure t
-   :after org-roam
-   :init
-   (require 'consult-org-roam)
-   ;; Activate the minor mode
-   (consult-org-roam-mode 1)
-   :custom
-   ;; Use `ripgrep' for searching with `consult-org-roam-search'
-   (consult-org-roam-grep-func #'consult-ripgrep)
-   ;; Configure a custom narrow key for `consult-buffer'
-   (consult-org-roam-buffer-narrow-key ?r)
-   ;; Display org-roam buffers right after non-org-roam buffers
-   ;; in consult-buffer (and not down at the bottom)
-   (consult-org-roam-buffer-after-buffers t)
-   :config
-   ;; Eventually suppress previewing for certain functions
-   (consult-customize
-    consult-org-roam-forward-links
-    :preview-key (kbd "M-."))
-   :bind
-   ;; Define some convenient keybindings as an addition
-   ("C-c n e" . consult-org-roam-file-find)
-   ("C-c n b" . consult-org-roam-backlinks)
-   ("C-c n l" . consult-org-roam-forward-links)
-   ("C-c n r" . consult-org-roam-search))
+  :ensure t
+  :after org-roam
+  :init
+  (require 'consult-org-roam)
+  ;; Activate the minor mode
+  (consult-org-roam-mode 1)
+  :custom
+  ;; Use `ripgrep' for searching with `consult-org-roam-search'
+  (consult-org-roam-grep-func #'consult-ripgrep)
+  ;; Configure a custom narrow key for `consult-buffer'
+  (consult-org-roam-buffer-narrow-key ?r)
+  ;; Display org-roam buffers right after non-org-roam buffers
+  ;; in consult-buffer (and not down at the bottom)
+  (consult-org-roam-buffer-after-buffers t)
+  :config
+  ;; Eventually suppress previewing for certain functions
+  (consult-customize
+   consult-org-roam-forward-links
+   :preview-key (kbd "M-."))
+  :bind
+  ;; Define some convenient keybindings as an addition
+  ("C-c n e" . consult-org-roam-file-find)
+  ("C-c n b" . consult-org-roam-backlinks)
+  ("C-c n l" . consult-org-roam-forward-links)
+  ("C-c n r" . consult-org-roam-search))
 
 ;;; Org-Agenda
 (setq org-agenda-window-setup 'current-window)
@@ -624,7 +624,7 @@
 
 (add-hook 'org-agenda-finalize-hook 'divya/org-agenda-to-appt 'append)
 
-; If we leave Emacs running overnight - reset the appointments one minute after midnight
+					; If we leave Emacs running overnight - reset the appointments one minute after midnight
 (run-at-time "24:01" nil 'divya/org-agenda-to-appt)
 
 
@@ -679,13 +679,13 @@
 
 (add-to-list 'org-capture-templates
 	     '("j" "Org Journal entry" plain (function org-journal-find-location)
-		"** %(format-time-string org-journal-time-format)%^{Title}\n%i%?"
-		:jump-to-captured t :immediate-finish t))
+	       "** %(format-time-string org-journal-time-format)%^{Title}\n%i%?"
+	       :jump-to-captured t :immediate-finish t))
 
 (add-to-list 'org-capture-templates
 	     '("F" "Task entry for future" plain (function org-journal-date-location)
-		"** TODO %?\n:PROPERTIES:\n:END:\n <%(princ org-journal--date-location-scheduled-time)>\n"
-		:jump-to-captured t))
+	       "** TODO %?\n:PROPERTIES:\n:END:\n <%(princ org-journal--date-location-scheduled-time)>\n"
+	       :jump-to-captured t))
 
 
 ;; Update Agenda and appointments
@@ -712,44 +712,44 @@
 
 ;; Finally putting things together:
 (use-package org
-             :straight t
-             :commands (org-capture org-agenda)
-             :hook
-             (org-mode . divya/org-mode-setup)
-             (org-mode . divya/org-font-setup)
+  :straight t
+  :commands (org-capture org-agenda)
+  :hook
+  (org-mode . divya/org-mode-setup)
+  (org-mode . divya/org-font-setup)
 
 
-             :config
-             (define-key org-mode-map (kbd "C-c o b")  'org-switchb)
-             (define-key org-mode-map (kbd "C-c o i") 'org-insert-link)
-             (define-key org-mode-map (kbd "C-c o n")  'org-toggle-narrow-to-subtree)
-             (define-key org-mode-map (kbd "C-c o t")  'org-todo-list)
-             (define-key org-mode-map (kbd "C-c o z")  'org-content)
-             (define-key org-mode-map (kbd "C-c o p")  'org-open-at-point)
-             (global-set-key (kbd "C-c o c")  'org-capture)
-             (define-key org-mode-map (kbd "C-c o P")  'org-present)
-             (define-key org-mode-map (kbd "C-c o x")  'org-export-dispatch)
-             (define-key org-mode-map (kbd "C-c o h")  'consult-org-heading)
+  :config
+  (define-key org-mode-map (kbd "C-c o b")  'org-switchb)
+  (define-key org-mode-map (kbd "C-c o i") 'org-insert-link)
+  (define-key org-mode-map (kbd "C-c o n")  'org-toggle-narrow-to-subtree)
+  (define-key org-mode-map (kbd "C-c o t")  'org-todo-list)
+  (define-key org-mode-map (kbd "C-c o z")  'org-content)
+  (define-key org-mode-map (kbd "C-c o p")  'org-open-at-point)
+  (global-set-key (kbd "C-c o c")  'org-capture)
+  (define-key org-mode-map (kbd "C-c o P")  'org-present)
+  (define-key org-mode-map (kbd "C-c o x")  'org-export-dispatch)
+  (define-key org-mode-map (kbd "C-c o h")  'consult-org-heading)
 
 
-             (setq org-directory "~/notes/org/")
-             (setq org-ellipsis " ▾")
-             (setq org-modules
-                   '(org-crypt
-                      oc-bibtex
-                      org-id
-                      ;; org-wl
-                      org-habit
-                      org-agenda
-                      org-bookmark
-                      ob-eshell
-                      ol-irc))
-             (setq org-agenda-start-with-log-mode t)
-             (setq org-log-done 'time)
-             (setq org-log-into-drawer t)
-             ;; No slants in italics
-             (setq org-hide-emphasis-markers t)
-             (setq org-capture-use-agenda-date t))
+  (setq org-directory "~/notes/org/")
+  (setq org-ellipsis " ▾")
+  (setq org-modules
+        '(org-crypt
+          oc-bibtex
+          org-id
+          ;; org-wl
+          org-habit
+          org-agenda
+          org-bookmark
+          ob-eshell
+          ol-irc))
+  (setq org-agenda-start-with-log-mode t)
+  (setq org-log-done 'time)
+  (setq org-log-into-drawer t)
+  ;; No slants in italics
+  (setq org-hide-emphasis-markers t)
+  (setq org-capture-use-agenda-date t))
 
 ;; Org Async Export
 (setq org-export-async-init-file "~/.emacs.d/config/org-async.el")
