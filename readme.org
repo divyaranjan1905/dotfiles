@@ -1,4 +1,5 @@
 #+TITLE: Divya's GNU Guix Dotfiles
+#+OPTIONS: toc:nil num:nil
 
 This repository contains the dotfiiles of my GNU/Linux system from the GNU Guix distribution.
 
