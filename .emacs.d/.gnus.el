@@ -12,8 +12,7 @@
       '(nnimap "divya-autistici"
 		(directory "/mnt/LDisk-D/email/autistici")
 		(nnimap-address "mail.autistici.org") ;; Replace with your IMAP server
-		(nnimap-server-port 993)
-		))
+		(nnimap-server-port 993)))
 
 (setq fast-read-process-output nil)
 (setq gnus-search-use-imap t)
@@ -35,7 +34,6 @@
 					    (nntp-address "feedbase.org")
 					    (nntp-connection-timeout 5)
 					    (nntp-port-number 563))))
-
 
 ;;; Gnus Agent
 (setq gnus-agent t)
