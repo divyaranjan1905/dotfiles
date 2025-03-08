@@ -93,7 +93,6 @@ and ending with the extension of the requested TYPE."
 
 (global-set-key (kbd "C-x M-s") 'self-screenshot)
 
-
 ;;; Ripgrep
 
 (use-package rg
@@ -126,15 +125,6 @@ and ending with the extension of the requested TYPE."
 (define-key global-map (kbd "C-c C-t u") 'timeclock-update-mode-line)
 (define-key global-map (kbd "C-c C-t w") 'timeclock-when-to-leave-string)
 
-;;; Emacs Bibliography Manager
-(use-package ebib
-  :straight t)
-
-
-;;; To retrieve BibTeX
-(use-package biblio
-  :straight t)
-
 ;; Emacs Tip of the Day
 
 (require 'cl)
@@ -154,7 +144,6 @@ and ending with the extension of the requested TYPE."
 
 (add-hook 'after-init-hook 'totd)
 
-
 ;; Dictionary in Emacs
 
 (define-key global-map (kbd "M-#") 'dictionary-search)
@@ -170,7 +159,6 @@ and ending with the extension of the requested TYPE."
 ;; Encryption in Emacs
 (require 'epa-file)
 (epa-file-enable)
-
 
 ;; UNIX Pass in Emacs
 (use-package with-editor
@@ -211,6 +199,33 @@ and ending with the extension of the requested TYPE."
 ;;; Element in Emacs
 
 (use-package ement
+  :straight t
+  :bind
+  ("C-c C-r" . ement-room-send-reaction))
+
+;;; Mastodon in Emacs
+
+(use-package mastodon
+  :straight t
+  :hook (mastodon-mode . mastodon-async-mode)
+  :config
+  (setq mastodon-instance-url "https://mathstodon.xyz"
+	mastodon-active-user "divyaranjan"
+	mastodon-toot--enable-custom-instance-emoji t
+	mastodon-use-emojify t))
+
+;; Jabber/XMPP in Emacs
+
+(use-package jabber
+  :straight t
+  :defer t
+  :config
+  (setq jabber-account-list '("divya@conversations.im")))
+
+
+;;; TMSU tagging interaction in Emacs
+
+(use-package tmsu
   :straight t)
 
 (provide 'extras)
