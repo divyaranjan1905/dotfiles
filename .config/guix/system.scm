@@ -13,11 +13,13 @@
 	     (gnu services xorg))
 (use-modules (gnu packages haskell-apps)
 	     (gnu packages cups)
-	     (nongnu packages linux) ;; For mainline linux, since AMD Ryzen 7 APU doesn't seem to work with linux-libre
+	     (gnu packages linux)
+	     (gnu packages bash)
+	     (nongnu packages linux) ;; For mainline linux, since AMD Ryzen 7 APU doesn't work with linux-libre
 	     (nongnu system linux-initrd)
 	     (nongnu packages printers) ;; For non-free hp drivers
-	     (btv rust) ;; For latest rust that is not yet in guix
 	     (divya-lambda emacs)
+	     (divya-lambda fonts)
 	     (gnu packages version-control))
 (use-modules (guix))
 (use-service-modules cups desktop networking ssh xorg sddm)
@@ -52,7 +54,27 @@
                     #:log-file "/var/log/kmonad.log"))
           (stop #~(make-kill-destructor))))))
 
+;;; Mounting
 
+(define mount-ntfs-service
+  (simple-service
+   'mount-ntfs-service
+   shepherd-root-service-type
+   (list (shepherd-service
+	  (documentation "Run script to mount NTFS filesystems.")
+	  (provision '(mount-ntfs))
+	  (requirement '(udev user-processes))
+	  ;; (start #~(lambda _
+	  ;; 	     (system* "/home/divya/.dotfiles/scripts/mount-ntfs-devices")))
+	  ;; (stop #~(lambda _
+	  ;; 	    (format #t "Stopping mount service~%")
+	  ;; 	    #t))
+	  (start #~(make-forkexec-constructor
+		    (list #$(file-append bash "/bin/bash")
+			  (string-append "/home/divya/.dotfiles/scripts/mount-ntfs-devices"))))
+	  (stop #~(make-kill-destructor))
+	  (respawn? #f)
+	  ))))
 (operating-system
  (locale "en_US.utf8")
  (timezone "UTC")
@@ -100,7 +122,9 @@
 ;;; Text Editors
 		 ;; "emacs-next"
 		 ;; "emacs-master-xwidgets"
-		 "emacs-master-lucid"
+		 ;; "emacs-master-lucid"
+		 ;; "emacs-master-igc"
+		 "emacs-master-no-x-toolkit"
 		 "vim"
 
 ;;; Audio/Video/Streaming
@@ -121,6 +145,7 @@
 ;;; Browser
 		 "librewolf"
 		 "ungoogled-chromium"
+		 "icecat"
 
 ;;; Email
 		 ;; "mu"
@@ -135,10 +160,13 @@
 		 "feh"
 
 ;;; Fonts
-		 "font-iosevka"
 		 "fontmanager"
+		 "font-iosevka"
 		 "font-google-noto-emoji"
 		 "font-lohit"
+		 "font-spline-sans-mono"
+		 "font-inconsolata"
+		 "font-ibm-plex"
 
 ;;; Mathematics/Computational Software
 		 ;; "sage"
@@ -169,7 +197,7 @@
 		 ;; "rust-next:tools"
 		 ;; "rust-next:cargo"
 		 "rust"
-		 "rust:rust-src"
+		 "rust:tools"
 		 "rust-cargo"
 		 "rust-analyzer"
 		 "rust-clippy"
@@ -184,6 +212,11 @@
 		 "opam"
 		 "ocaml"
 		 "sqlite"
+
+		 ;;; Reverse Engineering
+		 "cutter"
+		 "binutils"
+		 "binwalk"
 
 ;;; Terminals
 		 "alacritty"
@@ -256,6 +289,9 @@
 		 "xsensors"
 		 "bashtop"
 		 "patchelf"
+		 "gnutls"
+		 "tmsu"
+		 "direnv"
 
 		 ;; Xorg
 		 "xset"
@@ -301,7 +337,7 @@
 		     (pam-limits-entry "@realtime" 'both 'memlock 'unlimited)))
 
 	   kmonad-service
-	   )
+	   mount-ntfs-service)
 	  ;; Delete GDM
 	  (modify-services %desktop-services
 			   (delete gdm-service-type))))
@@ -324,6 +360,12 @@
                                 "5e43b290-16f4-40e2-aa33-1229bf6de18a"
                                 'btrfs))
                        (type "btrfs"))
+		      (file-system
+		       (mount-point "/mnt/code")
+		       (device (uuid
+				"5a7f9085-5224-4930-946a-9fd91f502d17"
+				'ext4))
+		       (type "ext4"))
                       (file-system
                        (mount-point "/boot/efi")
                        (device (uuid "1EC0-78B1"

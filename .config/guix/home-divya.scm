@@ -48,6 +48,7 @@
 			  "audacity"
 
 			  ;; Reading
+			  "mupdf"
 			  "calibre"
 			  "sioyek"
 			  "djvulibre"
@@ -59,6 +60,7 @@
 			  ;; Emacs
 			  "emacs-pdf-tools"
 			  "emacs-saveplace-pdf-view"
+			  "emacs-guix"
 
 			  ;; Essential R
 			  "r-dplyr"
@@ -93,16 +95,19 @@
 			  "gnunet"
 			  ;; "qtox"
 			  "jami"
-			  "telegram-desktop"
+;			  "telegram-desktop"
 
 			  ;; Torrenting
 			  "qbittorrent"
-			  "rtorrent"
+			  "rtorrent-xml-rpc"
 
 			  ;; Astrophysics
 			  ;; "stellarium"
+
 			  ;; Graphics
 			  "blender"
+			  "luminance-hdr"
+			  "pqiv"
 
 			  ;; Security
 			  "gnupg" ; Installed here and not in system.scm because the service is in home
@@ -118,6 +123,9 @@
 			  "clipmenu"
 			  "qdirstat"
 			  "neofetch"
+
+			  ;; Manuals
+			  "c-intro-and-ref"
 
 			  ;; Certificates
 			  "nss-certs" ;; it’s installed system-wide but apps in profile sometimes need it.
