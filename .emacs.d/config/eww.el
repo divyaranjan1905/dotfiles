@@ -5,6 +5,8 @@
 ;;; Code:
 
 (require 'eww)
+(require 'browse-url)
+
 ;; `browse-url'
 (setq browse-url-browser-function 'eww-browse-url)
 (setq browse-url-secondary-browser-function 'browse-url-default-browser)
@@ -19,8 +21,8 @@
 
 (setq shr-use-colors t)             ; t is bad for accessibility
 (setq shr-use-fonts t)              ; t is not for me
-(setq shr-max-width 150)
-(setq shr-width 130)
+(setq shr-max-width 400)
+(setq shr-width 600)
 (setq shr-max-image-proportion 0.6)
 (setq shr-image-animate t)          ; No GIFs, thank you!
 (setq shr-max-width fill-column)
@@ -82,7 +84,27 @@
 ;; (add-hook 'eww-mode-hook #'divya/enable-focus)
 
 
-(setq browse-url-generic-program "librewolf")
+;; (setq browse-url-generic-program "librewolf")
+
+;;; Search Engines
+;; Wikipedia
+
+(defun search-wiki ()
+  "Search the TERM entered in Wikipedia.
+If there is a phrase is marked, search that."
+  (interactive)
+  (let ((word (read-string "Wiki: ")))
+    (eww (concat "http://en.wikipedia.org/wiki/" word))))
+
+(defun search-libgen ()
+  "Search the PHRASE entered in Library Genesis.
+If there is a phrase is marked, search that."
+  (interactive)
+  (let (term (read-string "LibGen: "))
+    (eww (concat "https://libgen.li/index.php?req=" word))))
+
+(define-key global-map (kbd "C-x M-w") 'search-wiki)
+(define-key global-map (kbd "C-x M-l") 'search-libgen)
 
 (provide 'eww)
 ;;; eww.el ends here
