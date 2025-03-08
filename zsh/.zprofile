@@ -113,3 +113,11 @@ fi
 if [ -d "/home/divya/.elan/bin" ] ;
 then PATH="/home/divya/.elan/bin:$PATH"
 fi
+
+if [ -d "/home/divya/.cargo/bin" ] ;
+then PATH="/home/divya/.cargo/bin:$PATH"
+fi
+
+if [ -d "/home/divya/.radicle/bin/" ] ;
+then PATH="/home/divya/.radicle/bin/:$PATH"
+fi
