@@ -78,3 +78,7 @@ bindkey '^e' edit-command-line
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
 
 source "/home/divya/.emacs.d/straight/repos/emacs-eat/integration/zsh"
+source "/home/divya/.zprofile"
+
+# Direnv
+eval "$(direnv hook bash)"

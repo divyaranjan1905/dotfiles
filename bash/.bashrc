@@ -160,3 +160,6 @@ source "/home/divya/.emacs.d/straight/repos/emacs-eat/integration/bash"
 
 # Added by Radicle.
 export PATH="$PATH:/home/divya/.radicle/bin"
+
+# Direnv
+eval "$(direnv hook bash)"
