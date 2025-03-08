@@ -10,10 +10,10 @@ decorations = "Full"
 decorations_theme_variant = "Dark"
 
 [font]
-normal.family= "Spline Sans Mono"
-bold.family= "Spline Sans Mono"
-italic.family= "Spline Sans Mono"
-bold_italic.family= "Spline Sans Mono"
+normal.family = "IBM Plex Mono"
+bold.family = "IBM Plex Mono"
+italic.family = "IBM Plex Mono"
+bold_italic.family= "IBM Plex Mono"
 
 size = 12.0
 
