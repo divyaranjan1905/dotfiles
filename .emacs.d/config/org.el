@@ -338,6 +338,7 @@
 
 ;;; LaTeX in Org
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.65))
+(setq org-startup-with-latex-preview t)
 
 ;;; Org-Todo
 (setq org-todo-keywords

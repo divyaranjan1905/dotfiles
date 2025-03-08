@@ -207,4 +207,12 @@
   :config
   (setq xenopx-reveal-on-entry t))
 
+;;; Emacs Bibliography Manager
+(use-package ebib
+  :straight t)
+
+;;; To retrieve BibTeX
+(use-package biblio
+  :straight t)
+
 ;;; tex.el ends here
