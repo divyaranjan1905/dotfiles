@@ -31,6 +31,7 @@
       erc-user-full-name "Divya Ranjan"
       erc-track-shorten-start 8)
 
+;; (add-hook 'erc-mode-hook 'erc-nickbar-mode)
 
 (provide 'irc)
 ;;; irc.el ends here
