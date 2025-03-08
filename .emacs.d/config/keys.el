@@ -38,12 +38,6 @@
   (interactive)
   (find-file s))
 
-
-
-
-;; (divya/leader-keys
-;;   "d" directories-map :which-key "Directories")
-
 ;; Your directory navigation function
 (defun divya/go-to-dired (s)
   (interactive)
@@ -185,6 +179,13 @@
   (meow-setup)
   (meow-setup-indicator)
   (meow-global-mode 1))
+
+(meow-thing-register 'angle
+                     '(pair ("<") (">"))
+                     '(pair ("<") (">")))
+(add-to-list 'meow-char-thing-table
+             '(?a . angle))
+
 
 ;; Some more vim stuff
 
