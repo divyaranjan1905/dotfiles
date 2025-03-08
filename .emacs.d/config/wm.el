@@ -13,8 +13,7 @@
 (use-package avy
   :init
   (avy-setup-default)
-  :bind (("M-g r" . avy-resume)
-	 ("M-g c" . avy-goto-char)
+  :bind (("M-g c" . avy-goto-char)
 	 ("M-g l" . avy-goto-line)
 	 ("M-g w" . avy-goto-word-0))
 
