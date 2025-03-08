@@ -365,16 +365,14 @@
   "Keymaps for certain applications")
 (setf *apps-map*
       (let ((m (make-sparse-keymap)))
-        (define-key m (kbd "d") "exec discord --no-sandbox")
-        (define-key m (kbd "e") "exec st -e sc-im")
-        (define-key m (kbd "m") "exec st -e neomutt")
+        (define-key m (kbd "d") "exec flatpak run com.discordapp.Discord")
+	(define-key m (kbd "a") "exec flatpak run net.ankiweb.Anki")
+	(define-key m (kbd "s") "exec flatpak run com.stremio.Stremio")
         (define-key m (kbd "p") "exec pavucontrol")
-        (define-key m (kbd "P") "exec st -e pulsemixer")
         (define-key m (kbd "M") "exec st -e alsamixer")
         (define-key m (kbd "x") "exec xournalpp")
-        (define-key m (kbd "f") "exec st -e newsboat")
-        (define-key m (kbd "i") "exec st -e weechat")
-        (define-key m (kbd "c") "exec picom")
+	(define-key m (kbd "t") "exec flatpak run org.telegram.desktop")
+        (define-key m (kbd "c") "exec picom --backend glx")
         (define-key m (kbd "C") "exec killall picom")
         m))
 (define-key *root-map* (kbd "a")  '*apps-map*)
@@ -401,7 +399,6 @@
 (define-key *root-map* (kbd "c") "exec st -e  vim ~/.stumpwm.d/init.lisp")
 (define-key *root-map* (kbd "C-c") "exec emacsclient -c ~/.stumpwm.d/init.lisp")
 (define-key *root-map* (kbd "C-s") "exec st -e vim /usr/bin/stumpstart")
-
 
 ;; Emacs-everywhere
 (define-key *root-map* (kbd "C-e") "exec emacsclient --eval '(emacs-everywhere)'")
