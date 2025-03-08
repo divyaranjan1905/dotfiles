@@ -44,7 +44,6 @@
 ;; Adding Numbers
 (global-display-line-numbers-mode 1)
 
-
 ;; Themes
 ;; (load-theme 'modus-vivendi t)
 (use-package ef-themes
@@ -61,14 +60,6 @@
 ;; Change theme depending on the time of the day
 (setq calendar-longitude 85.69
       calendar-latitude 20.16)
-
-;;(use-package circadian
- ;;:straight t
- ;;:after solar
- ;;:config
- ;;(setq circadian-themes '(("00:30" . ef-light)
-;;			   ;("13:30" . ef-dark)))
-; ;(circadian-setup))
 
 ;; Highlighting the current line
 (global-hl-line-mode 1)
@@ -115,7 +106,6 @@
   :config
   (setq alert-default-style 'notifications))
 
-
 ;; A nice Doom-like modeline
 (use-package doom-modeline
   :straight t
@@ -130,26 +120,18 @@
 (setq size-indication-mode t)
 (setq column-number-mode t)
 
-;; Current directory
-;; (setq global-mode-string
-;;       (cond ((consp global-mode-string)
-;;              (add-to-list 'global-mode-string 'default-directory 'APPEND))
-;;             ((not global-mode-string)
-;;              (list 'default-directory))
-;;             ((stringp global-mode-string)
-;;              (list global-mode-string 'default-directory))))
-
 ;; Multiple time zones
-;; (setq display-time-world-list
-;;       '(("Etc/UTC" "UTC")
-;; 	("America/New_York" "New York")
-;; 	("Europe/London" "London")))
-;; (setq display-time-world-time-format "%a, %d %b %I:%M %p %Z")
+(setq display-time-world-list
+      '(("Etc/UTC" "UTC")
+	("America/New_York" "New York")
+	("Europe/London" "London")))
+(setq display-time-world-time-format "%a, %d %b %I:%M %p %Z")
 
 ;;; Disabling line numbers for some modes
 
 (dolist (mode '(org-mode-hook
 		eshell-mode-hook
+		shell-mode-hook
 		term-mode-hook
 		eat-mode-hook
 		pdf-view-mode-hook
@@ -180,7 +162,10 @@
 		bookmark-bmenu-mode-hook
 		which-key-mode-hook
 		erc-mode-hook
+		speedbar-mode-hook
 		rcirc-mode-hook
+		jabber-chat-mode-hook
+		ement-room-mode-hook
 		magit-popup-mode-hook
 		olivetti-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
@@ -200,21 +185,15 @@
  )
 
 (defun fontify-frame (frame)
-  (set-frame-parameter frame 'font "Iosevka-11"))
+  (set-frame-parameter frame 'font "Iosevka-12"))
 
 ;; Fontify current frame
 (fontify-frame nil)
 
-;;(set-face-attribute 'default nil :font "Spline Sans Mono" :weight 'regular :height 130)
+;; (set-face-attribute 'default nil :font "Spline Sans Mono" :weight 'regular :height 120)
 
 ;; ;; Fontify any future frames
 (push 'fontify-frame after-make-frame-functions)
-
-;; For changing font sizes
-;; (use-package company-posframe
-;;   :straight t
-;;   :config
-;;   (company-posframe-mode 1))
 
 ;; Unicode, Emojis UTF-8
 (use-package unicode-fonts
@@ -277,10 +256,6 @@
       (divya/disable-focus)
     (divya/enable-focus)))
 
-;; (divya/leader-keys
-;;   "tf" '(divya/toggle-focus :which-key "Focus mode"))
-
-
 ;; File Icons
 (use-package all-the-icons-dired
   :straight t
@@ -290,46 +265,51 @@
 ;; Some Tweaks
 (setq auto-window-vscroll nil)
 
-;;; IVY : Minibuffer Completion
-
 ;; Currently using Vertico
-
-;; (use-package ivy
-;;   :straight t
-;;   :bind (("C-s" . swiper)
-;; 	 :map ivy-minibuffer-map
-;; 	 ("TAB" . ivy-alt-done)
-;; 	 ("C-l" . ivy-alt-done)
-;; 	 ("C-j" . ivy-next-line)
-;; 	 ("C-k" . ivy-previous-line)
-;; 	 :map ivy-switch-buffer-map
-;; 	 ("C-k" . ivy-previous-line)
-;; 	 ("C-l" . ivy-done)
-;; 	 ("C-d" . ivy-switch-buffer-kill)
-;; 	 :map ivy-reverse-i-search-map
-;; 	 ("C-k" . ivy-previous-line)
-;; 	 ("C-d" . ivy-reverse-i-search-kill))
-;;   :config
-;;   (ivy-mode 1))
-
-;; (use-package ivy-bibtex
-;;   :straight t)
-
 
 ;;; Vertico : Minibuffer Completion
 
-(use-package vertico
-  :straight t
-  :bind (:map vertico-map
-         ("C-j" . vertico-next)
-         ("C-k" . vertico-previous)
-         ("C-f" . vertico-exit)
-         :map minibuffer-local-map
-         ("M-h" . backward-kill-word))
-  :custom
-  (vertico-cycle t)
-  :init
-  (vertico-mode))
+;; (use-package vertico
+;;   :straight t
+;;   :bind (:map vertico-map
+;;          ("C-j" . vertico-next)
+;;          ("C-k" . vertico-previous)
+;;          ("C-f" . vertico-exit)
+;;          :map minibuffer-local-map
+;;          ("M-h" . backward-kill-word))
+;;   :custom
+;;   (vertico-cycle t)
+;;   :init
+;;   (vertico-mode))
+
+;;; Replacing Vertico with Icomplete
+
+(use-package icomplete
+  :bind (:map icomplete-minibuffer-map
+              ("C-n" . icomplete-forward-completions)
+              ("C-p" . icomplete-backward-completions)
+              ("C-v" . icomplete-vertical-toggle)
+              ("RET" . icomplete-force-complete-and-exit))
+  :hook
+  (after-init . (lambda ()
+                  (fido-mode -1)
+                  (icomplete-mode 1)
+                  (icomplete-vertical-mode 1)))
+  :config
+  (setq tab-always-indent 'complete)  ;; Starts completion with TAB
+  (setq icomplete-delay-completions-threshold 0)
+  (setq icomplete-compute-delay 0)
+  (setq icomplete-show-matches-on-no-input t)
+  (setq icomplete-hide-common-prefix nil)
+  (setq icomplete-prospects-height 10)
+  (setq icomplete-separator " . ")
+  (setq icomplete-with-completion-tables t)
+  ;;  (setq icomplete-in-buffer t)
+  (setq icomplete-max-delay-chars 0)
+  (setq icomplete-scroll t)
+  ;; (advice-add 'completion-at-point
+  ;;             :after #'minibuffer-hide-completions)
+  )
 
 ;;; Saving History
 (use-package savehist
@@ -340,7 +320,7 @@
 
 (use-package marginalia
   :straight t
-  :after vertico
+  :after icomplete
   :custom
   (marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
   :init
@@ -363,7 +343,6 @@
   (completion-category-overrides
    '((file (styles orderless)))))
 
-
 ;;; Consult
 (use-package consult
   :straight t
@@ -378,21 +357,22 @@
          ("M-g k" . consult-global-mark)
          ("M-g i" . consult-imenu)
          ("M-g I" . consult-imenu-multi)
+
          ;; M-s bindings in `search-map'
-         ("M-s d" . consult-find)                  ;; Alternative: consult-fd
-         ("M-s c" . consult-locate)
-         ("M-s g" . consult-grep)
-         ("M-s G" . consult-git-grep)
-         ("M-s r" . consult-ripgrep)
-         ("M-s l" . consult-line)
-         ("M-s L" . consult-line-multi)
-         ("M-s k" . consult-keep-lines)
-         ("M-s u" . consult-focus-lines)
+         ("M-g d" . consult-find)                  ;; Alternative: consult-fd
+         ("M-g C-l" . consult-locate)
+         ("M-g G" . consult-grep)
+         ("M-s-g" . consult-git-grep)
+         ("M-g r" . consult-ripgrep)
+         ("M-g L" . consult-line)
+         ("M-g M-l" . consult-line-multi)
+         ("M-g M-k" . consult-keep-lines)
+;;         ("C-x s u" . consult-focus-lines)
+
          ;; Isearch integration
          ("M-s e" . consult-isearch-history)
          :map isearch-mode-map
          ("M-e" . consult-isearch-history)         ;; orig. isearch-edit-string
-         ("M-s e" . consult-isearch-history)       ;; orig. isearch-edit-string
          ("M-s l" . consult-line)                  ;; needed by consult-line to detect isearch
          ("M-s L" . consult-line-multi))            ;; needed by consult-line to detect isearch
 
@@ -400,17 +380,14 @@
   (setq xref-show-xrefs-function #'consult-xref
 	xref-show-definitions-function #'consult-xref))
 
-
-
-
 ;; Use `consult-completion-in-region' if Vertico is enabled.
 ;; Otherwise use the default `completion--in-region' function.
-(setq completion-in-region-function
-      (lambda (&rest args)
-	(apply (if vertico-mode
-		   #'consult-completion-in-region
-		 #'completion--in-region)
-	       args)))
+;; (setq completion-in-region-function
+;;       (lambda (&rest args)
+;; 	(apply (if icomplete-vertical-mode
+;; 		   #'consult-completion-in-region
+;; 		 #'completion--in-region)
+;; 	       args)))
 
 ;;; Emacs Dashboard
 
@@ -425,13 +402,6 @@
   (setq dashboard-startup-banner "~/.dotfiles/.emacs.d/lisp.png")
   (setq dashboard-image-banner-max-width '250)
   (setq dashboard-image-banner-max-height '250)
-  ;; Value can be
-  ;; - nil to display no banner
-  ;; - 'official which displays the official emacs logo
-  ;; - 'logo which displays an alternative emacs logo
-  ;; - 1, 2 or 3 which displays one of the text banners
-  ;; - "path/to/your/image.gif", "path/to/your/image.png" or "path/to/your/text.txt" which displays whatever gif/image/text you would prefer
-  ;; - a cons of '("path/to/your/image.png" . "path/to/your/text.txt")
 
   ;; Content is not centered by default. To center, set
   (setq dashboard-center-content t)
@@ -449,16 +419,16 @@
 
 ;;; Some fancy focusing
 
-(use-package solaire-mode
-  :straight t
-  :init
-  (solaire-global-mode +1))
+;; (use-package solaire-mode
+;;   :straight t
+;;   :init
+;;   (solaire-global-mode +1))
 
-(use-package dimmer
-  :straight t
-  :config
-  (dimmer-configure-which-key)
-  (dimmer-mode t))
+;; (use-package dimmer
+;;   :straight t
+;;   :config
+;;   (dimmer-configure-which-key)
+;;   (dimmer-mode t))
 
 ;;; Golden ratio
 ;; From https://git.sr.ht/~wklew/golden
@@ -471,12 +441,10 @@
 ;;   :init
 ;;   (hyperbole-mode 1))
 
-
 ;;; Justify-kp
 
 (use-package justify-kp
   :straight (:host github :repo "Fuco1/justify-kp"))
-
 
 ;;; Drag and drop
 (use-package org-download
@@ -491,7 +459,6 @@
 (global-prettify-symbols-mode)
 
 ;; (setq lisp-prettify-symbols-alist '("lambda" . λ))
-
 
 ;; Show time in 24hr
 (setq display-time-format "%Z:%H:%M")
