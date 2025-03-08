@@ -22,17 +22,6 @@
     (openpgp-fingerprint
      "CA4F 8CF4 37D7 478F DA05  5FD4 4213 7701 1A37 8446"))))
 
- ;; Rust-Next
- (channel
-  (name 'rust-next)
-  (url "https://github.com/umanwizard/guix-rust-next")
-  (branch "main")
-  (introduction
-   (make-channel-introduction
-    "72e021c9a90f9f417bdffca8799c8d3e0aa98a72"
-    (openpgp-fingerprint
-     "9E53FC33B8328C745E7B31F70226C10D7877B741"))))
-
  ;; Nonguix
  (channel
   (name 'nonguix)
@@ -44,13 +33,14 @@
     (openpgp-fingerprint
      "2A39 3FFF 68F4 EF7A 3D29  12AF 6F51 20A0 22FB B2D5"))))
 
- ;; Emacs Master
- ;; (channel
- ;;        (name 'emacs-master)
- ;;        (url "https://codeberg.org/akib/guix-channel-emacs-master")
- ;;        (introduction
- ;;         (make-channel-introduction
- ;;          "1ba8c40e21c1c18f70c8ff116f2fbbbb41a5a30a"
- ;;          (openpgp-fingerprint
- ;;           "C954 CA9A BB4B EA43 417B  7151 5535 FCF5 4D88 616B"))))
+ ;; Sergio’s Channel
+ (channel
+  (name 'omega)
+  (branch "main")
+  (url "https://codeberg.org/pastor/omega")
+  (introduction
+   (make-channel-introduction
+    "042885d79802985c004135b2717296cb925cb9fb"
+    (openpgp-fingerprint
+     "A7FA 7CD2 683C B26D 6E6C  6C08 3B2E 9703 D480 1F04"))))
  %default-channels)
