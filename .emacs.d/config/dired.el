@@ -20,8 +20,8 @@
 
 (require 'wdired)
 
-(use-package fd-dired
-  :straight t)
+;; (use-package fd-dired
+;;   :straight t)
 
 ;;; Dirvish (not entirely sure)
 
@@ -139,6 +139,12 @@
          :map minibuffer-local-completion-map
          ("C-x C-d" . consult-dir)
          ("C-x C-j" . consult-dir-jump-file)))
+
+;;; Direnv
+
+(use-package envrc ; This has buffer-local support instead of direnv.el’s global support.
+  :straight t
+  :init (envrc-global-mode))
 
 (provide 'dired.el)
 ;;; dired.el ends here
