@@ -6,6 +6,10 @@
 
 ;;; Code:
 
+;; Information
+(setq user-full-name "Divya Ranjan Pattanaik")
+(setq user-mail-address "divya@subvertising.org")
+
 ;;; Native compilation
 (setq native-comp-speed 2)
 
@@ -91,9 +95,14 @@
 (load (concat user-emacs-directory
 	      "config/cal.el"))
 
+;;; Torrents
+(load (concat user-emacs-directory
+	      "config/torrents.el"))
+
 ;;; Extras
 (load (concat user-emacs-directory
 	      "config/extras.el"))
+
 
 
 ;; So that Emacs doesn't produce ~ files
@@ -104,16 +113,17 @@
 ;; Highlight symbols
 (use-package symbol-overlay
   :straight t
-  :hook ((rust-mode . symbol-overlay-mode)
-	  (haskell-mode . symbol-overlay-mode)
-	  (lisp-mode . symbol-overlay-mode)
-	  (emacs-lisp-mode . symbol-overlay-mode)
-	  (scheme-mode . symbol-overlay-mode)
-	  (r-mode . symbol-overlay-mode)
-	  (go-mode . symbol-overlay-mode)
-	  (tex-mode . symbol-overlay-mode)
-	  (racket-mode . symbol-overlay-mode)
-	  (forth-mode . symbol-overlay-mode)))
+  :hook ((prog-mode . symbol-overlay-mode)
+	 (rust-mode . symbol-overlay-mode)
+	 (haskell-mode . symbol-overlay-mode)
+	 (lisp-mode . symbol-overlay-mode)
+	 (emacs-lisp-mode . symbol-overlay-mode)
+	 (scheme-mode . symbol-overlay-mode)
+	 (r-mode . symbol-overlay-mode)
+	 (go-mode . symbol-overlay-mode)
+	 (tex-mode . symbol-overlay-mode)
+	 (racket-mode . symbol-overlay-mode)
+	 (forth-mode . symbol-overlay-mode)))
 
 ;; Semantic Color Highlighting
 (use-package color-identifiers-mode
@@ -122,7 +132,8 @@
 
 ;; Compiler Explorer
 (use-package rmsbolt
-  :straight t)
+  :straight t
+  :defer t)
 
 ;;; LSP Support in Emacs
 (require 'eglot)
@@ -136,6 +147,11 @@
 ;; 	     :files ("*.el"))
 ;;   :init (eglot-x-setup))
 
+;;; Dumb Jump in Emacs
+(use-package dumb-jump
+  :straight t
+  :custom
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
 ;;; ElDoc Boxes
 (require 'eldoc)
@@ -152,7 +168,7 @@
   :config
   (eldoc-box-only-multi-line t)
   :custom
-  (set-face-font eldoc-box-body "Iosevka"))
+  (set-face-font eldoc-box-body "Iosevka-11"))
 
 ;;; Golang
 (use-package go-mode
@@ -163,6 +179,7 @@
 (require 'ob-haskell)
 (use-package haskell-mode
   :straight t
+  :defer t
   :hook (haskell-mode . eglot-ensure)
   :bind
   (("C-c h" . haskell-hoogle))
@@ -175,7 +192,7 @@
 ;; Hlint
 (require 'hs-lint)
 (defun my-haskell-mode-hook ()
-    (local-set-key "\C-cl" 'hs-lint))
+  (local-set-key "\C-cl" 'hs-lint))
 (add-hook 'haskell-mode-hook 'my-haskell-mode-hook)
 
 ;; OCaml
@@ -196,38 +213,35 @@
     ;; and use one of its "OPSW" menus.
     ))
 
-
 ;; Rust
 (use-package rust-mode
   ;; :straight (:build (:not compile autoloads))
   :straight t
+  :defer t
   :hook (rust-ts-mode . eglot-ensure)
   :hook (rust-ts-mode . subword-mode))
-
-;; (use-package rust-ts-mode
-;;   :straight t
-;;   :hook (rust-ts-mode . eglot-ensure)
-;;   :hook (rust-ts-mode . subword-mode))
 
 ;;; Forth
 (use-package forth-mode
   :straight t)
 
 ;;; Scheme Dialects
-(use-package geiser
-  :straight t)
+;; (use-package geiser
+;;  :ensure t)
+(require 'geiser)
 
 ;;; MIT/GNU Scheme
 (use-package geiser-mit
-  :straight t)
+ :ensure t)
 
 ;;; Chez Scheme
 (use-package geiser-chez
-  :straight t)
+ :ensure t)
 
-;;; Guile
-(use-package geiser-guile
-  :straight t)
+;; ;;; Guile
+(require 'geiser-guile)
+;; (use-package geiser-guile
+;;  :ensure t)
 
 ;;; Racket
 (use-package racket-mode
@@ -247,19 +261,16 @@
 
 ;;; Pollen
 (use-package pollen-mode
-  :straight t)
-
-;; ;;; Geiser Racket
-;; (use-package geiser-racket
-;;   :straight t)
+  :straight t
+  :defer t)
 
 ;;; For Lisps in general
 (use-package paredit
   :straight t
-  :hook ((lisp-mode . paredit-mode)
-	 (racket-mode . paredit-mode)
-	 (scheme-mode . paredit-mode)
-	 (emacs-lisp-mode . paredit-mode)))
+  :hook ((paredit-mode . lisp-mode)
+	 (paredit-mode . racket-mode)
+	 (paredit-mode . scheme-mode)
+	 (paredit-mode . emacs-lisp-mode)))
 
 ;;; For semantic highlighting in Lisps
 (use-package paren-face
@@ -276,15 +287,15 @@
 ;;; For colorful paranthesis
 (use-package rainbow-delimiters
   :straight t
-  :hook ((lisp-mode . rainbow-delimiters-mode)
-	 (racket-mode . rainbow-delimiters-mode)
-	 (scheme-mode . rainbow-delimiters-mode)
-	 (emacs-lisp-mode . rainbow-delimiters-mode)))
+  :hook ((rainbow-delimiters-mode . lisp-mode)
+	 (rainbow-delimiters-mode . scheme-mode)
+	 (rainbow-delimiters-mode . racket-mode)
+	 (rainbow-delimiters-mode . emacs-lisp-mode)))
 
 ;; For scheme completion
 (use-package scheme-complete
   :straight t
-  :bind (:map scheme-mode-map ("C-/" . scheme-smart-complete)) )
+  :bind (:map scheme-mode-map ("C-/" . scheme-smart-complete)))
 
 (autoload 'scheme-get-current-symbol-info "scheme-complete" nil t)
 (add-hook 'scheme-mode-hook
@@ -294,7 +305,6 @@
 	    (eldoc-mode)))
 
 ;;; Emacs Lisp
-
 ;; (add-hook 'emacs-lisp-mode-hook #'flycheck-mode)
 
 (use-package elisp-refs
@@ -303,6 +313,7 @@
   (elisp-refs :type git :host github :repo "Wilfred/elisp-refs"
               ;; Skip the autoloads phase because straight.el can't seem to get it right.
               :build (:not autoloads)))
+
 ;; Better help-menu
 (use-package helpful
   :straight t
@@ -324,7 +335,6 @@
 (define-key hs-minor-mode-map (kbd "C-c f t") 'hs-toggle-hiding)
 
 ;; Markdown
-
 (use-package markdown-mode
   :straight t
   :mode "\\.md\\'"
@@ -348,9 +358,9 @@
   (add-hook 'markdown-mode-hook 'divya/markdown-mode-hook))
 
 ;; HTML
-
 (use-package web-mode
   :mode "(\\.\\(html?\\|ejs\\|tsx\\|jsx\\)\\'"
+  :defer t
   :config
   (setq-default web-mode-code-indent-offset 2)
   (setq-default web-mode-markup-indent-offset 2)
@@ -368,6 +378,7 @@
 
 (use-package compile
   :straight t
+  :defer t
   :custom
   (compilation-scroll-output t))
 
@@ -390,10 +401,10 @@
 (require 'project)
 
 (setq project--list '(("/home/divya/.dotfiles/")
-		      ("/home/divya/src/")
+		      ("/home/code/src/")
 		      ("/home/divya/projects/")
-		      ("/mnt/LDisk-D/big-src/")
-		      ("/mnt/LDisk-E/Albert Einstein/Books & Resources/Sociology/Gender Mainstreaming/Megha/")))
+		      ("/mnt/code/big-src/")
+		      ("/mnt/code/scratch/")))
 
 (define-key project-prefix-map (kbd "b") 'consult-project-buffer)
 
@@ -411,9 +422,10 @@
 
 (use-package forge
   :straight t
+  :defer t
   :after magit)
 
-;;; Code Completion
+;; Code Completion
 ;; Autocomplete
 ;; (use-package auto-complete
 ;;   :straight t
@@ -450,7 +462,6 @@
 ;;    telega-autoplay-mode t))
 
 ;;; Terminal in Emacs
-
 (straight-use-package
    '(eat :type git
 	:host codeberg
@@ -466,7 +477,6 @@
 ;; A pop up shell
 (use-package shell-pop
   :straight t
-  ;;  :defer t
   :bind
   (("C-x /" . 'shell-pop))
   :custom
@@ -480,7 +490,6 @@
   (shell-pop-cleanup-buffer-at-process-exit t))
 
 ;; Main Eshell config
-
 (defun divya/configure-eshell ()
   ;; Save command history when commands are entered
   (add-hook 'eshell-pre-command-hook 'eshell-save-some-history)
@@ -504,15 +513,13 @@
 
   (with-eval-after-load 'esh-opt
     (setq eshell-destroy-buffer-when-process-dies t)
-    (setq eshell-visual-commands '("htop" "zsh" "vim")))
+    (setq eshell-visual-commands '("htop" "zsh" "vim" "bashtop")))
 
   (eshell-git-prompt-use-theme 'powerline))
-
 
 ;; Searching and navigation
 ;; (use-package ctrlf
 ;;   :straight t)
-
 
 ;; Start Emacs as a server!
 ;;(server-mode)
@@ -520,12 +527,10 @@
 ;; Hooks
 ;; (add-hook 'eww-mode-hook #'divya/enable-focus)
 
-
 ;;; For restarting emacs
 (define-key global-map (kbd "s-r") 'restart-emacs)
 
 ;;; Garbage collection in Emacs
-
 (use-package gcmh
   :straight t
   :init
@@ -560,7 +565,6 @@
 	(yaml "https://github.com/ikatyang/tree-sitter-yaml")))
 
 ;; Quickly open the init
-
 (define-key global-map (kbd "C-c i") 'crux-find-user-init-file)
 
 ;; Authentication sources
@@ -574,7 +578,112 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks"))
+ '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
+ '(org-agenda-files
+   '("/home/divya/notes/org/org-agenda/tasks.org"
+     "/home/divya/notes/org/org-agenda/habits.org"
+     "/home/divya/notes/org/org-roam/projects/shades_of_lambda.org"
+     "/home/divya/notes/org/org-roam/projects/retracing_freud_s_oeuvre.org"
+     "/home/divya/notes/org/org-roam/projects/vesuvius_challenge.org"
+     "/home/divya/notes/org/org-roam/projects/thesis_gender_mainstreaming_in_urban_governance_a_study_of_women_councillors_of_ajmer_division_in_rajasthan.org"
+     "/home/divya/notes/org/org-roam/projects/on_hermeneutic_temptation.org"
+     "/home/divya/notes/org/org-roam/projects/haskell_by_problem_solving.org"
+     "/home/divya/notes/org/org-roam/projects/bibliotheca_aeterna.org"
+     "/home/divya/notes/org/org-roam/projects/digit_recognizer.org"
+     "/home/divya/notes/org/org-roam/projects/bibliophile_el.org"
+     "/home/divya/notes/org/org-roam/projects/org_mobile.org"
+     "/home/divya/notes/org/org-roam/projects/illusion_of_simplicity.org"
+     "/home/divya/notes/org/org-roam/main/computer_vision.org"
+     "/home/divya/notes/org/org-roam/main/intuitionism.org"
+     "/home/divya/notes/org/org-roam/main/foundations_of_machine_learning.org"
+     "/home/divya/notes/org/org-roam/main/kaggle.org"
+     "/home/divya/notes/org/org-roam/main/category_theory.org"
+     "/home/divya/notes/org/org-roam/main/mathematical_logic.org"
+     "/home/divya/notes/org/org-roam/ref/kaggle_intro_to_deep_learning.org"
+     "/home/divya/notes/org/org-roam/ref/in_search_of_lost_time.org"
+     "/home/divya/notes/org/org-roam/ref/stanford_231n.org"
+     "/home/divya/notes/org/org-roam/ref/kaggle_introduction_to_machine_learning.org"
+     "/home/divya/notes/org/org-roam/ref/18_905_algebraic_topology_i.org"
+     "/home/divya/notes/org/org-roam/projects/symhask.org"
+     "/home/divya/notes/org/org-roam/projects/umbra.org"
+     "/home/divya/notes/org/org-roam/projects/reader_el.org"
+     "/home/divya/notes/org/journal/20250303.org.gpg"))
+ '(safe-local-variable-values
+   '((geiser-guile-binary "guix" "repl") (geiser-insert-actual-lambda)
+     (eval with-eval-after-load 'git-commit
+	   (add-to-list 'git-commit-trailers "Change-Id"))
+     (eval font-lock-add-keywords nil
+	   '(("\\(cast\\)(\\([^,]+\\)[^)]+)"
+	      (1 font-lock-keyword-face) (2 font-lock-type-face))))
+     (eval let
+	   ((root
+	     (locate-dominating-file default-directory
+				     ".dir-locals.el")))
+	   (when root
+	     (let
+		 ((real-root
+		   (directory-file-name (expand-file-name root))))
+	       (setq-local geiser-guile-binary
+			   (concat real-root "/.geiser-guile")))))
+     (geiser-repl-per-project-p . t)
+     (eval let
+	   ((root
+	     (locate-dominating-file default-directory
+				     ".dir-locals.el")))
+	   (when root
+	     (let
+		 ((real-root
+		   (directory-file-name (expand-file-name root)))))))
+     (eval progn (require 'lisp-mode)
+	   (defun emacs27-lisp-fill-paragraph (&optional justify)
+	     (interactive "P")
+	     (or (fill-comment-paragraph justify)
+		 (let
+		     ((paragraph-start
+		       (concat paragraph-start
+			       "\\|\\s-*\\([(;\"]\\|\\s-:\\|`(\\|#'(\\)"))
+		      (paragraph-separate
+		       (concat paragraph-separate
+			       "\\|\\s-*\".*[,\\.]$"))
+		      (fill-column
+		       (if
+			   (and
+			    (integerp emacs-lisp-docstring-fill-column)
+			    (derived-mode-p 'emacs-lisp-mode))
+			   emacs-lisp-docstring-fill-column
+			 fill-column)))
+		   (fill-paragraph justify))
+		 t))
+	   (setq-local fill-paragraph-function
+		       #'emacs27-lisp-fill-paragraph))
+     (eval modify-syntax-entry 43 "'")
+     (eval modify-syntax-entry 36 "'")
+     (eval modify-syntax-entry 126 "'")
+     (eval with-eval-after-load 'yasnippet
+	   (let
+	       ((guix-yasnippets
+		 (expand-file-name "etc/snippets/yas"
+				   (locate-dominating-file
+				    default-directory ".dir-locals.el"))))
+	     (unless (member guix-yasnippets yas-snippet-dirs)
+	       (add-to-list 'yas-snippet-dirs guix-yasnippets)
+	       (yas-reload-all))))
+     (eval with-eval-after-load 'tempel
+	   (if (stringp tempel-path)
+	       (setq tempel-path (list tempel-path)))
+	   (let
+	       ((guix-tempel-snippets
+		 (concat
+		  (expand-file-name "etc/snippets/tempel"
+				    (locate-dominating-file
+				     default-directory
+				     ".dir-locals.el"))
+		  "/*.eld")))
+	     (unless (member guix-tempel-snippets tempel-path)
+	       (add-to-list 'tempel-path guix-tempel-snippets))))
+     (eval setq-local guix-directory
+	   (locate-dominating-file default-directory ".dir-locals.el"))
+     (eval add-to-list 'completion-ignored-extensions ".go"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
